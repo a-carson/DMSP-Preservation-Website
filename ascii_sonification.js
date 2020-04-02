@@ -2,6 +2,8 @@
 // Synth Settings   -------------------------------------------------
 function sonify(string)
 {
+//var master = new Tone.Master();
+
 // Octave?
 var octave = 0;
 
@@ -21,7 +23,6 @@ var phaser = new Tone.Phaser({
 	"frequency" : 0.1,
 });
 
-// Auto-wah
 
 
 // Synths
@@ -100,6 +101,8 @@ var dur = 15;
 var delta = (dur/textLength)*0.5;
 
 // Called when play pressed
+
+
 function play()
 {
   Tone.Transport.toggle();
@@ -118,31 +121,33 @@ function triggerSynth(time)
   synthB.triggerAttackRelease(freqs[i]*0.98, '8n', time)
   synthC.triggerAttackRelease(freqs[i]/2, '8n', time)
   synthC.triggerAttackRelease((freqs[i]/4), '8n', time)
-
   i++;
 }
 
 // Schedules and calls the notes
 for (var i = 0; i < textLength; i++)
 {
-Tone.Transport.schedule(triggerSynth, t)
+Tone.Transport.schedule(triggerSynth, t);
 if (midi[i] - octave == 32) {t += delta*3;}
 else if (midi[i] - octave == 44) {t += delta*3;}
 else if (midi[i] - octave == 46){t += delta*6;}
 else t += delta;
+//changeRate(0.5);
 }
 
 // Changes playbackrate - still weird shit going on
- function changeRate(rate)
-{
-  dur = 1/rate;
-  delta = (dur/textLength)*0.5;
-  Tone.Transport.loopEnd = dur;
-}
+//  function changeRate(increment)
+// {
+//   dur -= increment;
+//   delta = (dur/textLength)*0.5;
+//   Tone.Transport.loopEnd = dur;
+// }
 
 
 
-document.querySelector('tone-play-toggle').addEventListener('click', e => play())
-document.querySelector('tone-slider').addEventListener('change', e => changeRate(e.detail))
-Tone.Transport.loop = true
+document.querySelector('button').addEventListener('click', e => play())
+//document.querySelector('tone-slider').addEventListener('change', e => changeRate(e.detail))
+Tone.Transport.loop = true;
+//play();
+
 }

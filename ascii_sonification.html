@@ -7,22 +7,34 @@
 
 <link rel="sound" href="css/sound.css">
 
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
+<<script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
 <script src="https://unpkg.com/tone"></script>
-<script src="https://unpkg.com/@tonejs/ui"></script>
+<script type="text/javascript" src="https://tonejs.github.io/build/r6/p5.Tone.min.js"></script>
 
-<tone-demo>
+<!--<script src="https://unpkg.com/@tonejs/ui"></script>-->
+
+<!--<script type="text/javascript" src="https://tonejs.github.io/build/r6/p5.Tone.min.js"></script>-->
+
+<!--<tone-demo>
   <tone-play-toggle></tone-play-toggle>
   <tone-button></tone-button>
   <tone-slider label="Rate" min="0.0001" max="10" exp="0.5" value="0.5"></tone-slider>
-</tone-demo>
+</tone-demo>-->
 
 <script type="text/javascript" src='ascii_sonification.js'> </script>
+<script type="text/javascript" src='testing for p5.js'> </script>
+
+<button type="button" >Play</button>
+<input type="text" value="Enter memory here...">
+<!--<button onclick "getText()" type="button" >Enter</button>-->
+
 </head>
 
 <body>
 
-<script> sonify("DMSP Preservation") </script>
+<script>
+var sound = sonify("DMSP Preservation")
+</script>
 
 </body>
 
