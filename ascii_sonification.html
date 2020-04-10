@@ -7,194 +7,21 @@
 
 <link rel="sound" href="css/sound.css">
 
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
 <script src="https://unpkg.com/tone"></script>
-<script src="https://unpkg.com/@tonejs/ui"></script>
 
-<tone-demo>
-  <tone-play-toggle></tone-play-toggle>
-  <tone-button></tone-button>
-  <tone-slider label="Rate" min="0.01" max="10" exp="0.5" value="0.5"></tone-slider>
-</tone-demo>
-</head>
+<script type="text/javascript" src='ascii_sonification.js'> </script>
+<script type="text/javascript" src='testing for p5.js'> </script>
 
-<!--
-<div class="box" id="text" style="width:100%; height: 100%" >
-	<div class="text1">
-       <h1 style="color:#174849; text:center; font-family: transparent;">
-	    <p>WOULD YOU LIKE ME TO PRESERVE</p>
-	    <p>OF HUMAN'S MEMORIES?</p> </h1>
-	</div>
-	<div class="button">
-     <form method="post" action="../ui/SPage.html">
-     <button type="submit" style="background-color: black; border: solid #174849;" ><h2 style="color:beige; font-family: transparent; font-size: 28px;">J O I N</h2></button>
-    </form>
-	</div>
-</div>
--->
+<button type="button" >Play</button>
+<input type="text" id="myText" value="Enter text...">
+<a href="#" onclick="setText()" /> Submit </a> </br>
 
 <body>
 
 <script>
-
-
-// Synth Settings   -------------------------------------------------
-
-// Octave?
-var octave = 0;
-
-// Reverb
-var reverb = new Tone.JCReverb(0.8);
-var delay = new Tone.FeedbackDelay(Tone.Time('8n'));
-
-// Volume
-var vol = new Tone.Volume(-1);
-
-// Filter
-var hpf = new Tone.Filter(100, "highpass", -48);
-var lpf = new Tone.Filter(5000, "lowpass", -48);
-
-// Phaser
-var phaser = new Tone.Phaser({
-	"frequency" : 0.1,
-});
-
-// Auto-wah
-
-
-// Synths
-var synthA = new Tone.Synth
-({
-oscillator: {
-    type: 'triangle'
-  },
-}).chain(vol,
-  phaser,
-  delay,
-  //reverb,
-  lpf,
-  hpf,
-  Tone.Master)
-
-
-var synthB = new Tone.Synth
-({
-oscillator: {
-    type: 'triangle'
-  },
-}).chain(vol,
-  phaser,
-  delay,
-  //reverb,
-  lpf,
-  hpf,
-  Tone.Master)
-
-  var synthC = new Tone.Synth
-  ({
-  oscillator: {
-      type: 'square'
-    },
-  }).chain(vol,
-    phaser,
-    delay,
-    //reverb,
-    lpf,
-    hpf,
-    Tone.Master)
-
-    var synthD = new Tone.Synth
-    ({
-    oscillator: {
-        type: 'square'
-      },
-    }).chain(vol,
-      phaser,
-      delay,
-      //reverb,
-      lpf,
-      hpf,
-      Tone.Master)
-
-// Text to Code - Create MIDI vector -------------------------------------
-var text = 'DMSP Preservation YO YO YO';
-var textLength = text.length;
-var midi = [0, 0];
-var freqs = [0, 0];
-
-for (var j = 0; j < textLength; j++)
-{
-  midi[j] = text.charCodeAt(j) + octave;
-  freqs [j] = 440 * Math.pow(2, (midi[j]-69)/12);
-}
-
-// ----------------------------------------------------------------------
-
-// Playback
-var i = 0;
-mute = true;
-var t = 0;
-var dur = 15;
-var delta = (dur/textLength)*0.5;
-
-// Called when play pressed
-function play()
-{
-  Tone.Transport.toggle();
-  Tone.Transport.loopEnd = dur;
-  i = 0;
-  t = 0;
-  mute = !mute;
-  Tone.Master.mute = mute;
-}
-
-// Plays next note of array
-function triggerSynth(time)
-{
-  i %= textLength;
-	synthA.triggerAttackRelease(freqs[i], '8n', time)
-  synthB.triggerAttackRelease(freqs[i]*0.98, '8n', time)
-  synthC.triggerAttackRelease(freqs[i]/2, '8n', time)
-  synthC.triggerAttackRelease((freqs[i]/4), '8n', time)
-
-  i++;
-}
-
-// Schedules and calls the notes
-for (var i = 0; i < textLength; i++)
-{
-Tone.Transport.schedule(triggerSynth, t)
-if (midi[i] - octave == 32) {t += delta*3;}
-else if (midi[i] - octave == 44) {t += delta*3;}
-else if (midi[i] - octave == 46){t += delta*6;}
-else t += delta;
-}
-
-// Changes playbackrate - still weird shit going on
- function changeRate(rate)
-{
-  dur = 1/rate;
-  delta = (dur/textLength)*0.5;
-  Tone.Transport.loopEnd = dur;
-}
-
-
-document.querySelector('tone-play-toggle').addEventListener('click', e => play())
-document.querySelector('tone-slider').addEventListener('change', e => changeRate(e.detail))
-Tone.Transport.loop = true
-
-
-
+sonify("DMSP Preservation");
 </script>
 
+</body>
 
-
-
-
-
-	</body>
-
-
-
-
-	</html>
+</html>
