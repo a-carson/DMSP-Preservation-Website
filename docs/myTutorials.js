@@ -12,13 +12,7 @@ var array =
 }
 ]
 
-addToArray({ name: "Ali", category: "Travel", memory: "prikcs" });
+addToArray({ name: "Ali", category: "Travel", memory: "john" });
 
-
-
-function getArray()
-{
-  return array;
-}
 
 myFunction(array);
