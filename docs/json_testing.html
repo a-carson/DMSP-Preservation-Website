@@ -2,22 +2,28 @@
 <html>
 <body>
 
-
-<p>Output:</p>
-
-<p id="demo"></p>
-
+<div id="id01"></div>
+<br>
+<div id="demo"> yo </div>
 <script>
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    var myObj = JSON.parse(this.responseText);
-    document.getElementById("demo").innerHTML = myObj.name;
+// Print output
+function myFunction(arr) {
+  var out = "";
+  var i;
+  for(i = 0; i<arr.length; i++) {
+    out += arr[i].name + ' - ' + arr[i].category + ' - ' + arr[i].memory + '<br>';
   }
-};
-xmlhttp.open("GET", "json_demo.txt", true);
-xmlhttp.send();
+  document.getElementById("id01").innerHTML = out;
+}
+
+function addToArray(string)
+{
+  array.push(string);
+}
+
 </script>
+
+<script src="myTutorials.js"></script>
 
 </body>
 </html>
