@@ -24,7 +24,7 @@
 				</div>
 				-->
 				<br><br>
-				
+				<!--
 				<div class="input_bar3_name">
 					<input type="text" name="3_name" class="form-control3_name" id="3_name" placeholder="Name">
 				</div>
@@ -37,13 +37,25 @@
 				<div class="button3_start">
 					<button class="button3" type="button">
 						<a href="start.html"> <img src="img/button/purple_button_start.png" style="width: 200px; background-color: transparent;" alt="" /></a>
-					</button>
+-->
+          <form action="start.php" method="get">
+            <div class="input_bar3_name">
+                  Name: <input type="text" name="3_name" class="form-control3_name" id="3_name" placeholder="Name">
+            </div>
+            <div class="input_bar3_category">
+                  Category: <input type="text" name="3_category" class="form-control3_category" id="3_category" placeholder="Category">
+				    </div><br>
+            <div class="input_bar3_content">
+                  Memory:	<input type="text" name="write_down_content" class="form-control3_2" id="write_down_content" placeholder="Enter memory here..."><br>
+            </div>
+            <div class="button3_start">
+              <button class="button3" type="submit">
+               <img src="img/button/purple_button_start.png" style="width: 200px; background-color: transparent;" alt="" /></a>
+          </form>
+
 				</div>
 			</div>
 		</div>
-
-		<script src='writeJSON.js'>
-		</script>
 
 	</body>
 
