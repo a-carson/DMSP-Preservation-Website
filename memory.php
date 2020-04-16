@@ -15,64 +15,6 @@
 	<body id="body3">
 
     <?php
-    // initialise strings
-    $name = '';
-    $category = '';
-    $memory = '';
-    $error = ' ';
-
-    // get json
-    $memoriesJson = file_get_contents('json/memories.json');
-    $memoriesArray = json_decode($memoriesJson, true);
-
-    // when form is submitted
-    // if (isset($_GET["submit"]))
-    //   {
-    //     if (empty($_GET["name"]))
-    //     {
-    //       $error = "Please enter a name. It doesn't have to be your real name!";
-    //     }
-    //     else if (empty($_GET["category"]))
-    //     {
-    //       $error = "Please choose a category";
-    //     }
-    //     else if (empty($_GET["memory"]))
-    //     {
-    //       $error = "Please enter a memory. That's why you're here right?";
-    //     }
-    //     else
-    //     {
-    //       // test for hackers
-    //       $name = test_for_hackers($_GET["name"]);
-    //       $category = test_for_hackers($_GET["category"]);
-    //       $memory = test_for_hackers($_GET["memory"]);
-    //
-    //       // new entry
-    //       $newEntry = array(
-    //         "name" => $name,
-    //         "category" => $category,
-    //         "memory" => $memory,
-    //       );
-    //
-    //       // append new entry
-    //       $memoriesArray[] = $newEntry;
-    //
-    //       // encode and write to json
-    //       $encodedArray = json_encode($memoriesArray);
-    //       file_put_contents('json/memories.json', $encodedArray);
-    //
-    //       //navigate to next page
-    //       header("Location: start.php");
-    //     }
-    //   }
-    //
-    //   function test_for_hackers($data)
-    //   {
-    //     $data = trim($data);
-    //     $data = stripslashes($data);
-    //     $data = htmlspecialchars($data);
-    //     return $data;
-    //   }
 
     ?>
 
