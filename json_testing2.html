@@ -16,12 +16,12 @@
     <script>
     $.getJSON('https://a-carson.github.io/DMSP-Preservation-Website/json/memories.json', function(data) {
 
-        var text = `Name: ${data.name}<br>
-                    Category: ${data.category}<br>
-                    Memory: ${data.memory}`
+         var text = `Name: ${data.name} <br>
+                     Category: ${data.category}<br>
+                     Memory: ${data.memory}`
 
         $(".mypanel").html(text);
-        sonify(`${data.memory}`);
+        //sonify(`${data.memory}`);
     });
     </script>
 
