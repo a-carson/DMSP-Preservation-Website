@@ -54,6 +54,10 @@
               "category" => $category,
               "memory" => $memory,
             );
+              // get json
+              $memoriesJson = file_get_contents('json/memories.json');
+              // Convert JSON string to Array
+              $memoriesArray = json_decode($memoriesJson, true);
 
               // append new entry
               $memoriesArray[] = $newEntry;
