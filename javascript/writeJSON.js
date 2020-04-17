@@ -1,5 +1,6 @@
 // write JSON javascript
 
+
     const fs = require('fs');
 
     var memories =
@@ -19,7 +20,7 @@
 
 
     // this is where you add the new memory
-    memories.push({ name: "Ali", category: "Travel", memory: "new memory" });
+    memories.push({ name: "Ali", category: "Travel", memory: "prikcs" });
 
     const jsonString = JSON.stringify(memories)
 
@@ -27,10 +28,13 @@
     //fs.writeFileSync('./memories.json', jsonString)
     //console.log(jsonString)
 
-    fs.writeFile('memories.json', jsonString, err => {
+    function writeFile()
+    {
+    fs.writeFile('../json/memories.json', jsonString, err => {
         if (err) {
             console.log('Error writing file', err)
         } else {
             console.log('Successfully wrote file')
         }
     })
+    }

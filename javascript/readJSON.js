@@ -21,7 +21,7 @@ function jsonReader(filePath, cb) {
 var memoriesArray = [0, 0];
 
 
-jsonReader('./memories.json', (err, memoriesJSON) => {
+jsonReader('../json/memories.json', (err, memoriesJSON) => {
     if (err) {
         console.log(err)
         return
@@ -35,5 +35,3 @@ jsonReader('./memories.json', (err, memoriesJSON) => {
         console.log(memoriesArray[i]);
     }
 })
-
-

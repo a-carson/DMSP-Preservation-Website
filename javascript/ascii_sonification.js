@@ -144,9 +144,8 @@ else t += delta;
 // }
 
 
-
+play();
 document.querySelector('button').addEventListener('click', e => play())
-//document.querySelector('tone-slider').addEventListener('change', e => changeRate(e.detail))
 Tone.Transport.loop = true;
 
 
