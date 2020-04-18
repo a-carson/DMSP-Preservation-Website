@@ -29,10 +29,8 @@ let linesY = 26;
 let sourcecode
 let stepsX, stepsY, radius, intensity, movement, last_sum, scale, factor, wave, sum;
 //----------------------------------------
-class Node
-{
-  constructor(x, y, s)
-  {
+class Node {
+  constructor(x, y, s) {
     this.anchorx = x;
     this.anchory = y;
     this.ypos = y;
@@ -48,23 +46,23 @@ let Nodes = Array.from(Array(linesX), () => new Array(linesY))
 let index = 0;
 
 //----------------------------------------
-function setup()
-{
-  let cnv = createCanvas(800, 600);
+function setup() {
+  let cnv = createCanvas(800, 800);
+
+  cnv.parent('sketch-holder');
+
   fft = new p5.FFT();
   mic = new p5.AudioIn();
   mic.start();
   fft.setInput(mic)
   noSmooth();
-  let c = color(0,0,0);
+  let c = color(0, 0, 0);
   colorMode(HSB, 255);
-
   console.log("setup success");
 }
 //----------------------------------------
-function draw()
-{
-  background(frameCount % 255, 255, 30);
+function draw() {
+  background(frameCount % 255, 255, 50);
   //stroke(0);
   let r = 120;
   let g = 120;
@@ -81,34 +79,27 @@ function draw()
   let waveform = fft.waveform();
   let step = floor(waveform.length / 300);
 
-
-
   for (let i = 0; i < waveform.length - step; i += step) {
-    let x1 = (width / 2) + cos(a) * (width/2 * (waveform[i] + 1) / 2);
+    let x1 = (width / 2) + cos(a) * (width / 2 * (waveform[i] + 1) / 2);
 
-    let y1 = height / 2 + sin(a) * (width/2 * (waveform[i] + 1) / 2);
-    let x2 = width / 2 + cos(a + angle) * (width/2 * (waveform[i + step] + 1) / 2);
-    let y2 = height / 2 + sin(a + angle) * (width/2 * (waveform[i + step] + 1) / 2);
+    let y1 = height / 2 + sin(a) * (width / 2 * (waveform[i] + 1) / 2);
+    let x2 = width / 2 + cos(a + angle) * (width / 2 * (waveform[i + step] + 1) / 2);
+    let y2 = height / 2 + sin(a + angle) * (width / 2 * (waveform[i + step] + 1) / 2);
     //stroke(34, 225, 273);
-    stroke(190, 190,255);
+    stroke(190, 190, 255);
     strokeWeight(3);
     line(x1, y1, x2, y2);
     a += angle;
-    if (i < 300)
-    {
+    if (i < 300) {
       r += 255;
     }
-    if (i >= 300 && i < 600)
-    {
+    if (i >= 300 && i < 600) {
       g += 255;
     }
-    if (i >= 600)
-    {
+    if (i >= 600) {
       b += 255;
     }
 
   }
-
-//----------------------------------------
 
 }

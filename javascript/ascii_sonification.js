@@ -145,7 +145,7 @@ else t += delta;
 
 
 play();
-document.querySelector('button').addEventListener('click', e => play())
+//document.querySelector('button').addEventListener('click', e => play())
 Tone.Transport.loop = true;
 
 
