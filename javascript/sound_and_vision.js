@@ -98,16 +98,45 @@ function drawWaveform()
   let a = 0;
   let angle = (2 * PI) / 100;
   let step = floor(waveform.size / 300);
+  let r = [190, 190, 190, 190];
+  let g = [190, 100, 100, 100];
+  let b = [255, 200, 100, 50];
+    for (let i = 0; i < waveform.size - step; i += step)
+    {
 
-  for (let i = 0; i < waveform.size - step; i += step)
-  {
-      let x1 = (width / 2) + cos(a) * (width/2 * (waveform.getValue()[i] + 1) / 2);
-      let y1 = height / 2 + sin(a) * (width/2 * (waveform.getValue()[i] + 1) / 2);
-      let x2 = width / 2 + cos(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 2);
-      let y2 = height / 2 + sin(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 2);
-      stroke(190, 190, 255);
-      strokeWeight(3);
-      line(x1, y1, x2, y2);
-      a += angle;
-    }
+        let x1 = (width / 2) + cos(a) * (width/2 * (waveform.getValue()[i] + 1) / 2);
+        let y1 = height / 2 + sin(a) * (width/2 * (waveform.getValue()[i] + 1) / 2);
+        let x2 = width / 2 + cos(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 2);
+        let y2 = height / 2 + sin(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 2);
+        stroke(r[0], g[0], b[0]);
+        strokeWeight(3);
+        line(x1, y1, x2, y2);
+
+        let x3 = width / 2 + cos(a) * (width/2 * (waveform.getValue()[i] + 1) / 4);
+        let y3 = height / 2 + sin(a) * (width/2 * (waveform.getValue()[i] + 1) / 4);
+        let x4 = width / 2 + cos(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 4);
+        let y4 = height / 2 + sin(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 4);
+        stroke(190, 100, 200);
+        strokeWeight(2);
+        line(x3, y3, x4, y4);
+
+        let x5 = width / 2 + cos(a) * (width/2 * (waveform.getValue()[i] + 1) / 8);
+        let y5 = height / 2 + sin(a) * (width/2 * (waveform.getValue()[i] + 1) / 8);
+        let x6 = width / 2 + cos(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 8);
+        let y6 = height / 2 + sin(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 8);
+        stroke(190, 100, 100);
+        strokeWeight(1);
+        line(x5, y5, x6, y6);
+
+        let x7 = width / 2 + cos(a) * (width/2 * (waveform.getValue()[i] + 1) / 16);
+        let y7 = height / 2 + sin(a) * (width/2 * (waveform.getValue()[i] + 1) / 16);
+        let x8 = width / 2 + cos(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 16);
+        let y8 = height / 2 + sin(a + angle) * (width/2 * (waveform.getValue()[i + step] + 1) / 16);
+        stroke(190, 100, 50);
+        strokeWeight(1);
+        line(x7, y7, x8, y8);
+
+        a += angle;
+      }
+
 }
