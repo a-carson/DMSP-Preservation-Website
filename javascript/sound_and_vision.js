@@ -1,3 +1,7 @@
+// JAVA SCRIPT CODE FOR SONIFICATION AND VISUALIZATION
+//
+// DMSP PRESERVATION GROUP
+
 
 // VARIABLES -------------------------------------------------------------------
 var master = Tone.Master;
