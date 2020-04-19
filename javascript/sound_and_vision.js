@@ -1,5 +1,5 @@
 
-// Variables - sound +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// VARIABLES -------------------------------------------------------------------
 var master = Tone.Master;
 let waveform = new Tone.Waveform(1024);
 synthA = new Tone.Synth();
@@ -19,9 +19,8 @@ var t = 0;
 var dur = 15;
 var delta;
 var synthA;
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// Text to Code - Create MIDI vector -------------------------------------
+// TEXT TO CODE -------------------------- -------------------------------------
 function setInputText(string)
 {
   text = string;
