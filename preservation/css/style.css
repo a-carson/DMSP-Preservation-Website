@@ -43,7 +43,7 @@ body {
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
 }
-#record-memory {
+#body-general {
   background-image: url("../img/bg/bg2.jpg");
   background-position: center;
   background-repeat: no-repeat;
