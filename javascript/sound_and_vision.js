@@ -4,14 +4,6 @@
 
 
 // VARIABLES -------------------------------------------------------------------
-var master = Tone.Master;
-let waveform = new Tone.Waveform(1024);
-synthA = new Tone.Synth();
-synthA.oscillator.type = 'triangle';
-synthA.chain(waveform, master);
-Tone.Transport.loopEnd = dur;
-Tone.Transport.loop = true;
-
 var text;
 var textLength;
 var midi = [0, 0];
@@ -23,13 +15,31 @@ var t = 0;
 var dur = 15;
 var delta;
 var synthA;
+var synthB;
+const blockSize = 1024;
+var master = Tone.Master;
+let waveform = new Tone.Waveform(blockSize);
+
+synthA = new Tone.Synth();
+synthA.oscillator.type = 'triangle';
+synthA.chain(waveform, master);
+synthB = new Tone.Synth();
+synthB.oscillator.type = 'triangle';
+synthB.chain(waveform, master);
+
+Tone.Transport.loopEnd = dur;
+Tone.Transport.loop = true;
+
+var delay = new Tone.FeedbackDelay(Tone.Time('8n'));
+
+
 
 // TEXT TO CODE -------------------------- -------------------------------------
 function setInputText(string)
 {
   text = string;
   textLength = text.length;
-
+  dur = textLength - 1;
   for (var j = 0; j < textLength; j++)
   {
     midi[j] = text.charCodeAt(j) + octave;
@@ -56,7 +66,8 @@ function sound()
   function triggerSynth(time)
   {
     i %= textLength;
-  	synthA.triggerAttackRelease(freqs[i], '8n', time)
+  	synthA.triggerAttackRelease(freqs[i], '8n', time);
+    synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
     i++;
   }
 
@@ -72,53 +83,32 @@ function sound()
 }
 
 // VISUALS --------------------------------------------------------------------
-let numCircles = 10;
+let numCircles = 8;
 let spacing = 1;
 var x1 = new Uint32Array(numCircles);
 var x2 = new Uint32Array(numCircles);
 var y1 = new Uint32Array(numCircles);
 var y2 = new Uint32Array(numCircles);
 var strokes = new Uint32Array(numCircles);
-let r = [190, 190, 190, 190, 190, 190, 190, 190];
-let g = [190, 100, 100, 100, 190, 100, 100, 100];
-let b = [255, 200, 100, 50, 190, 100, 100, 100];
-colourThresh = 100;
-
-// Generate random colours
-for (let j = 0; j < numCircles; j++)
-{
-  strokes[j] = 3 - 0.3*j;
-  r[j] = getRndInteger(0, 255);
-  g[j] = getRndInteger(0, 255);
-  b[j] = getRndInteger(0, 255);
-
-  if (r[j] < colourThresh)
-  {
-    if (g[j] < colourThresh)
-    {
-      if (b[j] < colourThresh)
-      {
-        r[j] = getRndInteger(0, 255);
-        g[j] = getRndInteger(0, 255);
-        b[j] = getRndInteger(0, 255);
-      }
-
-    }
-  }
-}
-
+var h = new Uint32Array(numCircles);
+var s = new Uint32Array(numCircles);
+var b = new Uint32Array(numCircles);
+// let r = [190, 190, 190, 190, 190, 190, 190, 190];
+// let g = [190, 100, 100, 100, 190, 100, 100, 100];
+// let b = [255, 200, 100, 50, 190, 100, 100, 100];
+//colourThresh = 75;
 
 function setup()
 {
   let cnv = createCanvas(800, 600);
   noSmooth();
-  colorMode(HSB, 255);
+  colorMode(HSB, 360);
   console.log("setup success");
 }
 
 function draw()
 {
-background(frameCount % 255, 255, 30);
+background(frameCount % 360, 360, 43);
 push();
 pop();
 sound();
@@ -132,8 +122,10 @@ function drawWaveform()
   let stepsX = width / 40;
   let stepsY = height / 26;
   let a = 0;
-  let angle = (2 * PI) / 100;
-  let step = floor(waveform.size / 300);
+  let angle = (2 * PI) / 100;     //can change these to change the shape originl /100
+  let step = 3;                   // can change these to change the shape
+  //let step = floor(waveform.size / 300);
+
 
     for (let i = 0; i < waveform.size - step; i += step)
     {
@@ -142,12 +134,12 @@ function drawWaveform()
 
         for (let j = 0; j < numCircles; j++)
         {
-          let denom = (2 * (1 + j*spacing));
+          let denom = 2 * Math.pow((1 + j*spacing), 0.8);
           x1[j] = width/2   +   cos(a) * (width/2 * (value + 1) / denom);
           y1[j] = height/2  +   sin(a) * (width/2 * (value + 1) / denom);
           x2[j] = width/2   +   cos(a + angle) * (width/2 * (stepValue + 1) / denom);
           y2[j] = height/2  +   sin(a + angle) * (width/2 * (stepValue + 1) / denom);
-          stroke(r[j], g[j], b[j]);
+          stroke(h[j], s[j], b[j]);
           strokeWeight(strokes[j]);
           line(x1[j], y1[j], x2[j], y2[j]);
         }
@@ -157,6 +149,58 @@ function drawWaveform()
 
 }
 
-function getRndInteger(min, max) {
+function getRndInteger(min, max)
+{
   return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+function getColour(colour,j)
+{
+  if (colour == 1)
+      return r[j];
+
+  if (colour == 2)
+      return g[j];
+
+  if (colour == 3)
+      return b[j];
+}
+
+// Generates semi-random colours
+function setRandomColours(colour)
+{
+  var offset;
+  var range = 90;
+
+  if (colour.localeCompare('yellow') == 0)
+    {
+      offset = 0;
+      range = 90;
+    }
+
+  if (colour.localeCompare('green') == 0)
+    {
+      offset = 90;
+      range = 90;
+    }
+
+  if (colour.localeCompare('blue') == 0)
+    {
+      offset = 180;
+      range = 90;
+    }
+
+  if (colour.localeCompare('pink') == 0)
+    {
+      offset = 270;
+      range = 90;
+    }
+
+for (let j = 0; j < numCircles; j++)
+  {
+    strokes[j] = 3 - 0.3*j;
+    h[j] = offset + getRndInteger(0, range);
+    s[j] = getRndInteger(70, 360);
+    b[j] = getRndInteger(210, 360);
+  }
 }
