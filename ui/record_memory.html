@@ -93,12 +93,25 @@
 
 			if (name == '')
 			{
+				if (memory == '')
+				{
+					  document.getElementById("name_error").innerHTML = "Please enter a name. It doesn't have to be your real name!";
+						document.getElementById("memory_error").innerHTML = "Please enter your memory!";
+						return false;
+				}
 					document.getElementById("name_error").innerHTML = "Please enter a name. It doesn't have to be your real name!";
 					return false;
 			}
 
 			if (memory == '')
 			{
+				if (name == '')
+				{
+					  document.getElementById("memory_error").innerHTML = "Please enter your memory!";
+						document.getElementById("name_error").innerHTML = "Please enter a name. It doesn't have to be your real name!";
+						return false;
+				}
+
 					document.getElementById("memory_error").innerHTML = "Please enter your memory!";
 					return false;
 			}
