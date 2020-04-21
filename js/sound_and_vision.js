@@ -4,7 +4,7 @@
 
 
 // VARIABLES -------------------------------------------------------------------
-var text;
+var text = '';
 var textLength;
 var midi = [0, 0];
 var freqs = [0, 0];
@@ -39,7 +39,7 @@ function setInputText(string)
 {
   text = string;
   textLength = text.length;
-  dur = textLength - 1;
+  dur = textLength/2;
   for (var j = 0; j < textLength; j++)
   {
     midi[j] = text.charCodeAt(j) + octave;
@@ -68,6 +68,9 @@ function sound()
     i %= textLength;
   	synthA.triggerAttackRelease(freqs[i], '8n', time);
     synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
+    // output text characters
+    var letter = String.fromCharCode(midi[i]);
+    console.log(letter);
     i++;
   }
 
@@ -167,31 +170,35 @@ function getColour(colour,j)
 }
 
 // Generates semi-random colours
-function setRandomColours(colour)
+function setRandomColoursByCategory(colour)
 {
   var offset;
   var range = 90;
 
-  if (colour.localeCompare('yellow') == 0)
+  if (colour.localeCompare('travel') == 0)
     {
+      // yellow
       offset = 0;
       range = 90;
     }
 
-  if (colour.localeCompare('green') == 0)
+  if (colour.localeCompare('others') == 0)
     {
+      // green
       offset = 90;
       range = 90;
     }
 
-  if (colour.localeCompare('blue') == 0)
+  if (colour.localeCompare('student-life') == 0)
     {
+      // blue
       offset = 180;
       range = 90;
     }
 
-  if (colour.localeCompare('pink') == 0)
+  if (colour.localeCompare('childhood') == 0)
     {
+      // pink
       offset = 270;
       range = 90;
     }
