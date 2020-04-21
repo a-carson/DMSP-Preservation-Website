@@ -14,8 +14,7 @@
 <link rel="stylesheet" href="../css/style.css">
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://unpkg.com/tone"></script>
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
 
 
 <body id="body-general">
@@ -25,12 +24,12 @@
 				<img src="../img/heading/heading2.png" style="height: 120px; background-color: transparent;" alt="" />
 
 
-				<form action="start.php" method "get" class="justify-content-center radio-form">
+				<form action = "start.php" onsubmit="return checkForm()" method="post" class="justify-content-center radio-form">
 
 					<div class="form-group">
 						<input class="form-control memory-name" type="text" name="name" id="name" placeholder="Name" />
 							<span class="error">
-								<p id="name_error"><?php echo $name_error; ?></p>
+								<p id="name_error"></p>
 							</span>
 					</div>
 
@@ -53,13 +52,13 @@
 						</div>
 						<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="category" id="others"
-								value="others">
+								value="others" checked="checked">
 							<label class="form-check-label" for="others">Others</label>
 
 						</div>
 					</div>
 					<span class="error">
-						<p id="category_error"><?php echo $category_error; ?></p>
+						<p id="category_error"></p>
 						</p>
 					</span>
 
@@ -67,12 +66,12 @@
 						<textarea class="form-control memory-content" name = "memory" id="memory" rows="5"
 							placeholder="Here is my memory..."></textarea>
 						<span class="error">
-							<p id="content_error"><?php echo $content_error; ?></p>
+							<p id="memory_error"></p>
 						</span>
 					</div>
 
-					<button type="submit" name = "submit" class="btn-control submit">
-						Save My Memory Into CD</button>
+					<button type="submit" name = "submit" class="btn-control submit" id = "submit">
+						GO!</button>
 
 				</form>
 
@@ -81,15 +80,28 @@
 		</div>
 	</div>
 
-
-
-
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
-
 	<script>
-		var js_data = '<?php echo json_encode($currentMemory); ?>'
-		var text = JSON.parse(js_data);
-		sonify(text);
+
+		function checkForm()
+		{
+			document.getElementById("name_error").innerHTML = '';
+			document.getElementById("memory_error").innerHTML = '';
+			var name =	document.getElementById("name").value;
+			var memory = document.getElementById("memory").value;
+
+			if (name == '')
+			{
+					document.getElementById("name_error").innerHTML = "Please enter a name. It doesn't have to be your real name!";
+					return false;
+			}
+
+			if (memory == '')
+			{
+					document.getElementById("memory_error").innerHTML = "Please enter your memory!";
+					return false;
+			}
+		}
+
 	</script>
 </body>
 

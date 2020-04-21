@@ -17,77 +17,40 @@
 <script type = "text/javascript" src = "../js/sound_and_vision.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
+
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
 
-
     <?php
+    
+    $name = test_for_hackers($_POST["name"]);
+    $category = test_for_hackers($_POST["category"]);
+    $memory = test_for_hackers($_POST["memory"]);
 
-      if (isset($_GET["submit"]))
-        {
+    // new entry
+    $newEntry = array(
+      "name" => $name,
+      "category" => $category,
+      "memory" => $memory,
+    );
 
-          if (empty($_GET["name"]))
-          {
-            $error = "Please enter a name. It doesn't have to be your real name!";
-            echo '<br>';
-            echo $error;
-            echo '<br>';
-            echo '<br>';
-          }
-          // if (empty($_GET["category"]))
-          // {
-          //   $error = "Please choose a category";
-          //   echo $error;
-          //   echo '<br>';
-          //   echo '<br>';
-          // }
-          if (empty($_GET["memory"]))
-          {
-            $error = "Please enter a memory. That's why you're here right?";
-            echo $error;
-          }
-          else
-          {
-            //create_elements();
-            // test for hackers
-            $name = test_for_hackers($_GET["name"]);
-            $category = test_for_hackers($_GET["category"]);
-            $memory = test_for_hackers($_GET["memory"]);
+      // get json
+    $memoriesJson = file_get_contents('../json/memories.json');
+    // Convert JSON string to Array
+    $memoriesArray = json_decode($memoriesJson, true);
+    // append new entry
+    $memoriesArray[] = $newEntry;
+    // encode and write to json
+    $encodedArray = json_encode($memoriesArray);
+    file_put_contents('../json/memories.json', $encodedArray);
 
-            // new entry
-            $newEntry = array(
-              "name" => $name,
-              "category" => $category,
-              "memory" => $memory,
-            );
-              // get json
-              $memoriesJson = file_get_contents('../json/memories.json');
-              // Convert JSON string to Array
-              $memoriesArray = json_decode($memoriesJson, true);
-              // append new entry
-              $memoriesArray[] = $newEntry;
-              // encode and write to json
-              $encodedArray = json_encode($memoriesArray);
-              file_put_contents('../json/memories.json', $encodedArray);
-
-          }
-        }
-
-        function test_for_hackers($data)
-        {
-          $data = trim($data);
-          $data = stripslashes($data);
-          $data = htmlspecialchars($data);
-          return $data;
-        }
-
-      //print_r($memoriesArray);
-
-
-      function create_elements()
-      {
-        echo '<link rel="stylesheet" href="css/style.css">';
-      }
+    function test_for_hackers($data)
+    {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
 
     ?>
 
