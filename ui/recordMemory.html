@@ -10,10 +10,136 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/style.css">
 
-<body id="body3">
-	<div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://unpkg.com/tone"></script>
+<script type="text/javascript" src='javascript/ascii_sonification.js'> </script>
+
+<?php
+
+$name_error = '';
+$category_error = '';
+$content_error = '';
+
+if (isset($_GET["submit"]))
+  {
+
+	if (empty($_GET["name"]))
+	{
+	  $name_error = "Please enter a name. It doesn't have to be your real name!";
+	}
+	if (empty($_GET["category"]))
+	{
+	  $category_error = "Please choose a category";
+	}
+	if (empty($_GET["memory"]))
+	{
+	  $content_error = "Please enter a memory. That's why you're here right?";
+	}
+	else
+	{
+	  create_elements();
+	  // test for hackers
+	  $name = test_for_hackers($_GET["name"]);
+	  $category = test_for_hackers($_GET["category"]);
+	  $memory = test_for_hackers($_GET["memory"]);
+
+	  // new entry
+	  $newEntry = array(
+		"name" => $name,
+		"category" => $category,
+		"memory" => $memory,
+	  );
+		// get json
+		$memoriesJson = file_get_contents('json/memories.json');
+		// Convert JSON string to Array
+		$memoriesArray = json_decode($memoriesJson, true);
+
+		// append new entry
+		$memoriesArray[] = $newEntry;
+
+		// encode and write to json
+		$encodedArray = json_encode($memoriesArray);
+		file_put_contents('json/memories.json', $encodedArray);
+
+		$currentMemory = $newEntry["memory"];
+	}
+  }
+
+  function test_for_hackers($data)
+  {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+  }
+
+//print_r($memoriesArray);
+
+
+function create_elements()
+{
+  echo '<link rel="stylesheet" href="css/style.css">';
+}
+
+?>
+
+
+<body id="body-general">
+	<div class="container center-form">
+		<div class="row mx-auto text-center">
+			<div class="col-md-12 col-sm-6 my-auto">
+				<img src="../img/heading/heading2.png" style="height: 120px; background-color: transparent;" alt="" />
+				<form action="" class="justify-content-center radio-form">
+					<div class="form-group">
+						<input class="form-control memory-name" type="text" name="name" id="name" placeholder="Name" />
+						<span class="error">
+							<p id="name_error"><?php echo $name_error; ?></p>
+						</span>
+					</div>
+					<div class="form-group  category-options">
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="childhood"
+								value="childhood">
+							<label class="form-check-label" for="childhood">Childhood</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="travel"
+								value="travel">
+							<label class=" form-check-label" for="travel">Travel</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="student-life"
+								value="student-life">
+							<label class="form-check-label" for="student-life">Student Life</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="others"
+								value="others">
+							<label class="form-check-label" for="others">Others</label>
+						</div>
+					</div>
+					<span class="error">
+						<p id="category_error"><?php echo $category_error; ?></p>
+						</p>
+					</span>
+					<div class="form-group">
+						<textarea class="form-control memory-content" id="js-content" rows="5"
+							placeholder="Here is my memory..."></textarea>
+						</textarea>
+						<span class="error">
+							<p id="content_error"><?php echo $content_error; ?></p>
+						</span>
+					</div>
+					<button type="submit" class="btn-control submit">
+						Save My Memory Into CD</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- <div>
 		<div class="left_bar3">
 			<img src="../img/button/heading2.png" style="height: 600px; margin-top: 100px; margin-left: 20px;" alt="" />
 		</div>
@@ -31,6 +157,8 @@
 				<input type="text" name="write_down_content" class="form-content" id="write_down_content"
 					placeholder="PLEASE WRITE DOWN YOUR MEMORY">
 			</div>
+
+
 			<div class="button3_start">
 				<button class="button3" type="button"><a href="start.html"> <img
 							src="../img/button/purple_button_start.png"
@@ -39,6 +167,16 @@
 			</div>
 		</div>
 	</div>
+	-->
+
+
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+
+	<script>
+		var js_data = '<?php echo json_encode($currentMemory); ?>'
+		var text = JSON.parse(js_data);
+		sonify(text);
+	</script>
 </body>
 
 </html>
