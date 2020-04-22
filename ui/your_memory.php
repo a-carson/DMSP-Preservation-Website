@@ -17,7 +17,6 @@
 <script type = "text/javascript" src = "../js/sound_and_vision.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
-
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
 
@@ -51,6 +50,7 @@
       $data = htmlspecialchars($data);
       return $data;
     }
+
     ?>
 
     <body id="body3">
@@ -78,6 +78,17 @@ play();
 var category_data = '<?php echo json_encode($category); ?>'
 var cat = JSON.parse(category_data);
 setRandomColoursByCategory(cat);
+
+var colours = [0, 0];
+
+for (var i = 0; i < 8; i++)
+{
+	colours[i] = getColours(i);
+}
+
+
+
+
 </script>
 
 
