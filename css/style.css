@@ -544,7 +544,7 @@ input[type="text"] {
 }
 
 /***************************View Memory*************************/
-#sketch-holder {
+/* #sketch-holder {
   width: 50vh;
   text-align: center;
 }
@@ -553,7 +553,7 @@ input[type="text"] {
   content: "";
   display: block;
   padding-top: 100%;
-}
+} */
 
 .closeBtn {
   position: fixed;
@@ -566,7 +566,7 @@ input[type="text"] {
 
 .memory-title {
   font-size: 3em;
-  margin: 50px 0 0 0;
+  margin: 200px 0 0 0;
   color: var(--cpurple);
   text-shadow: 0 0 10px var(--cpurple);
 }

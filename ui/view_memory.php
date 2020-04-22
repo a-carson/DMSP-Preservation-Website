@@ -60,7 +60,7 @@ $category = $memoriesArray[$index]["category"];
     <h1 class="memory-title">Your Memory</h1>
     <h2>Hello,<span id="name"> Carla</span>!<br />Thanks for sharing your memory with me!</h2>
 
-    <div class="flex-center" id="sketch-holder">
+    <div id="sketch-holder">
       <!-- Our sketch will go here! -->
     </div>
 

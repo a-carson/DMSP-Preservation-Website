@@ -97,30 +97,11 @@ var h = new Uint32Array(numCircles);
 var s = new Uint32Array(numCircles);
 var b = new Uint32Array(numCircles);
 // let r = [190, 190, 190, 190, 190, 190, 190, 190];
-// let g = [190, 100, 100, 100, 190, 100, 100, 100];
-// let b = [255, 200, 100, 50, 190, 100, 100, 100];
+s = [190, 100, 100, 100, 190, 100, 100, 100];
+b = [255, 200, 100, 50, 190, 100, 100, 100];
 //colourThresh = 75;
 
 
-// let sketch = function(p)
-// {
-//   p.setup = function()
-//   {
-//     let cnv = p.createCanvas(800, 600);
-//     noSmooth();
-//     colorMode(HSB, 360);
-//     console.log("setup success");
-//   }
-//
-//   p.draw = function()
-//   {
-//   p.background(frameCount % 360, 360, 43);
-//   push();
-//   pop();
-//   sound();
-//   drawWaveform();
-//   }
-// }
 
 
 function setup()
@@ -181,17 +162,6 @@ function getRndInteger(min, max)
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-function getColour(colour,j)
-{
-  if (colour == 1)
-      return r[j];
-
-  if (colour == 2)
-      return g[j];
-
-  if (colour == 3)
-      return b[j];
-}
 
 // Generates semi-random colours
 function setRandomColoursByCategory(colour)

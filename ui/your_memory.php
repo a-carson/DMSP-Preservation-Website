@@ -17,10 +17,10 @@
 <script type = "text/javascript" src = "../js/sound_and_vision.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
-<!--
+
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
--->
+
     <?php
 		// GET JSON
 		$memoriesJson = file_get_contents('../json/memories.json');
@@ -47,18 +47,50 @@
 		$h = array_fill(0, 8, 0);
 		$s = array_fill(0, 8, 0);
 		$b = array_fill(0, 8, 0);
-		generateRandomColours();
+		$offset = 0;
+		$range = 90;
 
-		$newColourEntry = array(
-			"h" => $h,
-			"s" => $s,
-			"b" => $b,
-		);
+		if ($category == 'travel')
+			{
+				// yellow
+				$offset = 0;
+				$range = 90;
+			}
+		if ($category == 'others')
+			{
+				// green
+				$offset = 90;
+				$range = 90;
+			}
+		if ($category == 'student-life')
+			{
+				// blue
+				$offset = 180;
+				$range = 90;
+			}
+		if ($category == 'childhood')
+			{
+				// pink
+				$offset = 270;
+				$range = 90;
+			}
 
+		for ($j = 0; $j < 8; $j++)
+			{
+					$h[$j] = $offset + rand(0, $range);
+					$s[$j] = rand(70, 360);
+					$b[$j] = rand(210, 360);
+			}
+
+		// GET COLOURS JSON
 		$coloursJson = file_get_contents('../json/colours.json');
 		$coloursArray = json_decode($coloursJson, true);
+
+		// APPEND TO ARRAY
+		$newColourEntry = array("h" => $h,"s" => $s,"b" => $b);
 		$coloursArray[] = $newColourEntry;
 
+		// WRITE TO COLOURS JSON
 		$encodedArrayColours = json_encode($coloursArray);
 		file_put_contents('../json/colours.json', $encodedArrayColours);
 
@@ -72,50 +104,6 @@
       return $data;
     }
 
-		function generateRandomColours()
-		{
-			$offset;
-			$range = 90;
-
-			if ($category == 'travel')
-				{
-					// yellow
-					$offset = 0;
-					$range = 90;
-				}
-
-			if ($category == 'others')
-				{
-					// green
-					$offset = 90;
-					$range = 90;
-				}
-
-			if ($category == 'student-life')
-				{
-					// blue
-					$offset = 180;
-					$range = 90;
-				}
-
-			if ($category == 'childhood')
-				{
-					// pink
-					$offset = 270;
-					$range = 90;
-				}
-
-		for ($j = 0; $j < 8; $j++)
-			{
-				$h[$j] = $offset + rand(0, $range);
-				$s[$j] = rand(70, 360);
-				$b[$j] = rand(210, 360);
-				echo $s[$j];
-				echo ' ';
-			}
-
-
-		}
 
     ?>
 
@@ -130,10 +118,11 @@
 		  <div class="flex-center" style="width:100%">
 		    <h1 class="memory-title">Your Memory</h1>
 		    <h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me!</h2>
-		    <br>
-		    <br>
-		    <div id="sketch-holder">
-		      <!-- Our sketch will go here! -->
+
+				<div id="sketch-holder">
+					<!--
+		      <canvas id="sketch-holder" class = "p5Canvas" width = "1200" height = "1200"
+					style = "width 50%; height 50%">-->
 		    </div>
 
 		    <a href="choice.html">
@@ -153,17 +142,6 @@ play();
 var category_data = '<?php echo json_encode($category); ?>'
 var cat = JSON.parse(category_data);
 setRandomColoursByCategory(cat);
-
-var colours = [0, 0];
-
-for (var i = 0; i < 8; i++)
-{
-	colours[i] = getColours(i);
-}
-
-
-
-
 </script>
 
 
