@@ -45,6 +45,16 @@ body {
   animation: gradient 5s ease infinite;
 }
 
+#body3 {
+  font-family: "Orbitron", sans-serif;
+  background-image: url("../img/bg/bg-common.jpg");
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .body-common {
   background-image: url("../img/bg/bg-common.jpg");
   background-position: center;
@@ -502,6 +512,13 @@ input[type="text"] {
   }
 }
 
+/***************************Exit button*************************/
+.nav {
+  position: absolute;
+  top: 1vw;
+  right: 3vw;
+  z-index: 999;
+}
 /***************************Categroy*************************/
 
 /* .container {

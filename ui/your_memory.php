@@ -22,27 +22,27 @@
 <link rel="stylesheet" href="../css/style_old.css">
 
     <?php
-    
+		// GET JSON
+		$memoriesJson = file_get_contents('../json/memories.json');
+		$memoriesArray = json_decode($memoriesJson, true);
+
+		// GET FORM DATA
     $name = test_for_hackers($_POST["name"]);
     $category = test_for_hackers($_POST["category"]);
     $memory = test_for_hackers($_POST["memory"]);
 
-    // new entry
+    // ADD FORM DATA TO ARRAY
     $newEntry = array(
       "name" => $name,
       "category" => $category,
       "memory" => $memory,
     );
-
-      // get json
-    $memoriesJson = file_get_contents('../json/memories.json');
-    // Convert JSON string to Array
-    $memoriesArray = json_decode($memoriesJson, true);
-    // append new entry
     $memoriesArray[] = $newEntry;
-    // encode and write to json
+
+    // WRITE TO JSON
     $encodedArray = json_encode($memoriesArray);
     file_put_contents('../json/memories.json', $encodedArray);
+
 
     function test_for_hackers($data)
     {
@@ -51,7 +51,6 @@
       $data = htmlspecialchars($data);
       return $data;
     }
-
     ?>
 
     <body id="body3">
@@ -75,10 +74,10 @@ var memory_data = '<?php echo json_encode($memory); ?>'
 var text = JSON.parse(memory_data);
 setInputText(text);
 play();
+
 var category_data = '<?php echo json_encode($category); ?>'
 var cat = JSON.parse(category_data);
 setRandomColoursByCategory(cat);
-
 </script>
 
 
