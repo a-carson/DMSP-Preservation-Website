@@ -16,6 +16,67 @@
     href="https://blogfonts.com/css/aWQ9NDg4ODAmc3ViPTg4MCZjPWImdHRmPUJyeW5kYTEyMzErU2Fucy50dGYmbj1icnluZGExMjMxLXNhbnM/Brynda1231 Sans.ttf" />
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js'></script>
+
+<?php
+
+function createElements($category)
+{
+  $memoriesJson = file_get_contents('../json/memories.json');
+  $memoriesArray = json_decode($memoriesJson, true);
+  $array_length = count($memoriesArray);
+
+  if ($category == "childhood")
+  {
+    $class = '"button-memory pink"';
+    $img = '"../img/cd/CD-childhood.png"';
+  }
+  if ($category == "travel")
+  {
+    $class = '"button-memory yellow"';
+    $img = '"../img/cd/CD-travel.png"';
+  }
+  if ($category == "student-life")
+  {
+    $class = '"button-memory blue"';
+    $img = '"../img/cd/CD-study.png"';
+  }
+  if ($category == "others")
+  {
+    $class = '"button-memory green"';
+    $img = '"../img/cd/CD-other.png"';
+  }
+
+  for ($i = 0; $i < $array_length; $i++)
+  {
+    if ($memoriesArray[$i]["category"] == $category)
+    {
+      echo '<button type = "submit"';
+      echo '        class='; echo $class;
+      echo '        id='; echo $category; echo'>';
+      echo '      <img src='; echo $img;
+      echo '              style="width: 150px; background-color: transparent; margin:10px;" alt="" />
+                <div class="CD-description">
+                    <span id="id">';
+                    echo '#0'; echo $i+1;
+      echo '        </span>
+                    <span id="name">';
+                    echo $memoriesArray[$i]["name"];
+      echo '        </span>
+                    <h2 id="content" class="content">';
+                    echo $memoriesArray[$i]["memory"];
+      echo '        </h2>
+                </div>
+            </button>
+            ';
+    }
+  }
+}
+
+?>
+
 <body class="memory-list">
 
     <div class="gradient-bg">
@@ -60,7 +121,7 @@
                         <div class="button-text-light">Student Life</div>
                     </div>
                 </a>
-                <!--sl = student life-->
+
                 <a class="nav-item nav-link" id="nav-others-tab" data-toggle="tab" href="#nav-others" role="tab"
                     aria-controls="nav-others" aria-selected="false">
                     <div class="svg-wrapper-light cyan" style="width:200px;">
@@ -75,115 +136,42 @@
         <div class="tab-content row scroll" id="nav-tabContent"
             style="max-height:70vh; overflow-y: auto; overflow-x: hidden;">
 
+            <!-- CHILDHOOD -->
             <div class="tab-pane fade show active col-12 col-md-10  offset-md-1 " id="nav-childhood" role="tabpanel"
                 aria-labelledby="nav-childhood-tab">
                 <div class="row">
                     <div class="col-12 align-self-center" style="margin-left:20px">
-
-                        <button class="button-memory pink" id="childhood">
-                            <img src="../img/cd/CD-childhood.png"
-                                style="width: 150px; background-color: transparent; margin:10px;" alt="" />
-                            <div class="CD-description">
-                                <span id="id">#01 </span>
-                                <span id="name">Carla</span>
-                                <h2 id="content" class="content">I will remember this current period and rapidly
-                                    adapting to life
-                                    indoors,
-                                </h2>
-                            </div>
-                        </button>
-
-                        <button class="button-memory pink" id="button-childhood">
-                            <img src="../img/cd/CD-childhood.png"
-                                style="width: 150px; background-color: transparent; margin:10px;" alt="" />
-                            <div class="CD-description">
-                                <span id="id">#02 </span>
-                                <span id="name">Bob</span>
-                                <h2 id="content">Memory with grandma...
-                                </h2>
-                            </div>
-                        </button>
-
-                        <button class="button-memory pink" id="button-childhood">
-                            <img src="../img/cd/CD-childhood.png"
-                                style="width: 150px; background-color: transparent; margin:10px;" alt="" />
-                            <div class="CD-description">
-                                <span id="id">#03 </span>
-                                <span id="name">Bob</span>
-                                <h2 id="content">Memory with grandma...
-                                </h2>
-                            </div>
-                        </button>
-
-                        <button class="button-memory pink" id="button-childhood">
-                            <img src="../img/cd/CD-childhood.png"
-                                style="width: 150px; background-color: transparent; margin:10px;" alt="" />
-                            <div class="CD-description">
-                                <span id="id">#04 </span>
-                                <span id="name">Bob</span>
-                                <h2 id="content">Memory with grandma...
-                                </h2>
-                            </div>
-                        </button>
+                    <form action = "view_memory.php" method="get">
+                      <?php createElements("childhood") ?>
                     </div>
                 </div>
-
             </div>
+            <!-- TRAVEL -->
             <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-travel" role="tabpanel"
                 aria-labelledby="nav-travel-tab">
                 <div class="row">
                     <div class="col-12 align-self-center">
-                        <button class="button-memory yellow" id="button-travel">
-                            <img src="../img/cd/CD-travel.png"
-                                style="width: 150px; background-color: transparent; margin:10px;" alt="" />
-                            <div class="CD-description">
-                                <span id="id">#01 </span>
-                                <span id="name">Carla</span>
-                                <h2 id="content" class="content">I will remember this current period and rapidly
-                                    adapting to life
-                                    indoors,
-                                </h2>
-                            </div>
-                        </button>
+                        <?php createElements("travel") ?>
                     </div>
                 </div>
             </div>
+
+            <!-- STUDENT LIFE -->
             <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-sl" role="tabpanel"
                 aria-labelledby="nav-sl-tab">
                 <div class="row">
                     <div class="col-12 align-self-center">
-                        <button class="button-memory blue" id="button-student">
-                            <img src="../img/cd/CD-study.png"
-                                style="width: 150px; background-color: transparent; margin:10px;" alt="" />
-                            <div class="CD-description">
-                                <span id="id">#01 </span>
-                                <span id="name">Carla</span>
-                                <h2 id="content" class="content">I will remember this current period and rapidly
-                                    adapting to life
-                                    indoors,
-                                </h2>
-                            </div>
-                        </button>
-
+                        <?php createElements("student-life") ?>
                     </div>
                 </div>
             </div>
+
+            <!-- OTHER -->
             <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-others" role="tabpanel"
                 aria-labelledby="nav-others-tab">
                 <div class="row">
                     <div class="col-12 align-self-center">
-                        <button class="button-memory green" id="button-others">
-                            <img src="../img/cd/CD-other.png"
-                                style="width: 150px; background-color: transparent; margin:10px;" alt="" />
-                            <div class="CD-description">
-                                <span id="id">#01 </span>
-                                <span id="name">Carla</span>
-                                <h2 id="content" class="content">I will remember this current period and rapidly
-                                    adapting to life
-                                    indoors,
-                                </h2>
-                            </div>
-                        </button>
+                      <?php createElements("others") ?>
                     </div>
                 </div>
             </div>
@@ -203,11 +191,6 @@
             </div>
         </a>
     </div>
-
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js'></script>
 
 </body>
 
