@@ -17,9 +17,10 @@
 <script type = "text/javascript" src = "../js/sound_and_vision.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
+<!--
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
-
+-->
     <?php
 		// GET JSON
 		$memoriesJson = file_get_contents('../json/memories.json');
@@ -65,7 +66,7 @@
 
 		  <div class="flex-center" style="width:100%">
 		    <h1 class="memory-title">Your Memory</h1>
-		    <h2>Hello,<span id="name"> Carla</span>!<br />Thanks for sharing your memory with me!</h2>
+		    <h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me!</h2>
 		    <br>
 		    <br>
 		    <div id="sketch-holder">
