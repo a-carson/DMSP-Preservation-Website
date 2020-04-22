@@ -97,8 +97,8 @@ var h = new Uint32Array(numCircles);
 var s = new Uint32Array(numCircles);
 var b = new Uint32Array(numCircles);
 // let r = [190, 190, 190, 190, 190, 190, 190, 190];
-s = [190, 100, 100, 100, 190, 100, 100, 100];
-b = [255, 200, 100, 50, 190, 100, 100, 100];
+//s = [190, 100, 100, 100, 190, 100, 100, 100];
+//b = [255, 200, 100, 50, 190, 100, 100, 100];
 //colourThresh = 75;
 
 
