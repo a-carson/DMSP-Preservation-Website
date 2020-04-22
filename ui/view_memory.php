@@ -25,7 +25,7 @@
 -->
 <?php
 
-$memoriesJson = file_get_contents('../json/memories.json');
+$memoriesJson = file_get_contents('../../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);
 $array_length = count($memoriesArray);
 
@@ -51,24 +51,24 @@ $category = $memoriesArray[$index]["category"];
 <body id="body3">
 
   <div class="nav">
-    <a href="memory_list.html">
-      <img class="nav" src="img/button/close.png" style="width: 30px;" alt="" />
+    <a href="memory_list.php">
+      <img class="nav" src="../img/button/close.png" style="width: 30px;" alt="" />
     </a>
   </div>
 
   <div class="flex-center" style="width:100%">
-    <h1 class="memory-title">Your Memory</h1>
-    <h2>Hello,<span id="name"> Carla</span>!<br />Thanks for sharing your memory with me!</h2>
+    <h1 class="memory-title">View Memory</h1>
+    <h2>Memory #0<span id="name"><?php echo $index + 1 ?></span><br /></h2>
 
     <div id="sketch-holder">
       <!-- Our sketch will go here! -->
     </div>
-
+<!--
     <a href="choice.html">
       <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
         <div class="button-text-light" style="top:12px; color:white">Continue</div>
       </div>
-    </a>
+    </a>-->
   </div>
 </body>
 

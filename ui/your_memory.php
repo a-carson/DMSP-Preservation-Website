@@ -23,7 +23,7 @@
 
     <?php
 		// GET JSON
-		$memoriesJson = file_get_contents('../json/memories.json');
+		$memoriesJson = file_get_contents('../../json/memories.json');
 		$memoriesArray = json_decode($memoriesJson, true);
 
 		// GET FORM DATA
@@ -41,7 +41,7 @@
 
     // WRITE TO JSON
     $encodedArray = json_encode($memoriesArray);
-    file_put_contents('../json/memories.json', $encodedArray);
+    file_put_contents('../../json/memories.json', $encodedArray);
 
 		// RANDOM COLOUR GENERATION
 		$h = array_fill(0, 8, 0);
@@ -83,7 +83,7 @@
 			}
 
 		// GET COLOURS JSON
-		$coloursJson = file_get_contents('../json/colours.json');
+		$coloursJson = file_get_contents('../../json/colours.json');
 		$coloursArray = json_decode($coloursJson, true);
 
 		// APPEND TO ARRAY
@@ -92,7 +92,7 @@
 
 		// WRITE TO COLOURS JSON
 		$encodedArrayColours = json_encode($coloursArray);
-		file_put_contents('../json/colours.json', $encodedArrayColours);
+		file_put_contents('../../json/colours.json', $encodedArrayColours);
 
     function test_for_hackers($data)
     {
@@ -110,8 +110,8 @@
 		<body id="body3">
 
 		  <div class="nav">
-		    <a href="memory_list.html">
-		      <img class="nav" src="img/button/close.png" style="width: 30px;" alt="" />
+		    <a href="memory_list.php">
+		      <img class="nav" src="../img/button/close.png" style="width: 30px;" alt="" />
 		    </a>
 		  </div>
 

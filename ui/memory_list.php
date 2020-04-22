@@ -24,7 +24,7 @@
 
 function createElements($category)
 {
-  $memoriesJson = file_get_contents('../json/memories.json');
+  $memoriesJson = file_get_contents('../../json/memories.json');
   $memoriesArray = json_decode($memoriesJson, true);
   $array_length = count($memoriesArray);
 
