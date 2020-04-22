@@ -186,7 +186,7 @@ function createElements($category)
                 <div class="col-12 align-self-center" style="margin:50px 0 0 0">
                     <div class="svg-wrapper-light purple" style="width:100%; border: solid 5px var(--cpurple);">
                         <div class="button-text-light" style="top:5px; color:white">Add My
-                            Meomories</div>
+                            Memories</div>
                     </div>
                 </div>
             </div>

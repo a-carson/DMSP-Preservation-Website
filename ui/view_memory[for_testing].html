@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -20,40 +20,7 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
 
-    <?php
-		// GET JSON
-		$memoriesJson = file_get_contents('../json/memories.json');
-		$memoriesArray = json_decode($memoriesJson, true);
-
-		// GET FORM DATA
-    $name = test_for_hackers($_POST["name"]);
-    $category = test_for_hackers($_POST["category"]);
-    $memory = test_for_hackers($_POST["memory"]);
-
-    // ADD FORM DATA TO ARRAY
-    $newEntry = array(
-      "name" => $name,
-      "category" => $category,
-      "memory" => $memory,
-    );
-    $memoriesArray[] = $newEntry;
-
-    // WRITE TO JSON
-    $encodedArray = json_encode($memoriesArray);
-    file_put_contents('../json/memories.json', $encodedArray);
-
-
-    function test_for_hackers($data)
-    {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-			$data = str_replace("'", '', $data);
-			$data = str_replace('"', '', $data);
-      return $data;
-    }
-
-    ?>
+<!-- PHP CAN GO HERE -->
 
     <body id="body3">
 
@@ -61,7 +28,7 @@
     		<img src="../img/button/heading2.png" style="height: 600px; margin-top: 100px; margin-left: 20px;" alt="" />
     	</div>
 
-    	<button class="closeBtn" type="button"><a href="choice.html">
+    	<button class="closeBtn" id= "close" type="button"><a href="memory_list.php">
     			<img src="../img/button/close.png" style="width: 50px; background-color: transparent;" alt="" />
     		</a>
     	</button>
@@ -72,25 +39,9 @@
       </body>
 
 <script>
-var memory_data = '<?php echo json_encode($memory); ?>'
-var text = JSON.parse(memory_data);
-setInputText(text);
+setInputText("DMSP Preseration sdglakjdsrgnakrSrhzdrjzdtjz");
 play();
-
-var category_data = '<?php echo json_encode($category); ?>'
-var cat = JSON.parse(category_data);
-setRandomColoursByCategory(cat);
-
-var colours = [0, 0];
-
-for (var i = 0; i < 8; i++)
-{
-	colours[i] = getColours(i);
-}
-
-
-
-
+setRandomColoursByCategory("childhood");
 </script>
 
 

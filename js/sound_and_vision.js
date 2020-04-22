@@ -211,3 +211,8 @@ for (let j = 0; j < numCircles; j++)
     b[j] = getRndInteger(210, 360);
   }
 }
+
+function getColours(i)
+{
+  return h[i];
+}
