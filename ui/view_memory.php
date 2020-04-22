@@ -1,8 +1,9 @@
 <!doctype html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
-	<title>Distorted Memories</title>
+  <meta charset="UTF-8">
+  <title>Distorted Memories</title>
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +15,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://unpkg.com/tone"></script>
-<script type = "text/javascript" src = "../js/sound_and_vision.js"></script>
+<script type="text/javascript" src="../js/sound_and_vision.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
+<!--
+<link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
-
+-->
 <?php
 
 $memoriesJson = file_get_contents('../json/memories.json');
@@ -45,30 +48,38 @@ $category = $memoriesArray[$index]["category"];
 
 ?>
 
-    <body id="body3">
+<body id="body3">
 
-    	<div class="left_bar3">
-    		<img src="../img/button/heading2.png" style="height: 600px; margin-top: 100px; margin-left: 20px;" alt="" />
-    	</div>
+  <div class="nav">
+    <a href="memory_list.html">
+      <img class="nav" src="img/button/close.png" style="width: 30px;" alt="" />
+    </a>
+  </div>
 
-    	<button class="closeBtn" id= "close" type="button"><a href="memory_list.php">
-    			<img src="../img/button/close.png" style="width: 50px; background-color: transparent;" alt="" />
-    		</a>
-    	</button>
+  <div class="flex-center" style="width:100%">
+    <h1 class="memory-title">Your Memory</h1>
+    <h2>Hello,<span id="name"> Carla</span>!<br />Thanks for sharing your memory with me!</h2>
 
-    	<div id="sketch-holder">
-    		<!-- Our sketch will go here! -->
-    	</div>
-      </body>
+    <div id="sketch-holder">
+      <!-- Our sketch will go here! -->
+    </div>
+
+    <a href="choice.html">
+      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
+        <div class="button-text-light" style="top:12px; color:white">Continue</div>
+      </div>
+    </a>
+  </div>
+</body>
 
 <script>
-var memory_data = '<?php echo json_encode($memory); ?>';
-var text = JSON.parse(memory_data);
-setInputText(text);
-play();
-var category_data = '<?php echo json_encode($category); ?>'
-var cat = JSON.parse(category_data);
-setRandomColoursByCategory(cat);
+  var memory_data = '<?php echo json_encode($memory); ?>';
+  var text = JSON.parse(memory_data);
+  setInputText(text);
+  play();
+  var category_data = '<?php echo json_encode($category); ?>'
+  var cat = JSON.parse(category_data);
+  setRandomColoursByCategory(cat);
 </script>
 
 
