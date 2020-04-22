@@ -129,7 +129,7 @@ function createElements($category)
                         <svg style=" height:60px; width: 200px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light green" style="height:60px; width:200px;" stroke="#ffffff90" />
                         </svg>
-                        <div class="button-text-light">Others</div>
+                        <div class="button-text-light">Other</div>
                     </div>
                 </a>
             </div>
