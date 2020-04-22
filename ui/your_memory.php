@@ -55,21 +55,30 @@
 
     ?>
 
-    <body id="body3">
+		<body id="body3">
 
-    	<div class="left_bar3">
-    		<img src="../img/button/heading2.png" style="height: 600px; margin-top: 100px; margin-left: 20px;" alt="" />
-    	</div>
+		  <div class="nav">
+		    <a href="memory_list.html">
+		      <img class="nav" src="img/button/close.png" style="width: 30px;" alt="" />
+		    </a>
+		  </div>
 
-    	<button class="closeBtn" type="button"><a href="choice.html">
-    			<img src="../img/button/close.png" style="width: 50px; background-color: transparent;" alt="" />
-    		</a>
-    	</button>
+		  <div class="flex-center" style="width:100%">
+		    <h1 class="memory-title">Your Memory</h1>
+		    <h2>Hello,<span id="name"> Carla</span>!<br />Thanks for sharing your memory with me!</h2>
+		    <br>
+		    <br>
+		    <div id="sketch-holder">
+		      <!-- Our sketch will go here! -->
+		    </div>
 
-    	<div id="sketch-holder">
-    		<!-- Our sketch will go here! -->
-    	</div>
-      </body>
+		    <a href="choice.html">
+		      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
+		        <div class="button-text-light" style="top:12px; color:white">Continue</div>
+		      </div>
+		    </a>
+		  </div>
+		</body>
 
 <script>
 var memory_data = '<?php echo json_encode($memory); ?>'

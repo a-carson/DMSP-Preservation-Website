@@ -101,9 +101,32 @@ var b = new Uint32Array(numCircles);
 // let b = [255, 200, 100, 50, 190, 100, 100, 100];
 //colourThresh = 75;
 
+
+// let sketch = function(p)
+// {
+//   p.setup = function()
+//   {
+//     let cnv = p.createCanvas(800, 600);
+//     noSmooth();
+//     colorMode(HSB, 360);
+//     console.log("setup success");
+//   }
+//
+//   p.draw = function()
+//   {
+//   p.background(frameCount % 360, 360, 43);
+//   push();
+//   pop();
+//   sound();
+//   drawWaveform();
+//   }
+// }
+
+
 function setup()
 {
-  let cnv = createCanvas(800, 600);
+  let cnv = createCanvas(600, 600);
+  cnv.parent('sketch-holder');
   noSmooth();
   colorMode(HSB, 360);
   console.log("setup success");
@@ -117,6 +140,7 @@ pop();
 sound();
 drawWaveform();
 }
+
 
 function drawWaveform()
 {
