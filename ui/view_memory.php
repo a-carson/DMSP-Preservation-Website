@@ -17,22 +17,33 @@
 <script type = "text/javascript" src = "../js/sound_and_vision.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
-<!--
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
--->
-    <?php
-    // get json
-    $memoriesJson = file_get_contents('../json/memories.json');
-    // Convert JSON string to Array
-    $memoriesArray = json_decode($memoriesJson, true);
-    // append new entry
-    $test = isset($_POST["submit"]);
-    //$number = $_POST["submit"];
-    echo $test;
-    $memory = $memoriesArray[0]["memory"];
-    $category = $memoriesArray[0]["category"];
-    ?>
+
+<?php
+
+$memoriesJson = file_get_contents('../json/memories.json');
+$memoriesArray = json_decode($memoriesJson, true);
+$array_length = count($memoriesArray);
+
+// FIND WHICH BUTTON WAS CLICKED
+for ($i = 0; $i < $array_length; $i++)
+{
+		$submit_name = "submit_";
+		$submit_name .= strval($i);
+		//echo $submit_name;
+		$check = isset($_GET[$submit_name]);
+
+		if ($check == 1)
+				$index = $i;
+}
+
+// GET CORRESPONDING MEMORY
+$name = $memoriesArray[$index]["name"];
+$memory = $memoriesArray[$index]["memory"];
+$category = $memoriesArray[$index]["category"];
+
+?>
 
     <body id="body3">
 
@@ -40,7 +51,7 @@
     		<img src="../img/button/heading2.png" style="height: 600px; margin-top: 100px; margin-left: 20px;" alt="" />
     	</div>
 
-    	<button class="closeBtn" type="button"><a href="choice.html">
+    	<button class="closeBtn" id= "close" type="button"><a href="memory_list.php">
     			<img src="../img/button/close.png" style="width: 50px; background-color: transparent;" alt="" />
     		</a>
     	</button>
@@ -51,14 +62,13 @@
       </body>
 
 <script>
-var memory_data = '<?php echo json_encode($memory); ?>'
+var memory_data = '<?php echo json_encode($memory); ?>';
 var text = JSON.parse(memory_data);
 setInputText(text);
 play();
 var category_data = '<?php echo json_encode($category); ?>'
 var cat = JSON.parse(category_data);
 setRandomColoursByCategory(cat);
-
 </script>
 
 

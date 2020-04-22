@@ -54,6 +54,7 @@ function createElements($category)
     if ($memoriesArray[$i]["category"] == $category)
     {
       echo '<button type = "submit"';
+      echo '        name ="submit_'; echo $i; echo '"';
       echo '        class='; echo $class;
       echo '        id='; echo $category; echo'>';
       echo '      <img src='; echo $img;
