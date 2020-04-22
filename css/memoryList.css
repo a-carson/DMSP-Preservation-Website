@@ -1,0 +1,267 @@
+/* CSS Document */
+:root {
+  --main-color: white;
+  --cpurple: #8d6be2;
+  --cyellow: #ffff66;
+  --cpink: #fbadd4;
+  --ccyan: #01ffc3;
+  --cgreen: #96fdde;
+  --cblue: #85c8ff;
+
+  --lyellow: #ffff66c4;
+  --lpink: #fbadd4c4;
+  --lcyan: #01ffc3c4;
+  --lgreen: #96fddec4;
+  --lblue: #85c8ffc4;
+}
+
+.memory-list {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  overflow: hidden;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-bg {
+  height: 120%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  text-align: center;
+  background-image: url("../img/bg/bg-grid.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+span {
+  font-size: 2.5em;
+}
+
+h1 {
+  font-size: 3em !important;
+  margin: 0 20px !important;
+  color: #fff !important;
+  font-family: "Orbitron", sans-serif !important;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
+}
+
+.main {
+  margin: 20px 50px 50px 50px;
+}
+
+.button-hamburger {
+  background-color: transparent;
+  backface-visibility: hidden;
+  border: transparent;
+  float: right;
+}
+
+.button-memory {
+  text-align: left;
+  display: inline-block;
+  margin: 20px 0 0 0;
+  width: 100%;
+  cursor: pointer;
+  border: 5px solid #ffffffbb;
+  box-shadow: inset 0 0 5px var(--cpurple), inset 0 0 50px var(--cpurple),
+    inset 0 0 10px var(--cpurple), 0 0 10px var(--cpurple),
+    0 0 1px var(--cpurple), 0 0 20px var(--cpurple);
+  background: transparent;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+}
+
+.button-memory:hover {
+  border: 5px solid #ffffff;
+}
+
+.content-container {
+  border: 5px solid white;
+  width: 100%;
+  height: 100%;
+}
+
+.center {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-link {
+  width: 200px;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.hamburger {
+  width: 100%;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+}
+
+.tab-pane {
+  padding: 0;
+}
+
+.CD-description {
+  display: inline-block;
+  position: absolute;
+  padding-top: 24px;
+}
+
+.svg-wrapper-light {
+  opacity: 0.8;
+  text-decoration: none;
+  height: 60px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  cursor: pointer;
+  box-shadow: inset 0 0 5px var(--cpurple), inset 0 0 50px var(--cpurple),
+    inset 0 0 10px var(--cpurple), 0 0 10px var(--cpurple),
+    0 0 1px var(--cpurple), 0 0 20px var(--cpurple);
+  background: transparent;
+  transition: all ease-in-out 0.1s, transform ease-in-out 0.05s;
+}
+
+.svg-wrapper-light:hover {
+  opacity: 1;
+}
+
+.pink {
+  box-shadow: inset 0 0 0px var(--lpink), inset 0 0 20px var(--lpink),
+    inset 0 0 20px var(--lpink), 0 0 0px var(--lpink), 0 0 1px var(--lpink),
+    0 0 20px var(--lpink);
+  /* box-shadow: none; */
+  opacity: 0.9;
+  stroke: var(--cpink);
+}
+
+.yellow {
+  box-shadow: inset 0 0 0px var(--lyellow), inset 0 0 20px var(--lyellow),
+    inset 0 0 20px var(--lyellow), 0 0 0px var(--lyellow),
+    0 0 1px var(--lyellow), 0 0 20px var(--lyellow);
+  /* box-shadow: none; */
+  opacity: 0.9;
+  stroke: var(--cyellow);
+}
+
+.blue {
+  box-shadow: inset 0 0 0px var(--lblue), inset 0 0 20px var(--lblue),
+    inset 0 0 20px var(--lblue), 0 0 0px var(--lblue), 0 0 1px var(--lblue),
+    0 0 20px var(--lblue);
+  /* box-shadow: none; */
+  opacity: 0.9;
+  stroke: var(--cblue);
+}
+
+.cyan {
+  box-shadow: inset 0 0 0px var(--lcyan), inset 0 0 20px var(--lcyan),
+    inset 0 0 20px var(--lcyan), 0 0 0px var(--lcyan), 0 0 1px var(--lcyan),
+    0 0 20px var(--lcyan);
+  /* box-shadow: none; */
+  opacity: 0.9;
+  stroke: var(--ccyan);
+}
+
+.green {
+  box-shadow: inset 0 0 0px var(--lgreen), inset 0 0 20px var(--lgreen),
+    inset 0 0 20px var(--lgreen), 0 0 0px var(--lgreen), 0 0 1px var(--lgreen),
+    0 0 20px var(--lgreen);
+  /* box-shadow: none; */
+  opacity: 0.9;
+  stroke: var(--ccyan);
+}
+
+.pink:hover,
+.yellow:hover,
+.blue:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.shape-light {
+  fill: transparent;
+  stroke-width: 10px;
+  stroke-dasharray: 215 20 240 20;
+}
+
+.button-text-light {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5em;
+  font-weight: 800;
+  color: #fff;
+  top: -48px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+}
+
+.svg-wrapper:hover,
+.svg-wrapper:focus {
+  text-decoration: none;
+  color: var(--purple);
+  background: #dacbffa1;
+  color: var(--purple);
+  box-shadow: 0 0 50px var(--purple), 0 0 100px var(--purple),
+    0 0 200px var(--purple);
+  text-shadow: 0 0 5px var(--purple);
+}
+
+.number {
+  font-family: "brynda1231-sans", sans-serif;
+}
+
+.fixed-bottom {
+  height: 100px;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 0px;
+  left: 0;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #bdbdbd;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: var(--cpurple);
+}
