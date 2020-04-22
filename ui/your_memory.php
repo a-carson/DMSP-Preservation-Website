@@ -43,6 +43,24 @@
     $encodedArray = json_encode($memoriesArray);
     file_put_contents('../json/memories.json', $encodedArray);
 
+		// RANDOM COLOUR GENERATION
+		$h = array_fill(0, 8, 0);
+		$s = array_fill(0, 8, 0);
+		$b = array_fill(0, 8, 0);
+		generateRandomColours();
+
+		$newColourEntry = array(
+			"h" => $h,
+			"s" => $s,
+			"b" => $b,
+		);
+
+		$coloursJson = file_get_contents('../json/colours.json');
+		$coloursArray = json_decode($coloursJson, true);
+		$coloursArray[] = $newColourEntry;
+
+		$encodedArrayColours = json_encode($coloursArray);
+		file_put_contents('../json/colours.json', $encodedArrayColours);
 
     function test_for_hackers($data)
     {
@@ -53,6 +71,51 @@
 			$data = str_replace('"', '', $data);
       return $data;
     }
+
+		function generateRandomColours()
+		{
+			$offset;
+			$range = 90;
+
+			if ($category == 'travel')
+				{
+					// yellow
+					$offset = 0;
+					$range = 90;
+				}
+
+			if ($category == 'others')
+				{
+					// green
+					$offset = 90;
+					$range = 90;
+				}
+
+			if ($category == 'student-life')
+				{
+					// blue
+					$offset = 180;
+					$range = 90;
+				}
+
+			if ($category == 'childhood')
+				{
+					// pink
+					$offset = 270;
+					$range = 90;
+				}
+
+		for ($j = 0; $j < 8; $j++)
+			{
+				$h[$j] = $offset + rand(0, $range);
+				$s[$j] = rand(70, 360);
+				$b[$j] = rand(210, 360);
+				echo $s[$j];
+				echo ' ';
+			}
+
+
+		}
 
     ?>
 
