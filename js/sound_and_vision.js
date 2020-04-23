@@ -19,18 +19,21 @@ var synthB;
 const blockSize = 1024;
 var master = Tone.Master;
 let waveform = new Tone.Waveform(blockSize);
+let delay = new Tone.FeedbackDelay(Tone.Time('8n'));
+let vol = new Tone.Volume(-32);
+let phaser = new Tone.Phaser({"frequency" : 0.1});
+
 
 synthA = new Tone.Synth();
 synthA.oscillator.type = 'triangle';
-synthA.chain(waveform, master);
+synthA.chain(waveform, vol, phaser, master);
 synthB = new Tone.Synth();
 synthB.oscillator.type = 'triangle';
-synthB.chain(waveform, master);
+synthB.chain(waveform, vol, phaser, master);
 
 Tone.Transport.loopEnd = dur;
 Tone.Transport.loop = true;
 
-var delay = new Tone.FeedbackDelay(Tone.Time('8n'));
 
 
 

@@ -132,7 +132,7 @@
 		    </a>
 		  </div>
 		</body>
-
+		
 <script>
 var memory_data = '<?php echo json_encode($memory); ?>'
 var text = JSON.parse(memory_data);
