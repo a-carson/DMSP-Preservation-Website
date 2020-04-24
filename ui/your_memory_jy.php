@@ -17,12 +17,12 @@
 <script type = "text/javascript" src = "../js/sound_and_vision.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
+
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
 
-    <?php
-		session_start();
 
+    <?php
 		// GET JSON
 		$memoriesJson = file_get_contents('../../json/memories.json');
 		$memoriesArray = json_decode($memoriesJson, true);
@@ -31,12 +31,6 @@
     $name = test_for_hackers($_POST["name"]);
     $category = test_for_hackers($_POST["category"]);
     $memory = test_for_hackers($_POST["memory"]);
-
-		// UPDATE SESSION
-		$_SESSION["name"] = $name;
-		$_SESSION["category"] = $category;
-		$_SESSION["memory"] = $memory;
-		$_SESSION["index"] = count($memoriesArray);
 
     // ADD FORM DATA TO ARRAY
     $newEntry = array(
@@ -132,23 +126,12 @@
 					style = "width 50%; height 50%">-->
 		    </div>
 
-
-		    <a href="choice.php">
+		    <a href="choice_jy.html">
 		      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
-		        <div class="button-text-light" style="top:12px; color:white">Continue</div>
+		        <div class="button-text-light" onclick="window.location.href = 'choice_jy.html'" style="top:12px; color:white">Continue</div>
 		      </div>
-				</a>
-
-<!--
-					<form action = "choice.html" method = "post">
-						<button type="submit" name = "submit" class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
-									<div class="button-text-light" style="top:0.1px; color:white">Next</div>
-						</button>
-					</form>-->
-
-
+		    </a>
 		  </div>
-
 		</body>
 
 <script>
