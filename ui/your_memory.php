@@ -38,18 +38,6 @@
 		$_SESSION["memory"] = $memory;
 		$_SESSION["index"] = count($memoriesArray);
 
-    // ADD FORM DATA TO ARRAY
-    $newEntry = array(
-      "name" => $name,
-      "category" => $category,
-      "memory" => $memory,
-    );
-    $memoriesArray[] = $newEntry;
-
-    // WRITE TO JSON
-    $encodedArray = json_encode($memoriesArray);
-    file_put_contents('../../json/memories.json', $encodedArray);
-
 		// RANDOM COLOUR GENERATION
 		$h = array_fill(0, 8, 0);
 		$s = array_fill(0, 8, 0);
@@ -133,7 +121,7 @@
 		    </div>
 
 
-		    <a href="choice.php">
+		    <a href="choice.html">
 		      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
 		        <div class="button-text-light" style="top:12px; color:white">Continue</div>
 		      </div>

@@ -10,12 +10,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!-- animate -->
-
+<!--
 <link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/choice.css">
+<link rel="stylesheet" href="../css/choice.css">-->
 
 <?php
 session_start();
+echo $_SESSION["memory"];
 ?>
 <body id="body3">
 	<div>
@@ -30,7 +31,7 @@ session_start();
 				<img src="../img/heading/heading.png" class="center" style="width: 600px;top:15%" alt="Memory Booth" />
 
 				<h1 id = "text" class="center" style="top:40%">Would you like me to preserve your memory?</h1>
-				
+
 				<div class="button-container" style="padding:400px 0 0 0">
 					<a href="choice_childhood.html">
 						<div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">

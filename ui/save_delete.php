@@ -11,9 +11,9 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!--
+
 <link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/choice.css">-->
+<link rel="stylesheet" href="../css/choice.css">
 
 <?php
 session_start();
@@ -29,29 +29,43 @@ $delete_gif_string = "../img/gif/delete-gif/";
 $delete_gif_string.= $category;
 $delete_gif_string.= "-delete.gif";
 
-
-if (isset($_POST["save"]) == 1);
+$message = '';
+if (isset($_POST["submit"]))
 {
 
-  $memoriesJson = file_get_contents('../../json/memories.json');
-  $memoriesArray = json_decode($memoriesJson, true);
+    $memoriesJson = file_get_contents('../../json/memories.json');
+    $memoriesArray = json_decode($memoriesJson, true);
 
-  // ADD FORM DATA TO ARRAY
-  $newEntry = array(
-    "name" => $_SESSION["name"],
-    "category" => $_SESSION["category"],
-    "memory" => $_SESSION["memory"],
-  );
-  $memoriesArray[] = $newEntry;
+    // ADD FORM DATA TO ARRAY
+    $newEntry = array(
+      "name" => $_SESSION["name"],
+      "category" => $_SESSION["category"],
+      "memory" => $_SESSION["memory"],
+    );
+    $memoriesArray[] = $newEntry;
 
-  // WRITE TO JSON
-  $encodedArray = json_encode($memoriesArray);
-  file_put_contents('../../json/memories.json', $encodedArray);
-  //echo "playSaveGif()";
-  echo "hi";
-  //echo "playSaveGif()";
+    // WRITE TO JSON
+    $encodedArray = json_encode($memoriesArray);
+    file_put_contents('../../json/memories.json', $encodedArray);
+    $message = 'Save successful';
+
 
 }
+function playSaveGif()
+{
+  if (isset($_POST["submit"]))
+  {
+    $save_gif_string = "../img/gif/save-gif/";
+    $save_gif_string.= $_SESSION["category"];
+    $save_gif_string.= ".gif";
+    //echo "play gif";
+    echo "<img id = 'save-gif' src =";
+    echo  $save_gif_string;
+    echo "style='width: 400px;' />";
+  }
+}
+
+
  ?>
 
 <body id="body3">
@@ -68,14 +82,15 @@ if (isset($_POST["save"]) == 1);
         <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
 
         <div class="gif-container center">
-            <img id = "save-gif" src = '<?php echo $save_gif_string ?>' style="width: 400px;" />
+            <?php playSaveGif() ?>
+            <!--<img id = "save-gif" src = '<?php echo $save_gif_string ?>' style="width: 400px;" />
             <img id = "delete-gif" src = '<?php echo $delete_gif_string ?>' style="width: 400px;" />
-            <h1 id = "save-memory-text" class="center" style="top:40%">Would you like me to preserve your memory, <?php echo $name;?>?</h1>
+            <h1 id = "save-memory-text" class="center" style="top:40%">Would you like me to preserve your memory, <?php echo $name;?>?</h1>-->
         </div>
 
-        <form method = "post"  onsubmit="<?php save() ?>">
+        <form  action = "" method = "post">
         <div class="button-container">
-          <button type = submit name = "save" id = "save-button" onclick = "playSaveGif()" class="svg-wrapper-light cyan choice-button" style="border: solid 5px var(--ccyan);">
+          <button type = submit name = "submit" id = "save-button" class="svg-wrapper-light cyan choice-button" style="border: solid 5px var(--ccyan);">
                 <div class="button-text-light" style="top:0px; color:white">
                     Save</div>
           </button>
