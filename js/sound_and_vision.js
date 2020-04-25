@@ -4,7 +4,7 @@
 
 
 // VARIABLES -------------------------------------------------------------------
-var text = '';
+var memory= '';
 var textLength;
 var midi = [0, 0];
 var freqs = [0, 0];
@@ -19,25 +19,28 @@ var synthB;
 const blockSize = 1024;
 var master = Tone.Master;
 let waveform = new Tone.Waveform(blockSize);
+let delay = new Tone.FeedbackDelay(Tone.Time('8n'));
+let vol = new Tone.Volume(-32);
+let phaser = new Tone.Phaser({"frequency" : 0.1});
+
 
 synthA = new Tone.Synth();
 synthA.oscillator.type = 'triangle';
-synthA.chain(waveform, master);
+synthA.chain(waveform, vol, phaser, master);
 synthB = new Tone.Synth();
 synthB.oscillator.type = 'triangle';
-synthB.chain(waveform, master);
+synthB.chain(waveform, vol, phaser, master);
 
 Tone.Transport.loopEnd = dur;
 Tone.Transport.loop = true;
 
-var delay = new Tone.FeedbackDelay(Tone.Time('8n'));
 
 
 
 // TEXT TO CODE -------------------------- -------------------------------------
 function setInputText(string)
 {
-  text = string;
+  memory= string;
   textLength = text.length;
   dur = textLength/2;
   for (var j = 0; j < textLength; j++)
@@ -70,7 +73,7 @@ function sound()
     synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
     // output text characters
     var letter = String.fromCharCode(midi[i]);
-    console.log(letter);
+    chars = letter;
     i++;
   }
 
@@ -96,12 +99,6 @@ var strokes = new Uint32Array(numCircles);
 var h = new Uint32Array(numCircles);
 var s = new Uint32Array(numCircles);
 var b = new Uint32Array(numCircles);
-// let r = [190, 190, 190, 190, 190, 190, 190, 190];
-//s = [190, 100, 100, 100, 190, 100, 100, 100];
-//b = [255, 200, 100, 50, 190, 100, 100, 100];
-//colourThresh = 75;
-
-
 
 
 function setup()
@@ -110,7 +107,7 @@ function setup()
   cnv.parent('sketch-holder');
   noSmooth();
   colorMode(HSB, 360);
-  console.log("setup success");
+  //console.log("setup success");
 }
 
 function draw()
@@ -204,9 +201,4 @@ for (let j = 0; j < numCircles; j++)
     s[j] = getRndInteger(70, 360);
     b[j] = getRndInteger(210, 360);
   }
-}
-
-function getColours(i)
-{
-  return h[i];
 }

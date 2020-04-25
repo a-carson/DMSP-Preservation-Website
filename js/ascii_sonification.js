@@ -19,9 +19,7 @@ var hpf = new Tone.Filter(100, "highpass", -48);
 var lpf = new Tone.Filter(5000, "lowpass", -48);
 
 // Phaser
-var phaser = new Tone.Phaser({
-	"frequency" : 0.1,
-});
+var phaser = new Tone.Phaser({"frequency" : 0.1});
 
 
 

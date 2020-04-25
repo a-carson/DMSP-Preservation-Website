@@ -17,11 +17,12 @@
 <script type = "text/javascript" src = "../js/sound_and_vision.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
-
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/style_old.css">
 
     <?php
+		session_start();
+
 		// GET JSON
 		$memoriesJson = file_get_contents('../../json/memories.json');
 		$memoriesArray = json_decode($memoriesJson, true);
@@ -31,17 +32,11 @@
     $category = test_for_hackers($_POST["category"]);
     $memory = test_for_hackers($_POST["memory"]);
 
-    // ADD FORM DATA TO ARRAY
-    $newEntry = array(
-      "name" => $name,
-      "category" => $category,
-      "memory" => $memory,
-    );
-    $memoriesArray[] = $newEntry;
-
-    // WRITE TO JSON
-    $encodedArray = json_encode($memoriesArray);
-    file_put_contents('../../json/memories.json', $encodedArray);
+		// UPDATE SESSION
+		$_SESSION["name"] = $name;
+		$_SESSION["category"] = $category;
+		$_SESSION["memory"] = $memory;
+		$_SESSION["index"] = count($memoriesArray);
 
 		// RANDOM COLOUR GENERATION
 		$h = array_fill(0, 8, 0);
@@ -82,17 +77,10 @@
 					$b[$j] = rand(210, 360);
 			}
 
-		// GET COLOURS JSON
-		$coloursJson = file_get_contents('../../json/colours.json');
-		$coloursArray = json_decode($coloursJson, true);
-
-		// APPEND TO ARRAY
-		$newColourEntry = array("h" => $h,"s" => $s,"b" => $b);
-		$coloursArray[] = $newColourEntry;
-
-		// WRITE TO COLOURS JSON
-		$encodedArrayColours = json_encode($coloursArray);
-		file_put_contents('../../json/colours.json', $encodedArrayColours);
+		// ADD TO SESSION
+		$_SESSION["h"] = $h;
+		$_SESSION["s"] = $s;
+		$_SESSION["b"] = $b;
 
     function test_for_hackers($data)
     {
@@ -103,7 +91,6 @@
 			$data = str_replace('"', '', $data);
       return $data;
     }
-
 
     ?>
 
@@ -119,29 +106,35 @@
 		    <h1 class="memory-title">Your Memory</h1>
 		    <h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me!</h2>
 
-				<div id="sketch-holder">
-					<!--
-		      <canvas id="sketch-holder" class = "p5Canvas" width = "1200" height = "1200"
-					style = "width 50%; height 50%">-->
-		    </div>
+				<div id="sketch-holder"> </div>
 
 		    <a href="choice.html">
 		      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
 		        <div class="button-text-light" style="top:12px; color:white">Continue</div>
 		      </div>
-		    </a>
+				</a>
+
 		  </div>
+
 		</body>
 
 <script>
 var memory_data = '<?php echo json_encode($memory); ?>'
 var text = JSON.parse(memory_data);
 setInputText(text);
+setColours();
 play();
 
-var category_data = '<?php echo json_encode($category); ?>'
-var cat = JSON.parse(category_data);
-setRandomColoursByCategory(cat);
+function setColours()
+{
+	h = JSON.parse('<?php echo json_encode($h); ?>');
+	s = JSON.parse('<?php echo json_encode($s); ?>');
+	b = JSON.parse('<?php echo json_encode($b); ?>');
+	for (var i = 0; i < 8; i++)
+	{
+		strokes[i] = 3 - 0.3*i;
+	}
+}
 </script>
 
 
