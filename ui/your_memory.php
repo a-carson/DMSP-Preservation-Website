@@ -36,6 +36,7 @@
 		$_SESSION["name"] = $name;
 		$_SESSION["category"] = $category;
 		$_SESSION["memory"] = $memory;
+		$_SESSION["index"] = count($memoriesArray);
 
 		// RANDOM COLOUR GENERATION
 		$h = array_fill(0, 8, 0);

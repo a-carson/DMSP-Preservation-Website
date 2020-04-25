@@ -47,14 +47,19 @@ file_put_contents('../../json/memories.json', $encodedArray);
             <img src="../img/heading/heading.png" class="center" style="width: 600px; padding-top:100px"
                 alt="Memory Booth" />
         </div>
+
         <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
 
         <div class="gif-container center">
             <img id = "save-gif" src = '<?php echo $save_gif_string ?>' style="width: 400px;" />
         </div>
 
+        <div>
+            <h1 class="center" style="top:40%">Save successful.</h1>
+        </div>
+
         <div class="button-container">
-            <a id = "memory-link" href = "memory_list.php">
+            <a id = "memory-link" href = "view_memory.php">
               <div class="svg-wrapper-light cyan choice-button" style="border: solid 5px var(--ccyan);">
                   <div class="button-text-light" style="top:5px; color:white">
                       View Memory</div>

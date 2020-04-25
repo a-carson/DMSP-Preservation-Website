@@ -26,6 +26,9 @@
 <link rel="stylesheet" href="../css/style_old.css">
 -->
 <?php
+session_start();
+$index = $_SESSION["index"];
+session_destroy();
 
 $memoriesJson = file_get_contents('../../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);

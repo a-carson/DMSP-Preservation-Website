@@ -18,6 +18,7 @@ session_start();
 $delete_gif_string = "../img/gif/delete-gif/";
 $delete_gif_string.= $_SESSION["category"];
 $delete_gif_string.= "-delete.gif";
+session_destroy();
 ?>
 
 <body id="body3">
@@ -36,14 +37,12 @@ $delete_gif_string.= "-delete.gif";
         <div class="gif-container center">
           <img id = "delete-gif" src = '<?php echo $delete_gif_string ?>' style="width: 400px;" />
         </div>
-        
+
+        <div>
+            <h1 class="center" style="top:40%">Memory deleted.</h1>
+        </div>
+
         <div class="button-container">
-            <a id = "memory-link" href = "memory_list.php">
-              <div class="svg-wrapper-light cyan choice-button" style="border: solid 5px var(--ccyan);">
-                  <div class="button-text-light" style="top:5px; color:white">
-                      View Memory</div>
-              </div>
-            <a>
 
             <a id = "home-link" href = "memory_list.php">
               <div class="svg-wrapper-light choice-button" style="border: solid 5px var(--cpurple);">
@@ -56,4 +55,7 @@ $delete_gif_string.= "-delete.gif";
 
 </body>
 
+<script>
+
+</script>
 </html>
