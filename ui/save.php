@@ -20,6 +20,7 @@ $save_gif_string = "../img/gif/save-gif/";
 $save_gif_string.= $_SESSION["category"];
 $save_gif_string.= ".gif";
 
+// GET MEMORY JSON
 $memoriesJson = file_get_contents('../../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);
 
@@ -28,12 +29,16 @@ $newEntry = array(
   "name" => $_SESSION["name"],
   "category" => $_SESSION["category"],
   "memory" => $_SESSION["memory"],
+  "h" => $_SESSION["h"],
+  "s" => $_SESSION["s"],
+  "b" => $_SESSION["b"],
 );
 $memoriesArray[] = $newEntry;
 
 // WRITE TO JSON
 $encodedArray = json_encode($memoriesArray);
 file_put_contents('../../json/memories.json', $encodedArray);
+
 ?>
 
 <body id="body3">

@@ -50,7 +50,9 @@ for ($i = 0; $i < $array_length; $i++)
 $name = $memoriesArray[$index]["name"];
 $memory = $memoriesArray[$index]["memory"];
 $category = $memoriesArray[$index]["category"];
-
+$h = $memoriesArray[$index]["h"];
+$s = $memoriesArray[$index]["s"];
+$b = $memoriesArray[$index]["b"];
 ?>
 
 <body id="body3">
@@ -91,10 +93,19 @@ $category = $memoriesArray[$index]["category"];
   var memory_data = '<?php echo json_encode($memory); ?>';
   var text = JSON.parse(memory_data);
   setInputText(text);
+  setColours();
   play();
-  var category_data = '<?php echo json_encode($category); ?>'
-  var cat = JSON.parse(category_data);
-  setRandomColoursByCategory(cat);
+
+  function setColours()
+  {
+    h = JSON.parse('<?php echo json_encode($h); ?>');
+    s = JSON.parse('<?php echo json_encode($s); ?>');
+    b = JSON.parse('<?php echo json_encode($b); ?>');
+  	for (var i = 0; i < 8; i++)
+  	{
+  	  strokes[i] = 3 - 0.3*i;
+  	}
+  }
 
   "use strict";
 	//ONLOAD

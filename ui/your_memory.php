@@ -77,17 +77,10 @@
 					$b[$j] = rand(210, 360);
 			}
 
-		// GET COLOURS JSON
-		$coloursJson = file_get_contents('../../json/colours.json');
-		$coloursArray = json_decode($coloursJson, true);
-
-		// APPEND TO ARRAY
-		$newColourEntry = array("h" => $h,"s" => $s,"b" => $b);
-		$coloursArray[] = $newColourEntry;
-
-		// WRITE TO COLOURS JSON
-		$encodedArrayColours = json_encode($coloursArray);
-		file_put_contents('../../json/colours.json', $encodedArrayColours);
+		// ADD TO SESSION
+		$_SESSION["h"] = $h;
+		$_SESSION["s"] = $s;
+		$_SESSION["b"] = $b;
 
     function test_for_hackers($data)
     {
@@ -98,7 +91,6 @@
 			$data = str_replace('"', '', $data);
       return $data;
     }
-
 
     ?>
 
@@ -114,26 +106,13 @@
 		    <h1 class="memory-title">Your Memory</h1>
 		    <h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me!</h2>
 
-				<div id="sketch-holder">
-					<!--
-		      <canvas id="sketch-holder" class = "p5Canvas" width = "1200" height = "1200"
-					style = "width 50%; height 50%">-->
-		    </div>
-
+				<div id="sketch-holder"> </div>
 
 		    <a href="choice.html">
 		      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
 		        <div class="button-text-light" style="top:12px; color:white">Continue</div>
 		      </div>
 				</a>
-
-<!--
-					<form action = "choice.html" method = "post">
-						<button type="submit" name = "submit" class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
-									<div class="button-text-light" style="top:0.1px; color:white">Next</div>
-						</button>
-					</form>-->
-
 
 		  </div>
 
@@ -143,11 +122,19 @@
 var memory_data = '<?php echo json_encode($memory); ?>'
 var text = JSON.parse(memory_data);
 setInputText(text);
+setColours();
 play();
 
-var category_data = '<?php echo json_encode($category); ?>'
-var cat = JSON.parse(category_data);
-setRandomColoursByCategory(cat);
+function setColours()
+{
+	h = JSON.parse('<?php echo json_encode($h); ?>');
+	s = JSON.parse('<?php echo json_encode($s); ?>');
+	b = JSON.parse('<?php echo json_encode($b); ?>');
+	for (var i = 0; i < 8; i++)
+	{
+		strokes[i] = 3 - 0.3*i;
+	}
+}
 </script>
 
 
