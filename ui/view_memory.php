@@ -21,10 +21,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel="stylesheet" href="../css/style.css">
-<!--
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/style_old.css">
--->
+
+
 <?php
 session_start();
 $index = $_SESSION["index"];
@@ -78,6 +76,7 @@ $b = $memoriesArray[$index]["b"];
 						<?php echo $memory?>
 					</p>
 				</div>
+
 
 				<h3 style="display: inline-block;">Category:</h3>
 				<span class="view-memory" id="category"><?php echo $category ?></span>
