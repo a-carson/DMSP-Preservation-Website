@@ -114,6 +114,15 @@
 					document.getElementById("memory_error").innerHTML = "Please enter your memory!";
 					return false;
 			}
+			else
+			{
+				jumpToStart();
+			}
+			}
+
+			function jumpToStart() {
+				window.location.href = 'your_memory.php';
+				localStorage.setItem('type', $("input[name='category']:checked").val())
 
 			}
 
