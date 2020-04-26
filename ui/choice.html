@@ -9,51 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/choice.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/choice.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 <body id="body3">
-	<div>
-		<div class="nav">
-			<a href="menu.html">
-				<img class="nav" src="../img/button/close.png" style="width: 30px;" alt="" />
-			</a>
-		</div>
-		<div class="row align-items-center justify-content-center choice-container">
-			<div class="col-sm-12" style="text-align: center;">
-				<img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
-				<img src="../img/heading/heading.png" class="center" style="width: 600px;top:15%" alt="Memory Booth" />
-
-				<h1 class="center" style="top:40%">Would you like me to preserve your memory?</h1>
-				<div class="button-container" style="padding:400px 0 0 0">
-					<a href="save.php">
-						<div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
-							<div class="button-text-light" style="top:5px; color:white">
-								YES</div>
-						</div>
-					</a>
-
-					<a href="delete.html">
-						<div class="svg-wrapper-light cyan choice-button-wide" style="border: solid 5px var(--ccyan);">
-							<div class="button-text-light" style="top:5px; color:white">
-								NO</div>
-						</div>
-					</a>
-
-					<!--
-					<a href="choice_childhood.html">
-						<div class="svg-wrapper-light cyan choice-button-narrow"
-							style="border: solid 5px var(--ccyan);">
-							<div class="button-text-light" style="top:5px; color:white">
-								Save</div>
-						</div>
-					</a>
-				-->
-					<!--
-		<div class="right_bar3">
-			<div class="problem_5">
-				<h1>Save your memory?</h1>
 
 	<div class="nav">
 		<a href="menu.html">
@@ -61,8 +21,8 @@
 		</a>
 	</div>
 
-	<img src="img/bg/modal1.png" class="frame" style="width: 700px;" />
-	<img src="img/heading/heading.png" class="center" style="width:700px;top:100px" alt="Memory Booth" />
+	<img src="../img/bg/modal1.png" class="frame" style="width: 700px;" />
+	<img src="../img/heading/heading.png" class="center" style="width:700px;top:100px" alt="Memory Booth" />
 
 	<div class="row align-items-center justify-content-center choice-container">
 		<div class="col-md-12 my-auto" style="text-align: center; ">
@@ -99,26 +59,44 @@
 
 	<script>
 
+		var audio_dontsave = new Audio("../img/audio/dontsave_sound.wav");
+		var audio_cancel = new Audio("../img/audio/cancel_sound.wav");
+		var audio_save = new Audio("../img/audio/save_sound.wav");
 
 		$("#dont-save").hover(
 			function () {
-				$("#gif-container").append('<img class="center append-img" id="tmp-img1" src="img/gif/dontsave.gif">');
+				$("#gif-container").append('<img class="center append-img" id="tmp-img1" src="../img/gif/dontsave.gif">');
+				audio_dontsave.play();
+				audio_dontsave.loop = true;
 			},
-			function () { $("#tmp-img1").remove(); }
+			function () {
+				$("#tmp-img1").remove();
+				audio_dontsave.pause();
+			}
 		);
 
 
 		$("#cancel").hover(function () {
-			$("#gif-container").append('<img class="center append-img" id="tmp-img2" src="img/gif/cancel.gif">');
+			$("#gif-container").append('<img class="center append-img" id="tmp-img2" src="../img/gif/cancel.gif">');
+			audio_cancel.play();
+			audio_cancel.loop = true;
 		},
-			function () { $("#tmp-img2").remove(); }
+			function () {
+				$("#tmp-img2").remove();
+				audio_cancel.pause();
+			}
 		);
 
 		$("#save").hover(
 			function () {
-				$("#gif-container").append('<img class="center append-img" id="tmp-img3" src="img/gif/save.gif">');
+				$("#gif-container").append('<img class="center append-img" id="tmp-img3" src="../img/gif/save.gif">');
+				audio_save.play();
+				audio_save.loop = true;
 			},
-			function () { $("#tmp-img3").remove(); }
+			function () {
+				$("#tmp-img3").remove();
+				audio_save.pause();
+			}
 		);
 
 	</script>
