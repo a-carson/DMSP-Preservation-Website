@@ -1,0 +1,149 @@
+:root {
+  --main-color: #01ffc3;
+}
+
+.full-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+  background-color: #000000e7;
+  z-index: 1;
+}
+
+.full-menu.is-active {
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(0px);
+}
+
+.full-menu ul {
+  list-style: none;
+  /*   opacity: 0; */
+  /*   transform: translateX(60px); */
+  /*   transition: all 2s ease; */
+  list-style: none;
+}
+
+.full-menu.is-active ul {
+  /*   opacity: 1; */
+  /*   transform: translateX(0); */
+  padding: 0;
+}
+
+.full-menu ul li {
+  transform: translateX(60px);
+  transition: all 2s ease;
+  /* letter-spacing: 0.2em;
+  font-weight: bold; */
+  margin-top: 20px;
+  /* font-size: 2.6em; */
+  opacity: 0;
+  transform: translate(60px);
+  transition: all 1s ease;
+}
+
+.full-menu.is-active ul li {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.full-menu.is-active ul li:nth-child(1) {
+  transition-delay: 0;
+}
+
+.full-menu.is-active ul li:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.full-menu.is-active ul li:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.full-menu.is-active ul li:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.full-menu.is-active ul li:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+.burger {
+  width: 60px;
+  height: 45px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 10;
+  transform: scale(0.8, 0.8);
+}
+
+.burger.is-active {
+  transform: rotate(-90deg);
+}
+
+.burger span {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: var(--main-color);
+  left: 0;
+  transition: top 0.2s 0.2s, bottom 0.2s 0.2s, opacity 0.2s 0.2s,
+    transform 0.2s 0.4s;
+}
+
+.burger span:nth-child(1) {
+  top: 0;
+}
+
+.burger.is-active span:nth-child(1) {
+  top: calc(50% - 3px);
+  transform: rotate(45deg);
+}
+
+.burger span:nth-child(2) {
+  top: calc(50% - 3px);
+}
+
+.burger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger span:nth-child(3) {
+  bottom: 0;
+}
+
+.burger.is-active span:nth-child(3) {
+  bottom: calc(50% - 3px);
+  transform: rotate(-45deg);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: transparent;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    transform: scale(0.5, 0.5);
+  }
+}
