@@ -108,6 +108,9 @@
 
 				<div id="sketch-holder"> </div>
 
+				<div class="col-md-12 my-auto" style="text-align: center; ">
+					<h1 id = "letters" style="color:white; margin-top: 5px;">~</h1>
+
 		    <a href="choice.html">
 		      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
 		        <div class="button-text-light" style="top:12px; color:white">Continue</div>

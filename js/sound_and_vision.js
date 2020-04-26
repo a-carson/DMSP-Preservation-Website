@@ -35,17 +35,15 @@ Tone.Transport.loopEnd = dur;
 Tone.Transport.loop = true;
 
 
-
-
 // TEXT TO CODE -------------------------- -------------------------------------
 function setInputText(string)
 {
   memory= string;
-  textLength = text.length;
+  textLength = memory.length;
   dur = textLength/2;
   for (var j = 0; j < textLength; j++)
   {
-    midi[j] = text.charCodeAt(j) + octave;
+    midi[j] = memory.charCodeAt(j) + octave;
     freqs [j] = 440 * Math.pow(2, (midi[j]-69)/12);
   }
 }
@@ -73,7 +71,8 @@ function sound()
     synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
     // output text characters
     var letter = String.fromCharCode(midi[i]);
-    chars = letter;
+    document.getElementById("letters").innerHTML = letter;
+    console.log(letter);
     i++;
   }
 
