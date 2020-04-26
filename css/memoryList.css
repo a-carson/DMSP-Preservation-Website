@@ -75,12 +75,12 @@ h2 {
   margin: 20px 50px 50px 50px;
 }
 
-.button-hamburger {
+/* .button-hamburger {
   background-color: transparent;
   backface-visibility: hidden;
   border: transparent;
   float: right;
-}
+} */
 
 .button-memory {
   text-align: left;
@@ -115,7 +115,7 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-.nav-link {
+/* .nav-link {
   width: 200px;
   text-align: center;
   margin: 0 20px;
@@ -126,7 +126,7 @@ h2 {
   position: fixed;
   top: 50px;
   right: 50px;
-}
+} */
 
 .tab-pane {
   padding: 0;
@@ -251,7 +251,7 @@ h2 {
   left: 0;
   position: fixed;
   bottom: 0;
-  z-index: 100;
+  z-index: 0;
 }
 
 .scroll::-webkit-scrollbar {
