@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Distorted Memories</title>
+	<title>Your Memory - Memory Booth</title>
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,6 +31,7 @@
     $name = test_for_hackers($_POST["name"]);
     $category = test_for_hackers($_POST["category"]);
     $memory = test_for_hackers($_POST["memory"]);
+		$memory.= " ";
 
 		// UPDATE SESSION
 		$_SESSION["name"] = $name;
@@ -96,21 +97,17 @@
 
 		<body id="body3">
 
-		  <div class="nav">
-		    <a href="memory_list.php">
-		      <img class="nav" src="../img/button/close.png" style="width: 30px;" alt="" />
-		    </a>
-		  </div>
+				<div style="text-align: center;">
+					<h1 class="memory-title" style="margin: 40px">Your Memory</h1>
+					<h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me! <br> <span id = "encoding">Now encoding...</span></h2>
 
-		  <div class="flex-center" style="width:100%">
-		    <h1 class="memory-title">Your Memory</h1>
-		    <h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me!</h2>
+					<p id = "letters" style="color:white; margin-top: 5px;">.</p>
 
 				<div id="sketch-holder"> </div>
 
 		    <a href="choice.html">
 		      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
-		        <div class="button-text-light" style="top:12px; color:white">Continue</div>
+		        <div id = "button-text" class="button-text-light" style="top:12px; color:white">Encoding...</div>
 		      </div>
 				</a>
 

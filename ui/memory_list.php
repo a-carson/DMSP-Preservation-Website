@@ -1,25 +1,5 @@
 <!doctype html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Category</title>
-</head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-<link rel="stylesheet" href="../css/memoryList.css">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
-<link rel="stylesheet"
-    href="https://blogfonts.com/css/aWQ9NDg4ODAmc3ViPTg4MCZjPWImdHRmPUJyeW5kYTEyMzErU2Fucy50dGYmbj1icnluZGExMjMxLXNhbnM/Brynda1231 Sans.ttf" />
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js'></script>
-
 <?php
 
 function createElements($category)
@@ -77,18 +57,28 @@ function createElements($category)
 }
 
 ?>
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Archive - Memory Booth</title>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
+<link rel="stylesheet"
+    href="https://blogfonts.com/css/aWQ9NDg4ODAmc3ViPTg4MCZjPWImdHRmPUJyeW5kYTEyMzErU2Fucy50dGYmbj1icnluZGExMjMxLXNhbnM/Brynda1231 Sans.ttf" />
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel="stylesheet" href="../css/memoryList.css">
+<link rel="stylesheet" href="../css/hamburger.css">
+
+<!-- HTML ---------------------------------------------------------------------------->
 <body class="memory-list">
 
-    <div class="gradient-bg">
-    </div>
+  <div class="gradient-bg"></div>
 
-    <div class="hamburger">
-        <button class="button-hamburger" type="button"><a href="menu.html"> <img src="../img/button/narv.png"
-                    style="width: 50px; background-color: transparent; " alt="" /></a>
-        </button>
-    </div>
-
+    <!-- TABS ------------------------------------------------------------------------------------------------->
     <div class="container" id="tablist-section">
         <nav class="row">
             <div class="nav col-12 justify-content-center" id="nav-tab" role="tablist" style="margin: 20px 0;">
@@ -185,7 +175,7 @@ function createElements($category)
             <div class="center" style="width:500px">
                 <div class="col-12 align-self-center" style="margin:50px 0 0 0">
                     <div class="svg-wrapper-light purple" style="width:100%; border: solid 5px var(--cpurple);">
-                        <div class="button-text-light" style="top:5px; color:white">Add My
+                        <div class="button-text-light" style="top:5px; color:white">Add Your
                             Memories</div>
                     </div>
                 </div>
@@ -193,6 +183,83 @@ function createElements($category)
         </a>
     </div>
 
+    <!--- MENU ----------------------------------------------------------------------------------------------->
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="full-menu">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img class="center" src="../img/heading/heading.png" style="width: 120%;" />
+                </a>
+            </li>
+
+
+            <li>
+                <a href="memory_list.php">
+                    <div class="svg-wrapper-light" style="width:350px; margin: 120px 0 50px 0;">
+                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                                stroke="#ffffff90" />
+                        </svg>
+                        <div class="button-text-light">Memory Archive</div>
+                    </div>
+                </a>
+            </li>
+            <li><a href="read_me.html">
+                    <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
+                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                                stroke="#ffffff90" />
+                        </svg>
+                        <div class="button-text-light">Read Me</div>
+                    </div>
+                </a>
+            </li>
+            <li><a href="about_us.html">
+                    <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
+                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                                stroke="#ffffff90" />
+                        </svg>
+                        <div class="button-text-light">About My Creators</div>
+                    </div>
+                </a>
+            </li>
+            <!--
+            <li><a href="introduction.html">
+                    <div class="svg-wrapper-light cyan" style="width:350px; margin: 50px 0;">
+                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                                stroke="#ffffff90" />
+                        </svg>
+                        <div class="button-text-light">Add Your Memories</div>
+                    </div>
+                </a>
+            </li>-->
+        </ul>
+    </div>
+  <!-------------------------------------------------------------------------------------------------------------->
 </body>
+
+<!--- JAVASCRIPT------------------------------------------------------------------------------------------->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js'></script>
+
+<!--Full page menu-->
+<script>
+    const ico = document.querySelector('.burger');
+    const fullMenu = document.querySelector('.full-menu');
+
+    ico.addEventListener('click', function () {
+        this.classList.toggle('is-active');
+        fullMenu.classList.toggle('is-active');
+    })
+</script>
 
 </html>

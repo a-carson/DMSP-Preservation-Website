@@ -21,23 +21,24 @@
         </a>
     </div>
     <div class="row align-items-center justify-content-center choice-container">
-        <div class="col-sm-12" style="text-align: center;">
-            <img src="../img/heading/heading.png" class="center" style="width: 600px; padding-top:100px"
-                alt="Memory Booth" />
-        </div>
+      <img src="../img/heading/heading.png" class="center" style="width:700px;top:100px" alt="Memory Booth" />
+
+
         <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
 
-        <div class="gif-container center">
+        <div>
+            <h1 id = "text" class="center" style="top:38%; z-index: 2;">Are you sure?</h1>
+        </div>
+
+        <div class="gif-container center" style = "margin: 30px 0;">
           <img id = "gif" src = '' style="width: 400px;" />
         </div>
 
-        <div>
-            <h1 id = "text" class="center" style="top:40%">Are you sure?</h1>
-        </div>
+
 
         <div class="button-container">
 
-          <button id = "delete-button" onclick = "deleteMem()" class="svg-wrapper-light cyan choice-button" style="border: solid 5px var(--ccyan);">
+          <button id = "delete-button" onclick = "deleteMem()" class="svg-wrapper-light cyan choice-button" style="border: solid 5px var(--ccyan); margin: 400px 0">
               <div class="button-text-light" style="top:0px; color:white">
                   Delete</div>
         </button>
@@ -48,7 +49,7 @@
           </button>
 
             <a id = "home-link" href = "memory_list.php">
-              <div class="svg-wrapper-light choice-button" style="border: solid 5px var(--cpurple);">
+              <div class="svg-wrapper-light choice-button" style="border: solid 5px var(--cpurple); margin: 400px 0">
                   <div class="button-text-light" style="top:5px; color:white">
                       Home</div>
               </div>
@@ -87,7 +88,7 @@ function deleteMem()
   document.getElementById("delete-button").style.display = "none";
   document.getElementById("back-button").style.display = "none";
   document.getElementById("text").innerHTML = "Memory deleted."
-  document.getElementById("gif").style.display = "none";
+  document.getElementById("gif").src = "../img/gif/thank-you-for-your-time.gif";
 }
 
 </script>

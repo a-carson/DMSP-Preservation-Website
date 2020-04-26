@@ -5,6 +5,8 @@
 
 // VARIABLES -------------------------------------------------------------------
 var memory= '';
+var string = '';
+var typeOutput = true;
 var textLength;
 var midi = [0, 0];
 var freqs = [0, 0];
@@ -35,17 +37,15 @@ Tone.Transport.loopEnd = dur;
 Tone.Transport.loop = true;
 
 
-
-
 // TEXT TO CODE -------------------------- -------------------------------------
 function setInputText(string)
 {
   memory= string;
-  textLength = text.length;
+  textLength = memory.length;
   dur = textLength/2;
   for (var j = 0; j < textLength; j++)
   {
-    midi[j] = text.charCodeAt(j) + octave;
+    midi[j] = memory.charCodeAt(j) + octave;
     freqs [j] = 440 * Math.pow(2, (midi[j]-69)/12);
   }
 }
@@ -73,8 +73,27 @@ function sound()
     synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
     // output text characters
     var letter = String.fromCharCode(midi[i]);
-    chars = letter;
+    //console.log(letter);
     i++;
+
+    if (typeOutput)
+    {
+        string = string.concat(letter);
+    }
+
+    console.log(string.length);
+    if (string.length == textLength - 1)
+    {
+      typeOutput = false;
+      Tone.Transport.stop();
+      document.getElementById("encoding").innerHTML = "Ready!";
+      document.getElementById("button-text").innerHTML = "Continue";
+    }
+    // while (i < textLength)
+    // {
+    //   string = string.concat(letter);
+    // }
+    document.getElementById("letters").innerHTML = string;
   }
 
   // Schedules and calls the notes
@@ -86,6 +105,7 @@ function sound()
     else if (midi[i] - octave == 46){t += delta*6;}
     else t += delta;
   }
+
 }
 
 // VISUALS --------------------------------------------------------------------

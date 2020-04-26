@@ -25,11 +25,6 @@
 
 <body id="body3">
 
-	<div class="nav">
-		<a href="memory_list.html">
-			<img class="nav" src="img/button/close.png" style="width: 30px;" alt="" />
-		</a>
-	</div>
 
 
 	<div class="center" style="width:80%">
@@ -68,55 +63,56 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script>
-	setInputText("DMSP Preseration sdglakjdsrgnakrSrhzdrjzdtjz");
-	play();
-	setRandomColoursByCategory("childhood");
 
+setInputText("DMSP Preseration sdglakjdsrgnakrSrhzdrjzdtjz");
+play();
+setRandomColoursByCategory("childhood");
 
-	"use strict";
-	//ONLOAD
-	$(function () {
-		//DECLARE GLOBAL VARIABLE FOR USE IN HANDLERS
-		var orig, sib;
-		var runs = 0;
-		var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890+>?-$#@%&*'; //RUN JS WHEN 'DISTORT' IS HOVERED
-
-		$('.distort').hover(function () {
-			var curr = $(this);
-			orig = $(this).text();
-			sib = setInterval(function () {
-				distortText(curr);
-			}, 100);
-		}, function () {
-			//RESET THE ORIGINAL TEXT
-			clearInterval(sib);
-			$(this).text(orig);
-		});
-
-		function distortText(i) {
-			//MAINTAINS SOME READABILITY IN THE TEXT BY ONLY ALLOWING 3 CHARACTERS TO BE DISTORTED
-			if (runs >= 2) {
-				runs = 0;
-				i.text(orig);
-				return;
-			} //GET EACH INDIVIDUAL CHARACTER
-
-
-			var chars = i.text().split(''); //GET A RANDOM CHARACTER FROM THE TEXT
-			var rand = Math.floor(Math.random() * chars.length); //GET A RANDOM REPLACEMENT CHARACTER
-			var randRep = Math.floor(Math.random() * charSet.length); //CHECK TO MAKE SURE THAT THE NEW CHARACTER IS DIFFERENT FROM THE OLD
-
-			if (chars[rand] != charSet[randRep] && chars[rand] != ' ') {
-				chars[rand] = charSet[randRep];
-			} else {
-				distortText(i);
-			} //UPDATE TEXT
-
-
-			i.text(chars.join(''));
-			runs += 1;
-		}
-	});
+	//
+	// "use strict";
+	// //ONLOAD
+	// $(function () {
+	// 	//DECLARE GLOBAL VARIABLE FOR USE IN HANDLERS
+	// 	var orig, sib;
+	// 	var runs = 0;
+	// 	var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890+>?-$#@%&*'; //RUN JS WHEN 'DISTORT' IS HOVERED
+	//
+	// 	$('.distort').hover(function () {
+	// 		var curr = $(this);
+	// 		orig = $(this).text();
+	// 		sib = setInterval(function () {
+	// 			distortText(curr);
+	// 		}, 100);
+	// 	}, function () {
+	// 		//RESET THE ORIGINAL TEXT
+	// 		clearInterval(sib);
+	// 		$(this).text(orig);
+	// 	});
+	//
+	// 	function distortText(i) {
+	// 		//MAINTAINS SOME READABILITY IN THE TEXT BY ONLY ALLOWING 3 CHARACTERS TO BE DISTORTED
+	// 		if (runs >= 2) {
+	// 			runs = 0;
+	// 			i.text(orig);
+	// 			return;
+	// 		} //GET EACH INDIVIDUAL CHARACTER
+	//
+	//
+	// 		var chars = i.text().split(''); //GET A RANDOM CHARACTER FROM THE TEXT
+	// 		var rand = Math.floor(Math.random() * chars.length); //GET A RANDOM REPLACEMENT CHARACTER
+	// 		var randRep = Math.floor(Math.random() * charSet.length); //CHECK TO MAKE SURE THAT THE NEW CHARACTER IS DIFFERENT FROM THE OLD
+	//
+	// 		if (chars[rand] != charSet[randRep] && chars[rand] != ' ') {
+	// 			chars[rand] = charSet[randRep];
+	// 		} else {
+	// 			distortText(i);
+	// 		} //UPDATE TEXT
+	//
+	//
+	// 		i.text(chars.join(''));
+	// 		runs += 1;
+	// 	}
+	// });
 </script>
 
 
