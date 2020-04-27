@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Choice-Childhood</title>
+  <meta charset="UTF-8">
+  <title>Delete</title>
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,81 +16,87 @@
 
 
 <body id="body3">
-    <div class="nav">
-        <a href="memory_list.php">
-            <img class="nav" src="../img/button/close.png" style="width: 30px;" alt="" />
-        </a>
+  <div class="backicon-fixed">
+    <a href="choice.html">
+      <svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1479" width="48" height="48">
+        <path
+          d="M960.243 456.737v110.526h-682.875l312.547 315.789-78.793 78.948-449.121-450 449.122-450 81.419 78.948-315.173 315.789h682.875z"
+          p-id="1480" fill="var(--ccyan)"></path>
+      </svg>
+    </a>
+  </div>
+
+  <div class="row align-items-center justify-content-center choice-container">
+    <a href="memory_list.php">
+      <img src="../img/heading/heading.png" class="center" id="logo" style="width:700px;top:100px" alt="Memory Booth" />
+    </a>
+
+
+    <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
+
+    <div>
+      <h1 id="text" class="center" style="top:260px; z-index: 2;">Are you sure?</h1>
     </div>
-    <div class="row align-items-center justify-content-center choice-container">
-      <img src="../img/heading/heading.png" class="center" style="width:700px;top:100px" alt="Memory Booth" />
+
+    <div class="gif-container center" style="margin: 30px 0;">
+      <img id="gif" src='' style="width: 400px;" />
+    </div>
 
 
-        <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
 
-        <div>
-            <h1 id = "text" class="center" style="top:38%; z-index: 2;">Are you sure?</h1>
+    <div class="button-container" id="button-container" style="margin-top:300px">
+
+      <button id="delete-button" onclick="deleteMem()" class="svg-wrapper-light cyan choice-button-wide"
+        style="border: solid 5px var(--ccyan);">
+        <div class="button-text-light" style="top:0px; color:white">
+          Back</div>
+      </button>
+
+      <button id="back-button" onclick="window.location.href = 'choice.html'"
+        class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
+        <div class="button-text-light" style="top:0px; color:var(--cpurple)">
+          Delete</div>
+      </button>
+
+      <a id="home-link" href="memory_list.php">
+        <div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
+          <div class="button-text-light" style="top:5px; color:white">
+            Home</div>
         </div>
+        <a>
 
-        <div class="gif-container center" style = "margin: 30px 0;">
-          <img id = "gif" src = '' style="width: 400px;" />
-        </div>
-
-
-
-        <div class="button-container">
-
-          <button id = "delete-button" onclick = "deleteMem()" class="svg-wrapper-light cyan choice-button-wide" style="border: solid 5px var(--ccyan); margin: 400px 0">
-              <div class="button-text-light" style="top:0px; color:white">
-                  Delete</div>
-        </button>
-
-          <button id = "back-button" onclick = "window.location.href = 'choice.html'"class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
-              <div class="button-text-light" style="top:0px; color:white">
-                  Back</div>
-          </button>
-
-            <a id = "home-link" href = "memory_list.php">
-              <div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple); margin: 400px 0">
-                  <div class="button-text-light" style="top:5px; color:white">
-                      Home</div>
-              </div>
-            <a>
-
-        </div>
+    </div>
 
 </body>
 
 <script>
-document.getElementById("home-link").style.display = "none";
+  document.getElementById("home-link").style.display = "none";
 
-if(localStorage.getItem('type')== "childhood")
-{
-  document.getElementById("gif").src = "../img/gif/delete-gif/childhood-delete.gif";
-}
+  if (localStorage.getItem('type') == "childhood") {
+    document.getElementById("gif").src = "../img/gif/delete-gif/childhood-delete.gif";
+  }
 
-if(localStorage.getItem('type')== "travel")
-{
-  document.getElementById("gif").src = "../img/gif/delete-gif/travel-delete.gif";
-}
+  if (localStorage.getItem('type') == "travel") {
+    document.getElementById("gif").src = "../img/gif/delete-gif/travel-delete.gif";
+  }
 
-if(localStorage.getItem('type')== "student-life")
-{
-  document.getElementById("gif").src = "../img/gif/delete-gif/student-life-delete.gif";
-}
+  if (localStorage.getItem('type') == "student-life") {
+    document.getElementById("gif").src = "../img/gif/delete-gif/student-life-delete.gif";
+  }
 
-if(localStorage.getItem('type')== "others")
-{
-  document.getElementById("gif").src = "../img/gif/delete-gif/others-delete.gif";
-}
+  if (localStorage.getItem('type') == "others") {
+    document.getElementById("gif").src = "../img/gif/delete-gif/others-delete.gif";
+  }
 
-function deleteMem()
-{
-  document.getElementById("home-link").style.display = "block";
-  document.getElementById("delete-button").style.display = "none";
-  document.getElementById("back-button").style.display = "none";
-  document.getElementById("text").innerHTML = "Memory deleted."
-  document.getElementById("gif").src = "../img/gif/thank-you-for-your-time.gif";
-}
+  function deleteMem() {
+    document.getElementById("home-link").style.display = "block";
+    document.getElementById("delete-button").style.display = "none";
+    document.getElementById("back-button").style.display = "none";
+    document.getElementById("text").innerHTML = "Memory deleted."
+    document.getElementById("gif").src = "../img/gif/thank-you-for-your-time.gif";
+  }
 
 </script>
+
 </html>
