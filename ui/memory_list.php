@@ -85,7 +85,7 @@ function createElements($category)
 
                 <a class="nav-item nav-link active" id="nav-childhood-tab" data-toggle="tab" href="#nav-childhood"
                     role="tab" aria-controls="nav-childhood" aria-selected="true">
-                    <div class="svg-wrapper-light pink" style="width:200px;">
+                    <div class="svg-wrapper-light pink" style="width:200px;margin-left: 40px;">
                         <svg style=" height:60px; width: 200px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light pink" style="height:60px; width:200px;" stroke="#ffffff90" />
                         </svg>
@@ -95,7 +95,7 @@ function createElements($category)
 
                 <a class="nav-item nav-link" id="nav-travel-tab" data-toggle="tab" href="#nav-travel" role="tab"
                     aria-controls="nav-travel" aria-selected="false">
-                    <div class="svg-wrapper-light yellow" style="width:200px; margin-right: 40px;">
+                    <div class="svg-wrapper-light yellow" style="width:200px; ">
                         <svg style=" height:60px; width: 200px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light yellow" style="height:60px; width:200px;" stroke="#ffffff90" />
                         </svg>
