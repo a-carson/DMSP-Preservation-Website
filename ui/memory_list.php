@@ -199,8 +199,18 @@ function createElements($category)
 
 
             <li>
-                <a href="memory_list.php">
-                    <div class="svg-wrapper-light" style="width:350px; margin: 120px 0 50px 0;">
+                <a href="record_memory.html">
+                    <div class="svg-wrapper-light cyan" style="width:350px; margin: 120px 0 50px 0;">
+                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                                stroke="#ffffff90" />
+                        </svg>
+                        <div class="button-text-light">Add Your Memory</div>
+                    </div>
+                </a>
+            </li>
+            <li><a href="memory_list.php">
+                    <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
                         <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                                 stroke="#ffffff90" />
@@ -219,6 +229,7 @@ function createElements($category)
                     </div>
                 </a>
             </li>
+
             <li><a href="about_us.html">
                     <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
                         <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
@@ -229,17 +240,6 @@ function createElements($category)
                     </div>
                 </a>
             </li>
-            <!--
-            <li><a href="introduction.html">
-                    <div class="svg-wrapper-light cyan" style="width:350px; margin: 50px 0;">
-                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
-                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
-                                stroke="#ffffff90" />
-                        </svg>
-                        <div class="button-text-light">Add Your Memories</div>
-                    </div>
-                </a>
-            </li>-->
         </ul>
     </div>
   <!-------------------------------------------------------------------------------------------------------------->
