@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Delete</title>
+  <link rel="icon" href="../img/tab-icon.png">
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,8 @@
 
 
 <body id="body3">
-  <div class="backicon-fixed">
+
+  <div id = "back-page-button" class="backicon-fixed">
     <a href="choice.html">
       <svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
         p-id="1479" width="48" height="48">
@@ -47,13 +49,13 @@
 
     <div class="button-container" id="button-container" style="margin-top:300px">
 
-      <button id="delete-button" onclick="deleteMem()" class="svg-wrapper-light cyan choice-button-wide"
+      <button id="delete-button" onclick="window.location.href = 'choice.html'"  class="svg-wrapper-light cyan choice-button-wide"
         style="border: solid 5px var(--ccyan);">
         <div class="button-text-light" style="top:0px; color:white">
           Back</div>
       </button>
 
-      <button id="back-button" onclick="window.location.href = 'choice.html'"
+      <button id="back-button" onclick="deleteMem()"
         class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
         <div class="button-text-light" style="top:0px; color:var(--cpurple)">
           Delete</div>
@@ -93,7 +95,8 @@
     document.getElementById("home-link").style.display = "block";
     document.getElementById("delete-button").style.display = "none";
     document.getElementById("back-button").style.display = "none";
-    document.getElementById("text").innerHTML = "Memory deleted."
+    document.getElementById("back-page-button").style.display = "none";
+    document.getElementById("text").innerHTML = "Memory deleted.";
     document.getElementById("gif").src = "../img/gif/thank-you-for-your-time.gif";
   }
 

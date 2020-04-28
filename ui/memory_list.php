@@ -36,14 +36,15 @@ function createElements($category)
       echo '<button type = "submit"';
       echo '        name ="submit_'; echo $i; echo '"';
       echo '        class='; echo $class;
-      echo '        id='; echo $category; echo'>';
+      echo '        id='; echo $category;
+      echo '        style = "width: 100%">';
       echo '      <img src='; echo $img;
       echo '              style="width: 150px; background-color: transparent; margin:10px;" alt="" />
                 <div class="CD-description">
                     <span id="id">';
                     echo '#0'; echo $i+1;
       echo '        </span>
-                    <span id="name">';
+                    <span id="name" style = "width: 100%">';
                     echo $memoriesArray[$i]["name"];
       echo '        </span>
                     <h2 id="content" class="content">';
@@ -60,6 +61,7 @@ function createElements($category)
 <head>
     <meta charset="UTF-8">
     <title>Memory Archive - Memory Booth</title>
+    <link rel="icon" href="../img/tab-icon.png">
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,7 +82,7 @@ function createElements($category)
   <div class="gradient-bg"></div>
 
     <!-- TABS ------------------------------------------------------------------------------------------------->
-    <div class="container" id="tablist-section">
+    <div class="container" id="tablist-section" >
         <nav class="row">
             <div class="nav col-12 justify-content-center" id="nav-tab" role="tablist" style="margin: 20px 0;">
 
