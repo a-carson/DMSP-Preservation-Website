@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Your Memory - Memory Booth</title>
+	<link rel="icon" href="../img/tab-icon.png">
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,7 +98,7 @@
     ?>
 
 		<body id="body3">
-			<div class="backicon-fixed">
+			<div class="backicon-fixed" style="margin: 20px 20px">
 				<a href="record_memory.html">
 					<svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
 						p-id="1479" width="48" height="48">
@@ -109,7 +110,7 @@
 			</div>
 
 				<div style="text-align: center;">
-					<h1 class="memory-title" style="margin: 40px">Your Memory</h1>
+					<h1 class="memory-title" style="margin: -30px">Your Memory</h1>
 					<h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me! <br> <span id = "encoding">Now encoding...</span></h2>
 
 					<p id = "letters" style="color:white; margin-top: 5px;">.</p>

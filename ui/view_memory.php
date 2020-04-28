@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>View Memory - Memory Booth </title>
+  <link rel="icon" href="../img/tab-icon.png">
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
