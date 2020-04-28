@@ -63,7 +63,7 @@ $b = $memoriesArray[$index]["b"];
 	</div>
 
 
-	<div class="center" style="width:100%">
+	<div class="center" style="width:90%">
 		<div class="row">
 			<div class="col-md-5">
 				<div id="sketch-holder">
@@ -152,6 +152,9 @@ $b = $memoriesArray[$index]["b"];
 			runs += 1;
 		}
 	});
+
+	document.getElementById("defaultCanvas0").style.width = "100%";
+	document.getElementById("defaultCanvas0").style.height = "100%";
 
 </script>
 
