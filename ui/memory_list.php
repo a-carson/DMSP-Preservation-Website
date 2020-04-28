@@ -39,18 +39,19 @@ function createElements($category)
       echo '        id='; echo $category;
       echo '        style = "width: 100%">';
       echo '      <img src='; echo $img;
-      echo '              style="width: 150px; background-color: transparent; margin:10px;" alt="" />
-                <div class="CD-description">
+      echo '              style="width: 10vw; background-color: transparent; margin:1vw;" alt="" />
+                <!--<div class="CD-description">-->
                     <span id="id">';
                     echo '#0'; echo $i+1;
       echo '        </span>
-                    <span id="name" style = "width: 100%">';
+                    <span id="name" style = "width: 10vw; height: 100%">';
                     echo $memoriesArray[$i]["name"];
       echo '        </span>
-                    <h2 id="content" class="content">';
+
+                    <h2 id="content" class="content" style = "width: 100%; margin-top: -4vw; margin-bottom: 2vw; margin-left: 12.5vw">';
                     echo $memoriesArray[$i]["memory"];
       echo '        </h2>
-                </div>
+                <!--</div>-->
             </button>
             ';
     }
@@ -84,7 +85,7 @@ function createElements($category)
     <!-- TABS ------------------------------------------------------------------------------------------------->
     <div class="container" id="tablist-section" >
         <nav class="row">
-            <div class="nav col-12 justify-content-center" id="nav-tab" role="tablist" style="margin: 20px 0;">
+            <div class="nav col-12 justify-content-center" id="nav-tab" role="tablist" style="margin: 2vw 0;">
 
                 <a class="nav-item nav-link active" id="nav-childhood-tab" data-toggle="tab" href="#nav-childhood"
                     role="tab" aria-controls="nav-childhood" aria-selected="true">
