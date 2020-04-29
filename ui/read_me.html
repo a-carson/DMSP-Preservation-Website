@@ -4,71 +4,148 @@
 <head>
   <meta charset="UTF-8">
   <title>Read Me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   
+  <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+      
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+      
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="../css/read_me.css">
   <style>
     @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
   </style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="../css/style.css">
+
+  <!--Full page menu-->
+  <link rel="stylesheet" href="../css/memory_list.css">
+  <link rel="stylesheet" href="../css/hamburger.css">
 
 </head>
 
 <body id="body3">
-  <div class="nav">
-    <a href="menu.html">
-      <img class="nav" src="../img/button/narv.png" style="width: 50px; z-index: 999;" />
-    </a>
+  <!--Full page menu begin-->
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="full-menu">
+    <ul>
+      <li>
+        <a href="index.html">
+          <img class="center" src="../img/heading/heading.png" style="width: 120%;" />
+        </a>
+      </li>
+      <li>
+        <a href="memory_list.php">
+          <div class="svg-wrapper-light" style="width:350px; margin: 120px 0 50px 0;">
+            <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                stroke="#ffffff90" />
+            </svg>
+            <div class="button-text-light">Memory Archive</div>
+          </div>
+        </a>
+      </li>
+      <li><a href="read_me.html">
+          <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
+            <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                stroke="#ffffff90" />
+            </svg>
+            <div class="button-text-light">Read Me</div>
+          </div>
+        </a>
+      </li>
+      <li><a href="read_me.html">
+          <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
+            <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                stroke="#ffffff90" />
+            </svg>
+            <div class="button-text-light">About my creator</div>
+          </div>
+        </a>
+      </li>
+      <li><a href="introduction.html">
+          <div class="svg-wrapper-light cyan" style="width:350px; margin: 50px 0;">
+            <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                stroke="#ffffff90" />
+            </svg>
+            <div class="button-text-light">Add my memories</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--Full page menu end-->
+
+  <div class="content-read-me">
+    <div class="first-introduction" style="text-align: center;">
+      <h1 class="read-me-tittle">Read Me</h1>
+      <img class="hallucnation-gif" src="../img/gif/Preservation-Hallucination.gif" style="width:80vw;" />
+      <p class="introduction-content">Welcome to the memory booth, my name is IAIN, <br>
+        I am an archive of memory. I can preserve and transform <br>
+        your memories in a unique interactive way.</p>
+    </div>
+    <div class="booth">
+      <img class="booth" src="../img/bg/memory-booth.png" style="width:50vw;" />
+    </div>
+    <div class="booth-text">
+      <p class="booth-text1">Would you like to proceed?</p>
+    </div>
+    <div class="step1">
+      <img class="path-illustration" src="../img/bg/road.png" style="width:60vw;" />
+      <img class="step1-img" src="../img/bg/step.png" style="width:19vw;" />
+      <p class="number1">1</p>
+      <img class="step1-column" src="../img/bg/column.png" style="width:50vw;" />
+      <p class="name-word-text">Name<br><br><br>Childhood Travel Student Life Others<br><br><br><br>Enter your
+        memories.....</p>
+      <p class="name1-text">Please enter your name and your memory.</p>
+    </div>
+
+    <div class="step2">
+      <img class="step2-path-illustration" src="../img/bg/road-copy.png" />
+      <img class="step2-img" src="../img/bg/step.png" style="width:19vw;" />
+      <p class="number2">2</p>
+      <img class="step2-tape" src="../img/bg/tape.png" style="width:40vw;" />
+      <p class="step2-text1">I am preparing your memory for preservation.<br>How I am preserving your memory ？
+        <br>Encoding -> Sonifiying<br>First the memory you enter is converted to code.<br>This code is then sonified.
+      </p>
+
+      <img class="step2-camera" src="../img/bg/camera.png" style="width:40vw;" />
+      <p class="step2-text2">Sonifiying -> Visualising<br>The sound produced is visualised.<br>
+        This audio-visual piece is unique to your memory.</p>
+    </div>
+
+    <div class="step3">
+      <img class="step3-path-illustration" src="../img/bg/road.png" />
+      <img class="step3-img" src="../img/bg/step.png" style="width:19vw;" />
+      <p class="number3">3</p>
+      <img class="step3-archive" src="../img/bg/archive.png" style="width:60vw;" />
+      <p class="step3-text1">Once I have processed it will be added to the archive.<br>
+        You can access your unique memory and<br>explore other people’s memories in the archive any time.</p>
+    </div>
+
+    <div class="end">
+      <p class="end-text1">Thank you for using the memory booth, enjoy your journey.</P>
+    </div>
   </div>
 
-  <div class="row align-items-center justify-content-center choice-container">
-    <div class="col-md-12" style="text-align: center;">
-      <h1 class="m-5">Read Me</h1>
-      <img src="../img/gif/Preservation-Hallucination.gif" style="width:50%;" />
-      <p class="m-5">Hello, my name is IAIn, I am an archive of memory. </p>
-    </div>
-    <div class="col-md-6">
-      <img src="../img/bg/memory-booth.png" style="width:100%;" />
-    </div>
-    <div class="col-md-6 ">
-      <p class="mx-5">Welcome to the memory booth. <br />Here you can explore your memories in my dream. </p>
-    </div>
-    <div class="col-md-6 order-2 order-sm-12">
-      <p class="mx-5"> You can access your unique memory and explore other <br> people’s memories in the archive any
-        time. </p>
-    </div>
-    <div class="col-md-6">
-      <img src="../img/bg/archive.png" style="width:100%" />
 
-    </div>
-  </div>
-  <!--
-      <div class="read-me-headline">Read Me</div>
+  <!--Full page menu-->
+  <script>
+    const ico = document.querySelector('.burger');
+    const fullMenu = document.querySelector('.full-menu');
 
-      <div>
-        <img class="preservation-Hullucination" src="img/gif/Preservation-Hallucination.gif" style="width:50%;"
-          alt="" />
-        <div class="read-me-content">Hello, my name is IAIn, I am an archive of memory. </div>
-      </div>
-
-      <div>
-        <img class="memory-booth" src="img/bg/memory-booth.png" style="width:34%;" alt="" />
-        <p class="welcome">Welcome to the memory booth<br>Here you can explore your memories in my dream </p>
-      </div>
-      <div>
-        <img class="archive" src="img/bg/archive.png" style="width:38%;" alt="" />
-        <p class="once"> Once I have processed it will be added to the archive.<br>
-
-          You can access your unique memory and explore other <br> people’s memories in the archive any time. </p>
-      </div>
-      <div>
-        <p class="have">Have Fun!</p><br>
-      </div> -->
-
-
-
+    ico.addEventListener('click', function () {
+      this.classList.toggle('is-active');
+      fullMenu.classList.toggle('is-active');
+    })
+  </script>
 
 </body>
 

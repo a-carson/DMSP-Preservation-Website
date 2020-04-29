@@ -1,0 +1,414 @@
+#body3 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 12px;
+  /* background-image: url("../img/bg/bg2.jpg"); */
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* About-us-page*/
+
+.nav {
+  position: absolute;
+  top: 1vw;
+  right: 3vw;
+}
+
+/*Read-me-page*/
+.read-me-button1 {
+  position: absolute;
+  left: 35vw;
+  top: 2vw;
+}
+.read-me-headline {
+  position: absolute;
+  top: 8vw;
+  left: 39vw;
+  color: #c5c2c3;
+  font-size: 31px;
+  font-weight: bolder;
+  text-align: center;
+}
+.preservation-Hullucination {
+  position: absolute;
+  top: 20vw;
+  left: 24vw;
+}
+.read-me-content {
+  position: absolute;
+  top: 52vw;
+  left: 25vw;
+  color: #c5c2c3;
+  font-size: 25px;
+  text-align: center;
+  font-weight: lighter;
+}
+.memory-booth {
+  position: absolute;
+  left: 12vw;
+  top: 60vw;
+}
+.welcome {
+  position: absolute;
+  left: 36vw;
+  top: 74vw;
+  color: #c5c2c3;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.once {
+  position: absolute;
+  left: 16vw;
+  top: 90.5vw;
+  color: #c5c2c3;
+  font-size: 20px;
+  font-weight: lighter;
+}
+.archive {
+  position: absolute;
+  left: 50vw;
+  top: 80vw;
+  color: #c5c2c3;
+  font-size: 30px;
+  font-weight: lighter;
+}
+.have {
+  position: absolute;
+  top: 103vw;
+  left: 40vw;
+  color: #c5c2c3;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+/*Read-me-page*/
+.head1 {
+  margin-top: -50px;
+  height: 500px;
+}
+
+.button1 {
+  background-color: transparent;
+  margin-left: 41%;
+  margin-top: 10%;
+  backface-visibility: hidden;
+  border: transparent;
+}
+
+.classification_2 {
+  width: 100%;
+  height: 100px;
+}
+.button2_student {
+  background-color: transparent;
+}
+
+.button2 {
+  background-color: transparent;
+  backface-visibility: hidden;
+  border: transparent;
+  float: right;
+}
+.classification_2 {
+  background-color: transparent;
+}
+.button2_childhood {
+  background-color: transparent;
+  border-color: transparent;
+}
+.disc_2 {
+  width: 100%;
+  height: 700px;
+  margin-top: 200px;
+  margin-left: 20px;
+  margin-bottom: 300px;
+}
+
+.content2 {
+  align-content: center;
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.narv2 {
+  float: right;
+}
+.left_bar3 {
+  height: 100%;
+  width: 20%;
+  float: left;
+}
+.right_bar3 {
+  height: 100%;
+  width: 80%;
+  float: right;
+  background-color: transparent;
+}
+.input_bar3_title {
+  background-color: transparent;
+  margin-top: 100px;
+  margin-left: 200px;
+  height: 60px;
+  width: 600px;
+}
+.input_bar3_content {
+  margin-left: 200px;
+  width: 600px;
+  height: 400px;
+}
+
+.form-control3_title {
+  border: solid;
+  border-color: #0fc2ec;
+  background-color: transparent;
+  font-size: 40px;
+  width: 600px;
+}
+.form-control3_name {
+  width: 250px;
+  float: left;
+  height: 60px;
+  background-color: transparent;
+  font-size: 40px;
+  border: solid;
+  border-color: #3fcfaa;
+  margin-left: 200px;
+}
+.form-control3_category {
+  width: 250px;
+  height: 60px;
+  background-color: transparent;
+  font-size: 40px;
+  border: solid;
+  border-color: #3fcfaa;
+  margin-left: 93px;
+}
+.form-control3_2 {
+  background-color: transparent;
+  border: solid;
+  border-color: #fb9c9d;
+  font-size: 40px;
+  width: 600px;
+  height: 350px;
+}
+.button3_start {
+  height: 60px;
+  margin-left: 400px;
+  margin-top: -30px;
+}
+.button3 {
+  background-color: transparent;
+  backface-visibility: hidden;
+  border: transparent;
+}
+.button2_booth {
+  height: 90px;
+  border-color: transparent;
+
+  margin-left: 500px;
+  background-color: transparent;
+}
+.middle_4 {
+  width: 60%;
+  height: 100%;
+}
+.right_bar4 {
+  width: 20%;
+  float: right;
+  background-color: transparent;
+  margin-right: 120px;
+  margin-top: -560px;
+}
+.problem_5 {
+  width: 60%;
+  margin-top: 300px;
+  margin-left: 100px;
+  font-size: 20px;
+}
+.box5_2 {
+  float: right;
+  width: 100px;
+  margin-top: -120px;
+}
+.box5 {
+  width: 100px;
+}
+.button5 {
+  background-color: transparent;
+  backface-visibility: hidden;
+  border: transparent;
+  width: 400px;
+}
+.delete_logo {
+  width: 15%;
+  margin-left: 500px;
+  float: right;
+  height: 100%;
+  background-color: transparent;
+  backface-visibility: hidden;
+  border: transparent;
+  margin-top: -450px;
+}
+.button4 {
+  background-color: transparent;
+  border-color: transparent;
+}
+h1 {
+  color: white;
+  align-content: center;
+}
+h2 {
+  color: white;
+  align-content: center;
+  font-size: 30px;
+}
+p {
+  color: white;
+  font-size: 1.5em;
+}
+/************Read-me-page*****************/
+.booth-text1 {
+  position: absolute;
+  left: 36vw;
+  top: 87vw;
+  font-size: 3vw;
+  color: #30b5ff;
+}
+.path-illustration {
+  position: absolute;
+  left: 20vw;
+  top: 77vw;
+}
+.step1-img {
+  position: absolute;
+  left: 64vw;
+  top: 113vw;
+}
+.number1 {
+  position: absolute;
+  left: 84vw;
+  top: 118vw;
+  color: #30b5ff;
+  font-size: 5vw;
+}
+.step1-column {
+  position: absolute;
+  left: 52vw;
+  top: 116vw;
+  font-size: 1.5vw;
+}
+.name-word-text {
+  position: absolute;
+  left: 60vw;
+  top: 133vw;
+  color: #30b5ff;
+  font-size: 1.5vw;
+}
+.name1-text {
+  position: absolute;
+  left: 23vw;
+  top: 153vw;
+  font-size: 1.5vw;
+}
+.step2-path-illustration {
+  position: absolute;
+  left: 26vw;
+  top: 143vw;
+  width: 60vw;
+}
+.step2-img {
+  position: absolute;
+  top: 180vw;
+  left: 8vw;
+}
+.number2 {
+  position: absolute;
+  top: 185vw;
+  left: 29vw;
+  color: #30b5ff;
+  font-size: 5vw;
+}
+.step2-tape {
+  position: absolute;
+  top: 181vw;
+  left: 4vw;
+}
+.step2-text1 {
+  position: absolute;
+  left: 46vw;
+  top: 205vw;
+  font-size: 1.5vw;
+}
+.step2-camera {
+  position: absolute;
+  top: 213vw;
+  left: 4vw;
+}
+.step2-text2 {
+  position: absolute;
+  top: 234vw;
+  left: 46vw;
+  font-size: 1.5vw;
+}
+.step3-path-illustration {
+  position: absolute;
+  top: 233vw;
+  left: 21vw;
+  width: 60vw;
+}
+.step3-img {
+  position: absolute;
+  top: 267vw;
+  left: 62vw;
+}
+.number3 {
+  position: absolute;
+  top: 272vw;
+  left: 83vw;
+  color: #30b5ff;
+  font-size: 5vw;
+}
+.step3-archive {
+  position: absolute;
+  top: 267vw;
+  left: 41vw;
+}
+.step3-text1 {
+  position: absolute;
+  top: 289vw;
+  left: 9vw;
+  font-size: 1.5vw;
+}
+.end-text1 {
+  position: absolute;
+  top: 313vw;
+  left: 3vw;
+  text-align: center;
+  font-size: 3vw;
+  color: #30b5ff;
+}
+.booth {
+  position: absolute;
+  top: 31vw;
+  left: 1vw;
+}
+.introduction-content {
+  position: absolute;
+  top: 55vw;
+  left: 25vw;
+  font-size: 1.5vw;
+}
+.hallucnation-gif {
+  position: absolute;
+  top: 8vw;
+  left: 9vw;
+}
+.read-me-tittle {
+  position: absolute;
+  top: 2vw;
+  left: 42vw;
+  font-size: 3vw;
+}
