@@ -24,7 +24,7 @@
 
 </head>
 <!-- <link rel="stylesheet" href="../css/style_old.css"> -->
-<!-- 
+<!--
     <?php
 		session_start();
 
@@ -102,6 +102,34 @@
     ?> -->
 
 <body id="body3">
+	<!-- <div class="backicon-fixed" style="margin: 20px 20px">
+		<a href="record_memory.html">
+			<svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+				p-id="1479" width="48" height="48">
+				<path
+					d="M960.243 456.737v110.526h-682.875l312.547 315.789-78.793 78.948-449.121-450 449.122-450 81.419 78.948-315.173 315.789h682.875z"
+					p-id="1480" fill="var(--ccyan)"></path>
+			</svg>
+		</a>
+	</div> -->
+
+	<!--
+	<div style="text-align: center;">
+		<h1 class="memory-title" style="margin: -30px">Your Memory</h1>
+		<h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me! <br> <span
+				id="encoding">Now encoding...</span></h2>
+
+		<p id="letters" style="color:white; margin-top: 5px;">.</p>
+
+		<div id="sketch-holder"> </div>
+
+		<a href="choice.html">
+			<div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
+				<div id="button-text" class="button-text-light" style="top:12px; color:white">Encoding...</div>
+			</div>
+		</a>
+
+	</div> -->
 
 	<div class="nav">
 		<a href="memory_list.php">
@@ -126,7 +154,7 @@
 					</div>
 					<div class="record-hint" id="recordHint">
 						<img src="../img/gif/encoding.gif" id="encoding" style="width:50%">
-						<img src="../img/gif/ready.png" id="ready" style="width:50%; margin-left: 4vh;
+						<<img src="../img/gif/ready.png" id="ready" style="width:50%; margin-left: 4vh;
 						margin-top: 4vh;">
 					</div>
 				</div>
@@ -134,13 +162,8 @@
 			<div class="col-md-7 my-auto data-panel" style="text-align: left;">
 				<h1 class="memory-title">Your Memory</h1>
 				<h2>Hello,<span id="name">Carla</span>! Thanks for sharing your memory with me!</h2>
-				<div class="view-content scroll" id="content">
+				<div class="view-content scroll" id="letters">
 					<p>
-						My mother and brother nearly died in a walking accident when I was around 3. I have a strong
-						memory of my father telling me to ‘stay here’ in a tone he hadn’t used before, as he ran back to
-						rescue both of them. I had a tendency to walk ahead and daydream when I was a child, later on I
-						had a police helicopter after me as I cycled 6 miles away from my family, around the age of 8 or
-						9.
 					</p>
 				</div>
 
@@ -159,20 +182,20 @@
 </body>
 
 <script>
-	var memory_data = '<?php echo json_encode($memory); ?>'
-	var text = JSON.parse(memory_data);
-	setInputText(text);
-	setColours();
+	// var memory_data = '<?php echo json_encode($memory); ?>'
+	// var text = JSON.parse(memory_data);
+	setInputText("DMSP Preservation");
+	//setColours();
 	play();
-
-	function setColours() {
-		h = JSON.parse('<?php echo json_encode($h); ?>');
-		s = JSON.parse('<?php echo json_encode($s); ?>');
-		b = JSON.parse('<?php echo json_encode($b); ?>');
-		for (var i = 0; i < 8; i++) {
-			strokes[i] = 3 - 0.3 * i;
-		}
-	}
+	setRandomColoursByCategory("childhood");
+	// function setColours() {
+	// 	h = JSON.parse('<?php echo json_encode($h); ?>');
+	// 	s = JSON.parse('<?php echo json_encode($s); ?>');
+	// 	b = JSON.parse('<?php echo json_encode($b); ?>');
+	// 	for (var i = 0; i < 8; i++) {
+	// 		strokes[i] = 3 - 0.3 * i;
+	// 	}
+	// }
 
 	var mutebutton = document.getElementById("muteButton");
 	var curHTML = mutebutton.innerHTML;
@@ -186,6 +209,14 @@
 			mutebutton.innerHTML = curHTML;
 		}
 	});
+
+	document.getElementById("ready").style.display = "none";
+	document.getElementById("encoding").style.display = "block";
+
+	function ready() {
+		document.getElementById("ready").style.display = "block";
+		document.getElementById("encoding").style.display = "none";
+	}
 
 
 

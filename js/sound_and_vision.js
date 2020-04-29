@@ -81,13 +81,12 @@ function sound()
         string = string.concat(letter);
     }
 
-    console.log(string.length);
+    //console.log(string.length);
     if (string.length == textLength - 1)
     {
       typeOutput = false;
       Tone.Transport.stop();
-      document.getElementById("encoding").innerHTML = "Ready!";
-      document.getElementById("button-text").innerHTML = "Continue";
+      ready();
     }
     // while (i < textLength)
     // {
