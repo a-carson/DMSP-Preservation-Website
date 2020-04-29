@@ -26,29 +26,21 @@
 .member-content {
   width: 80%;
   margin: 0 auto;
-  font-size: 22px;
-  color: #c5c2c3;
-  text-align: center;
+  font-size: 3vh;
   font-weight: lighter;
-  text-align: center;
+  text-align: left;
   font-family: "Roboto", sans-serif;
+  line-height: 3.5vh;
 }
-.sound-team {
-  color: #c5c2c3;
-  font-size: 25px;
-  text-align: center;
-  font-weight: bolder;
-  text-align: center;
-}
+.sound-team,
 .visual-team {
   color: #c5c2c3;
   font-size: 25px;
   text-align: center;
   font-weight: bolder;
   text-align: center;
+  margin: 50px 0;
 }
-
-/* About-us-page*/
 
 /*Read-me-page*/
 .read-me-button1 {
@@ -117,11 +109,13 @@
   font-weight: bolder;
 }
 
-h1 {
+figure h1 {
+  font-size: 3vh !important;
+  margin-top: 0 !important;
   color: white;
   align-content: center;
   font-weight: lighter;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif !important;
 }
 h2 {
   color: white;
@@ -139,16 +133,19 @@ figure {
 .c4-izmir {
   margin: 10px !important;
 }
-.c4-izmir h1 {
-  font-size: 3vh;
-}
 
 @media (max-width: 768px) {
+  body {
+    font-size: 10px;
+  }
   figure {
     width: 40%;
     height: 40%;
   }
-  .c4-izmir h1 {
-    font-size: 3vh;
+
+  .burger {
+    transform: scale(0.5, 0.5);
+    top: 10px;
+    right: 10px;
   }
 }

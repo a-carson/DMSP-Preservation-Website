@@ -11,8 +11,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../css/about_us.css">
+  <link rel="icon" href="../img/tab-icon.png">
+
+  <!--Full page menu-->
+  <link rel="stylesheet" href="../css/memoryList.css">
+  <link rel="stylesheet" href="../css/hamburger.css">
+
   <link rel="stylesheet" href="../css/izmir.min.css">
+  <link rel="stylesheet" href="../css/about_us.css">
+
 </head>
 
 <body id="about-us">
@@ -23,19 +30,23 @@
 
   <div>
     <p class="member-content">
-      Here is description.
-      <!-- Our website is an archive of memory which imagines what it’s like inside the mental architecture of AI.
+      Early in the research process investigating archives and processes of preservation, it became clear archives were
+      not simply a neatly recorded past, but the process of preservation inevitably transforms what is being preserved.
+      During initial research we investigated the process of ‘preserving’ text as sound, developing a MaxMSP patch that
+      converted text to ASCII then to MIDI data. This was made possible on the website using tone.js. Our next challenge
+      was integrating this process with a visual element and making it happen in real-time generated from text the
+      website user inputs. It was eventually possible using P5 (an online-friendly version of the visual software
+      Processing), so the text not only generates sound but in turn creates the graphic you will see next to your
+      memory-text. The user’s memory has successfully been preserved, however totally transformed in the process.
       <br /><br />
-      You are drawn into the world from the perspective of the AI interface, IAIN. Exploring the digital
-      archive, you may feel you become lost in this immersive world, populated with other people’s memories. But to
-      become part of the
-      archive and part of this mental architecture your memories first need to be translated from human language into
-      code (AI language). This process generates sound and a unique moving graphic. The result is disjointed,
-      dreamlike, and unfamiliar to us.
-      <br /><br />
-      Dreams are part of how we remember as humans. Imagine if, with the advent of
-      AI, machines will not only be able to think for themselves but to have a subconscious and dream as they process,
-      learn from, and remember the human world around them, you will begin to enter our world. -->
+      The visual and sonic aesthetic draws heavily from 80s sci-fi. We had also investigated the ageing process of
+      platforms and media (e.g. vinyl, tapes), and how this means the technology we have available to preserve greatly
+      affects how we view the past (from the perspective of the present/future), often corrupting it. Glitches have been
+      built in. Archives and their technology, in a way, are messages to the future, but their design and layout betray
+      their origins in the past, and they are limited (e.g. memory capacity, the fragility of media). The
+      techno-optimism, kitsch old-school video game feel makes the overall experience playful, a bit surreal, colourful,
+      and hints at time-travel.
+
     </p>
   </div>
 
@@ -120,7 +131,76 @@
     </figure>
 
   </div>
+  <!--Full page menu begin-->
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+  <div class="full-menu" style="z-index: 3;">
+    <ul>
+      <li>
+        <a href="index.html">
+          <img class="center" src="../img/heading/heading.png" style="width: 120%;" />
+        </a>
+      </li>
+      <li>
+        <a href="memory_list.php">
+          <div class="svg-wrapper-light" style="width:350px; margin: 120px 0 50px 0;">
+            <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                stroke="#ffffff90" />
+            </svg>
+            <div class="button-text-light">Memory Archive</div>
+          </div>
+        </a>
+      </li>
+      <li><a href="read_me.html">
+          <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
+            <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                stroke="#ffffff90" />
+            </svg>
+            <div class="button-text-light">Read Me</div>
+          </div>
+        </a>
+      </li>
+      <li><a href="read_me.html">
+          <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
+            <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                stroke="#ffffff90" />
+            </svg>
+            <div class="button-text-light">About my creator</div>
+          </div>
+        </a>
+      </li>
+      <li><a href="introduction.html">
+          <div class="svg-wrapper-light cyan" style="width:350px; margin: 50px 0;">
+            <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                stroke="#ffffff90" />
+            </svg>
+            <div class="button-text-light">Add my memories</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--Full page menu end-->
+
+  <!--Full page menu-->
+  <script>
+    const ico = document.querySelector('.burger');
+    const fullMenu = document.querySelector('.full-menu');
+
+    ico.addEventListener('click', function () {
+      this.classList.toggle('is-active');
+      fullMenu.classList.toggle('is-active');
+    })
+  </script>
+
+
 </body>
 
 </html>
