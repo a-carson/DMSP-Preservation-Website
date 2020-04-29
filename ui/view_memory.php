@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>View Memory - Memory Booth </title>
   <link rel="icon" href="../img/tab-icon.png">
-</head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
 <link rel="stylesheet" href="../css/style.css">
-
+</head>
 
 <?php
 session_start();
@@ -153,8 +153,6 @@ $b = $memoriesArray[$index]["b"];
 		}
 	});
 
-	document.getElementById("defaultCanvas0").style.width = "100%";
-	document.getElementById("defaultCanvas0").style.height = "100%";
 
 </script>
 

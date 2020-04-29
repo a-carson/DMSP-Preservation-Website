@@ -55,6 +55,11 @@ body {
   background-attachment: fixed;
 }
 
+#body-viewmemory {
+  background-color: rgb(24, 30, 0);
+  font-family: "Orbitron", sans-serif;
+}
+
 .body-common {
   background-image: url("../img/bg/bg-common.jpg");
   background-position: center;
@@ -337,7 +342,7 @@ h1 {
 h2 {
   color: white;
   align-content: center;
-  font-size: 30px;
+  font-size: 1.8em;
 }
 /***************************Menu*************************/
 .menu-quit {
@@ -364,24 +369,27 @@ h2 {
 }
 
 input[type="text"] {
-  font-size: 1.2em;
+  font-size: 1.5em;
+  font-family: "Orbitron", sans-serif;
 }
 
 .memory-name,
 .memory-content {
-  font-size: 1.2em;
+  font-size: 1.5em;
   /* min-width: 800px; */
   background: none;
   color: white;
   border: 2px solid var(--border-pink);
+  font-family: "Orbitron", sans-serif;
 }
 
 .memory-name:focus,
 .memory-content:focus {
-  background: rgba(255, 255, 255, 0.479);
+  background: rgba(255, 204, 241, 0.2);
   color: white;
   border: 2px solid var(--border-pink);
-  font-size: 1.2em;
+  font-size: 1.5em;
+  font-family: "Orbitron", sans-serif;
 }
 
 .category-options {
@@ -405,7 +413,7 @@ input[type="text"] {
   border: none;
   color: white;
   font-family: "Orbitron", sans-serif;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 300;
   opacity: 0.8;
 }
@@ -430,7 +438,7 @@ input[type="text"] {
   width: 100%;
   height: 50px;
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
 .form-control::placeholder {
@@ -516,9 +524,9 @@ input[type="text"] {
 
 /***************************Exit button*************************/
 .nav {
-  position: absolute;
-  top: 1vw;
-  right: 3vw;
+  position: fixed;
+  top: 2vw;
+  right: 2vw;
   z-index: 999;
 }
 /***************************Categroy*************************/
@@ -543,6 +551,20 @@ input[type="text"] {
   margin-top: 50px;
 }
 
+/***************************Your Memory*************************/
+.sound-control {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.record-hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+}
 /***************************View Memory*************************/
 /* #sketch-holder {
   width: 50vh;
@@ -566,9 +588,12 @@ input[type="text"] {
 
 .memory-title {
   font-size: 3em;
-  margin: 200px 0 0 0;
   color: var(--cpurple);
   text-shadow: 0 0 10px var(--cpurple);
+}
+
+span#category {
+  font-size: 2em;
 }
 
 .view-memory {
@@ -583,13 +608,19 @@ input[type="text"] {
   overflow-y: auto;
   margin: 20px 0;
   padding: 20px;
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: white;
+  font-weight: lighter;
+  font-family: "Roboto", sans-serif;
 }
 
 h3 {
   color: var(--cpurple);
   font-size: 2em;
+}
+
+h4 {
+  color: var(--cpurple);
 }
 
 .scroll {
@@ -780,4 +811,38 @@ a {
 
 .number {
   font-family: "brynda1231-sans", sans-serif;
+}
+
+#defaultCanvas0 {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+
+  #defaultCanvas0 {
+    width: 90% !important;
+    height: 90% !important;
+  }
+  .sound-control {
+    right: 5vh;
+    bottom: 1vh;
+  }
+
+  .record-hint {
+    left: 1vh;
+    top: 5vh;
+  }
+
+  #ready {
+    margin-left: 3vh !important;
+    margin-top: 1vh !important;
+  }
+
+  .data-panel {
+    padding: 0 50px;
+  }
 }
