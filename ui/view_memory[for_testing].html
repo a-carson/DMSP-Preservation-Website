@@ -3,42 +3,52 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Distorted Memories</title>
+	<title>View Memory</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://unpkg.com/tone"></script>
+	<script type="text/javascript" src="../js/sound_and_vision.js"></script>
+
+	<link rel="icon" href="../img/tab-icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+	<link rel="stylesheet" href="../css/style.css">
 </head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://unpkg.com/tone"></script>
-<script type="text/javascript" src="../js/sound_and_vision.js"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-<link rel="stylesheet" href="../css/style.css">
-
 <!-- PHP CAN GO HERE -->
 
-<body id="body3">
+<body id="body-viewmemory">
 
+	<div class="nav">
+		<a href="memory_list.php">
+			<img class="nav" src="../img/button/close.png" style="width: 30px;" alt="" />
+		</a>
+	</div>
 
-
-	<div class="center" style="width:80%">
+	<div class="center" style="width:90%">
 		<div class="row">
 
 			<div class="col-md-5">
 				<div id="sketch-holder">
 					<!-- Our sketch will go here! -->
-					<!--
-					<canvas id="defaultCanvas0" class="p5Canvas" width="300" height="300"
-						style="width:100%;height:100%;background-color: tomato;"></canvas>-->
+					<div class="sound-control" id="muteButton">
+						<svg t="1588159547287" class="icon" viewBox="0 0 1024 1024" version="1.1"
+							xmlns="http://www.w3.org/2000/svg" p-id="3660" width="48" height="48">
+							<path
+								d="M773.12 315.168a374.24 374.24 0 0 1 57.168 199.408 374.24 374.24 0 0 1-59.12 202.464 15.392 15.392 0 0 1-23.84 2.592l-12.16-12.16a16 16 0 0 1-2.224-19.856l2.976-4.8a326.48 326.48 0 0 0 46.368-168.24c0-60.256-16.256-116.736-44.624-165.264a281.712 281.712 0 0 0-4.736-7.76 16 16 0 0 1 2.224-19.84l11.632-11.632a16 16 0 0 1 24.752 2.624l1.568 2.464z m-81.024 84.64a262.944 262.944 0 0 1 26.192 114.768 262.88 262.88 0 0 1-28.512 119.44 15.136 15.136 0 0 1-24.208 3.84l-12.832-12.832a16 16 0 0 1-3.104-18.272c0.976-2.016 1.792-3.76 2.432-5.216a215.264 215.264 0 0 0 18.224-86.96c0-29.072-5.76-56.8-16.16-82.128a201.184 201.184 0 0 0-4.56-10.032 16 16 0 0 1 3.12-18.24l12.032-12.032a16 16 0 0 1 25.52 3.984c0.704 1.328 1.312 2.56 1.856 3.68zM240 601.392h91.248a16 16 0 0 1 10.416 3.856L528 765.168V261.568l-186.688 159.968a16 16 0 0 1-10.4 3.84H240v176z m-48 32v-240a16 16 0 0 1 16-16h111.072L549.584 179.84A16 16 0 0 1 576 192v642.8a16 16 0 0 1-26.416 12.144L319.392 649.392H208a16 16 0 0 1-16-16z"
+								p-id="3661" fill="#ffffff"></path>
+						</svg>
+					</div>
 				</div>
 			</div>
-			<div class="col-md-7 my-auto" style="text-align: left;">
+			<div class="col-md-7 my-auto data-panel" style="text-align: left;">
 				<span class="view-memory" id="id">#01 </span>
 				<span class="view-memory" id="name">Carla</span>
 				<div class="view-content scroll" id="content">
@@ -51,12 +61,12 @@
 					</p>
 				</div>
 
-				<h3 style="display: inline-block;">Category:</h3>
+				<h4 style="display: inline-block;">Category:</h4>
 				<span class="view-memory" id="category">Travel</span>
+
 			</div>
 		</div>
 	</div>
-
 
 
 </body>
@@ -64,55 +74,54 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script>
 
-setInputText("DMSP Preseration sdglakjdsrgnakrSrhzdrjzdtjz");
-play();
-setRandomColoursByCategory("childhood");
+	setInputText("DMSP Preseration sdglakjdsrgnakrSrhzdrjzdtjz");
+	play();
+	setRandomColoursByCategory("childhood");
 
-	//
-	// "use strict";
-	// //ONLOAD
-	// $(function () {
-	// 	//DECLARE GLOBAL VARIABLE FOR USE IN HANDLERS
-	// 	var orig, sib;
-	// 	var runs = 0;
-	// 	var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890+>?-$#@%&*'; //RUN JS WHEN 'DISTORT' IS HOVERED
-	//
-	// 	$('.distort').hover(function () {
-	// 		var curr = $(this);
-	// 		orig = $(this).text();
-	// 		sib = setInterval(function () {
-	// 			distortText(curr);
-	// 		}, 100);
-	// 	}, function () {
-	// 		//RESET THE ORIGINAL TEXT
-	// 		clearInterval(sib);
-	// 		$(this).text(orig);
-	// 	});
-	//
-	// 	function distortText(i) {
-	// 		//MAINTAINS SOME READABILITY IN THE TEXT BY ONLY ALLOWING 3 CHARACTERS TO BE DISTORTED
-	// 		if (runs >= 2) {
-	// 			runs = 0;
-	// 			i.text(orig);
-	// 			return;
-	// 		} //GET EACH INDIVIDUAL CHARACTER
-	//
-	//
-	// 		var chars = i.text().split(''); //GET A RANDOM CHARACTER FROM THE TEXT
-	// 		var rand = Math.floor(Math.random() * chars.length); //GET A RANDOM REPLACEMENT CHARACTER
-	// 		var randRep = Math.floor(Math.random() * charSet.length); //CHECK TO MAKE SURE THAT THE NEW CHARACTER IS DIFFERENT FROM THE OLD
-	//
-	// 		if (chars[rand] != charSet[randRep] && chars[rand] != ' ') {
-	// 			chars[rand] = charSet[randRep];
-	// 		} else {
-	// 			distortText(i);
-	// 		} //UPDATE TEXT
-	//
-	//
-	// 		i.text(chars.join(''));
-	// 		runs += 1;
-	// 	}
-	// });
+	"use strict";
+
+	//ONLOAD
+	$(function () {
+		//DECLARE GLOBAL VARIABLE FOR USE IN HANDLERS
+		var orig, sib;
+		var runs = 0;
+		var charSet = '1234567890+>?-$#@%&*'; //RUN JS WHEN 'DISTORT' IS HOVERED
+
+		$('.distort').hover(function () {
+			var curr = $(this);
+			orig = $(this).text();
+			sib = setInterval(function () {
+				distortText(curr);
+			}, 500);
+		});
+
+		function distortText(i) {
+			//MAINTAINS SOME READABILITY IN THE TEXT BY ONLY ALLOWING 3 CHARACTERS TO BE DISTORTED
+			// if (runs >= 10){
+			//   runs = 0;
+			//   i.text(orig);
+			//   return;
+			// }
+			//GET EACH INDIVIDUAL CHARACTER
+			var chars = i.text().split(''); //GET A RANDOM CHARACTER FROM THE TEXT
+
+			var rand = Math.floor(Math.random() * chars.length); //GET A RANDOM REPLACEMENT CHARACTER
+
+			var randRep = Math.floor(Math.random() * charSet.length); //CHECK TO MAKE SURE THAT THE NEW CHARACTER IS DIFFERENT FROM THE OLD
+
+			if (chars[rand] != charSet[randRep] && chars[rand] != ' ') {
+				chars[rand] = charSet[randRep];
+			} else {
+				distortText(i);
+			} //UPDATE TEXT
+
+
+			i.text(chars.join(''));
+			runs += 1;
+		}
+	});
+
+
 </script>
 
 

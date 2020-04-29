@@ -74,7 +74,7 @@ function createElements($category)
 <link rel="stylesheet"
     href="https://blogfonts.com/css/aWQ9NDg4ODAmc3ViPTg4MCZjPWImdHRmPUJyeW5kYTEyMzErU2Fucy50dGYmbj1icnluZGExMjMxLXNhbnM/Brynda1231 Sans.ttf" />
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-<link rel="stylesheet" href="../css/memoryList.css">
+<link rel="stylesheet" href="../css/memory_list.css">
 <link rel="stylesheet" href="../css/hamburger.css">
 
 <!-- HTML ---------------------------------------------------------------------------->

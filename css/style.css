@@ -27,22 +27,32 @@ body {
   height: 100%;
   margin: 0px;
 }
-#body {
-  background-image: url("../img/bg/bg_index.jpg");
+/**************index.html************/
+#body-index {
+  background-image: url("../img/bg/bg_index_black.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   overflow: hidden;
-  width: 100vh;
-  height: 500vh;
+}
+.index-background {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
-#body2 {
-  /* background-image: url("../img/bg/bg_category3.png"); */
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 5s ease infinite;
+.index-background img {
+  width: 100%;
+  height: auto;
+}
+
+#glitch-button {
+  width: 100%;
+  height: 100%;
 }
 
 #body3 {
@@ -53,6 +63,17 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+#body-introduction {
+  background-image: url("../img/bg/bg_line.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 #body-viewmemory {
@@ -111,7 +132,7 @@ body {
   right: 0;
   overflow: hidden;
   text-align: center;
-  background-image: url("../img/bg/bg_category4.png");
+  background-image: url("../img/bg/bg_category.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -344,6 +365,7 @@ h2 {
   align-content: center;
   font-size: 1.8em;
 }
+
 /***************************Menu*************************/
 .menu-quit {
   background-color: transparent;
@@ -465,6 +487,20 @@ input[type="text"] {
   text-shadow: 2px 2px 5px var(--cred);
 }
 /***************************Introduction*************************/
+
+video {
+  outline: none;
+  cursor: pointer;
+}
+
+#skipBtn {
+  margin: 20px 0 50px 0;
+}
+/* 
+#svg-skip {
+  display: inline-block;
+} */
+
 .videoBgWrapper {
   position: fixed;
   top: 50%;
@@ -486,18 +522,26 @@ input[type="text"] {
 .btn-control {
   display: inline-block;
   margin: 0 20px;
-  height: 30px;
   width: 150px;
   cursor: pointer;
-  box-shadow: inset 0 0 5px var(--cpurple), inset 0 0 50px var(--cpurple),
-    inset 0 0 10px var(--cpurple), 0 0 10px var(--cpurple),
-    0 0 1px var(--cpurple), 0 0 20px var(--cpurple);
+  box-shadow: inset 0 0 1px white, inset 0 0 1px white, inset 0 0 10px white,
+    0 0 1px white, 0 0 1px white, 0 0 1px white;
   background: transparent;
-  border: none;
+  border: solid 2px white;
   color: white;
   font-family: "Orbitron", sans-serif;
   font-size: 1em;
   font-weight: 300;
+  opacity: 0.3;
+}
+
+.btn-control:hover {
+  opacity: 1;
+}
+
+.btn-control span {
+  position: relative;
+  bottom: 6px;
 }
 
 .content {
@@ -818,9 +862,26 @@ a {
   height: 100% !important;
 }
 
+/**********back-page-button*************/
+#back-page-button {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+}
+
+@media (max-width: 1200px) {
+  #back-page-button {
+    transform: scale(0.8, 0.8);
+  }
+}
+
 @media (max-width: 768px) {
   body {
     font-size: 12px;
+  }
+
+  .index-background {
+    width: 120%;
   }
 
   #defaultCanvas0 {
@@ -844,5 +905,12 @@ a {
 
   .data-panel {
     padding: 0 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  #back-page-button {
+    top: 2vh !important;
+    left: 0 !important;
   }
 }

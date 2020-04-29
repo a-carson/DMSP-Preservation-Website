@@ -19,7 +19,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/style_old.css">
+<!-- <link rel="stylesheet" href="../css/style_old.css"> -->
 
     <?php
 		session_start();
