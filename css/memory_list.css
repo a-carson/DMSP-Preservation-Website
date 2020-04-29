@@ -81,6 +81,11 @@ h2 {
   border: transparent;
   float: right;
 } */
+#back-page-button {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+}
 
 .button-memory {
   text-align: left;
@@ -264,4 +269,91 @@ h2 {
 
 .scroll::-webkit-scrollbar-thumb {
   background: var(--cpurple);
+}
+
+@media (max-width: 1200px) {
+  #childhood-button {
+    margin-left: 0 !important;
+  }
+
+  #nav-tab {
+    transform: scale(0.8, 0.8);
+    padding-right: 0 !important;
+  }
+
+  #back-page-button {
+    transform: scale(0.8, 0.8);
+  }
+}
+
+@media (max-width: 992px) {
+  body {
+    font-size: 12px !important;
+  }
+
+  #nav-tab {
+    margin-bottom: 0 !important;
+  }
+
+  .button-memory {
+    width: 95%;
+  }
+
+  .button-memory img {
+    width: 100px !important;
+  }
+
+  .button-memory h2 {
+    max-width: 50vw !important;
+  }
+
+  #nav-tabContent {
+    max-height: 64vh !important;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 10px !important;
+  }
+  .nav svg {
+    width: 150px !important;
+  }
+
+  .nav rect {
+    width: 150px !important;
+  }
+
+  .nav .svg-wrapper-light {
+    width: 150px !important;
+  }
+
+  .nav .shape-light {
+    stroke-dasharray: 173 20 195 20;
+  }
+
+  .burger {
+    top: 2vh !important;
+    right: 0 !important;
+  }
+
+  #back-page-button {
+    top: 2vh !important;
+    left: 0 !important;
+  }
+
+  .button-memory {
+    width: 92%;
+  }
+
+  #addMyMemories {
+    top: 10px !important;
+  }
+  .button-text-light {
+    font-size: 1.8em;
+  }
+
+  .fixed-bottom .center {
+    width: 95% !important;
+  }
 }

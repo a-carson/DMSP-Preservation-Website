@@ -146,4 +146,7 @@ a:hover {
   .burger {
     transform: scale(0.5, 0.5);
   }
+  .burger.is-active {
+    transform: scale(0.5, 0.5);
+  }
 }
