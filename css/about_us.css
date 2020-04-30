@@ -114,7 +114,7 @@ figure h1 {
   color: white;
   align-content: center;
   font-weight: lighter;
-  font-family: "Roboto", sans-serif !important;
+  font-family: "IBM Plex Mono", monospace !important;
 }
 h2 {
   color: white;

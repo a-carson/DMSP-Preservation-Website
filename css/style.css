@@ -655,7 +655,7 @@ span#category {
   font-size: 1.5em;
   color: white;
   font-weight: lighter;
-  font-family: "Roboto", sans-serif;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 h3 {
