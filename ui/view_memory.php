@@ -14,7 +14,7 @@
 
   <meta charset="UTF-8">
   <title>View Memory - Memory Booth </title>
-  <link rel="icon" href="../img/tab-icon.png">
+  <link rel="icon" href="../img/bg/tab-icon.png">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -14,7 +14,7 @@
 
     <meta charset="UTF-8">
     <title>Choice-Childhood</title>
-    <link rel="icon" href="../img/tab-icon.png">
+    <link rel="icon" href="../img/bg/tab-icon.png">
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
