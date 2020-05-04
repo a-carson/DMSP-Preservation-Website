@@ -597,15 +597,10 @@ video {
 
 /***************************Your Memory*************************/
 .sound-control {
-  width: 36px;
-  height: 36px;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 20px;
+  right: 20px;
   cursor: pointer;
-  margin-bottom: 20px;
-  border-radius: 50px;
-  border: solid 2px var(--lgreen);
 }
 
 .record-hint {
@@ -894,8 +889,8 @@ a {
     height: 90% !important;
   }
   .sound-control {
-    padding: 0 50px 15px 0;
-    transform: scale(0.8);
+    right: 5vh;
+    bottom: 1vh;
   }
 
   .record-hint {
@@ -911,20 +906,10 @@ a {
   .data-panel {
     padding: 0 50px;
   }
-
-  .backicon-fixed {
-    transform: scale(0.8);
-  }
-
-  .play {
-    margin-right: 50px;
-    transform: scale(0.8);
-  }
-
-  .sound-control {
-    margin-right: 55px;
-    margin-bottom: 13px;
-    transform: scale(0.8);
+  .play{
+    position:absolute;
+    top: 67.8vw;
+    left: 69vw;
   }
 }
 
@@ -935,30 +920,69 @@ a {
   }
 }
 
-.play {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 20px;
-  margin-right: -49px;
-  border-radius: 50px;
-  border: solid 2px var(--lgreen);
+@media (max-width: 375px)  {
+  .body{
+    overflow:hidden
+  }
+  .record-memory-heading{
+    height:53px;
+  }
+  /* .container {
+    width: 70%;
+    top: 107vw;
+    padding-right: 23px;
+    padding-left: 1px;
+    margin-right: auto;
+    margin-left: auto;
+} */
+.category-options {
+   padding-top: 0px;
+   margin: 0 0;
+}
+.radio-form label{
+  margin-top: -10px;
+  margin-right: 4px;
+  margin-bottom: -20px;
+  margin-left: 1px;
+}
+.textarea{
+ height: 19vw;
+}
+.center-form{
+  top:37%;
+}
+}
+
+
+
+
+.play{
+  position:absolute;
+  top: 38.8vw;
+  left: 37vw;
+  width: 6vw;
+
+  border: 0;
   background: transparent;
   box-sizing: border-box;
-  width: 36px;
-  height: 36px;
+  width: 100px;
+  height: 74px;
+
+  border-color: transparent transparent transparent red;
   transition: 100ms all ease;
   cursor: pointer;
+
+  // play state
+  border-style: solid;
+  border-width: 37px 0 37px 60px;
+
+  &.paused {
+  border-style: double;
+  border-width: 0px 0 0px 60px;
 }
 
-.play.paused {
-  opacity: 0.8;
+&:hover {
+  border-color: transparent transparent transparent blue;
 }
-
-.backicon-fixed {
-  margin: 20px 20px;
-  position: fixed;
-  top: 0;
-  z-index: 999;
 }
 /***********save.php-page*******************/
