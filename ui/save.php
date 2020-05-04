@@ -33,7 +33,7 @@ $save_gif_string.= $_SESSION["category"];
 $save_gif_string.= ".gif";
 
 // GET MEMORY JSON
-$memoriesJson = file_get_contents('../json/memories.json');
+$memoriesJson = file_get_contents('../../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);
 
 // ADD FORM DATA TO ARRAY
@@ -49,7 +49,7 @@ $memoriesArray[] = $newEntry;
 
 // WRITE TO JSON
 $encodedArray = json_encode($memoriesArray);
-file_put_contents('../json/memories.json', $encodedArray);
+file_put_contents('../../json/memories.json', $encodedArray);
 
 ?>
 
