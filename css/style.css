@@ -596,17 +596,6 @@ video {
 }
 
 /***************************Your Memory*************************/
-.sound-control {
-  width: 36px;
-  height: 36px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  cursor: pointer;
-  margin-bottom: 20px;
-  border-radius: 50px;
-  border: solid 2px var(--lgreen);
-}
 
 .record-hint {
   position: absolute;
@@ -918,12 +907,14 @@ a {
 
   .play {
     margin-right: 50px;
+    margin-bottom: 14px;
     transform: scale(0.8);
   }
 
   .sound-control {
     margin-right: 55px;
     margin-bottom: 13px;
+    z-index: 999;
     transform: scale(0.8);
   }
 }
@@ -935,6 +926,18 @@ a {
   }
 }
 
+.sound-control {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  border: solid 2px var(--lgreen);
+}
+/* 
 .play {
   position: absolute;
   bottom: 0;
@@ -949,10 +952,61 @@ a {
   height: 36px;
   transition: 100ms all ease;
   cursor: pointer;
+  z-index: 999;
+} */
+
+.backicon-fixed {
+  margin: 20px 20px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.view-content {
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.data-panel {
+  z-index: -1;
+}
+
+/***********save.php-page*******************/
+
+.sound-control {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-right: -18px;
+  border-radius: 50px;
+  border: solid 2px var(--lgreen);
+  z-index: 999;
+}
+
+.play {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px;
+  margin-right: -62px;
+  border-radius: 50px;
+  border: solid 2px var(--lgreen);
+  background: transparent;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  transition: 100ms all ease;
+  cursor: pointer;
+  z-index: 999;
+  outline: none;
 }
 
 .play.paused {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .backicon-fixed {
@@ -961,4 +1015,36 @@ a {
   top: 0;
   z-index: 999;
 }
-/***********save.php-page*******************/
+
+.view-content {
+  max-height: 200px !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.data-panel {
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .backicon-fixed {
+    transform: scale(0.8);
+  }
+
+  .play {
+    transform: scale(0.8);
+    margin-right: 50px;
+    margin-bottom: 13px;
+  }
+
+  .sound-control {
+    margin-right: 90px;
+    margin-bottom: 13px;
+    z-index: 999;
+    transform: scale(0.8);
+  }
+}
+
+button.play:focus {
+  outline: none;
+}
