@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T40QBMYD00"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T40QBMYD00');
+</script>
+
+  <meta charset="UTF-8">
+  <title>Delete</title>
+  <link rel="icon" href="../img/tab-icon.png">
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/choice.css">
+
+
+<body id="body3">
+
+
+  <div id="back-page-button" class="backicon-fixed">
+    <a href="choice.html">
+      <svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        p-id="1479" width="48" height="48">
+        <path
+          d="M960.243 456.737v110.526h-682.875l312.547 315.789-78.793 78.948-449.121-450 449.122-450 81.419 78.948-315.173 315.789h682.875z"
+          p-id="1480" fill="var(--ccyan)"></path>
+      </svg>
+    </a>
+  </div>
+
+  <div class="row align-items-center justify-content-center choice-container">
+    <a href="memory_list.php">
+      <img src="../img/heading/heading.png" class="center" id="logo" style="width:700px;top:100px" alt="Memory Booth" />
+    </a>
+
+
+    <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
+
+
+    <div>
+      <h1 id="text" class="center" style="font-size: 2em;top:21vw; z-index: 2;">Memory deleted</h1>
+    </div>
+
+    <div class="gif-container center" style="margin: 30px 0;">
+      <img id="gif" src='' style="width: 400px;" />
+    </div>
+
+
+
+    <div class="button-container" id="button-container" style="padding-top:24vw;">
+
+      <!-- <button id="delete-button" onclick="window.location.href = 'choice.html'"
+        class="svg-wrapper-light cyan choice-button-wide" style="border: solid 5px var(--ccyan);">
+        <div class="button-text-light" style="top:0px; color:white">
+          Back</div>
+      </button>
+
+      <button id="back-button" onclick="deleteMem()" class="svg-wrapper-light choice-button-wide"
+        style="border: solid 5px var(--cpurple);">
+        <div class="button-text-light" style="top:0px; color:white">
+          Delete</div>
+      </button> -->
+
+      <a id="home-link" href="memory_list.php">
+        <div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
+          <div class="button-text-light" style="top:5px; color:white">
+            Home</div>
+        </div>
+        <a>
+
+    </div>
+
+
+</body>
+
+<script>
+  deleteMem();
+
+  // document.getElementById("home-link").style.display = "none";
+
+  // if (localStorage.getItem('type') == "childhood") {
+  //   document.getElementById("gif").src = "../img/gif/delete-gif/childhood-delete.gif";
+  // }
+
+  // if (localStorage.getItem('type') == "travel") {
+  //   document.getElementById("gif").src = "../img/gif/delete-gif/travel-delete.gif";
+  // }
+
+  // if (localStorage.getItem('type') == "student-life") {
+  //   document.getElementById("gif").src = "../img/gif/delete-gif/student-life-delete.gif";
+  // }
+
+  // if (localStorage.getItem('type') == "others") {
+  //   document.getElementById("gif").src = "../img/gif/delete-gif/others-delete.gif";
+  // }
+
+  function deleteMem() {
+    document.getElementById("home-link").style.display = "block";
+    // document.getElementById("delete-button").style.display = "none";
+    // document.getElementById("back-button").style.display = "none";
+    document.getElementById("back-page-button").style.display = "none";
+    // document.getElementById("text").innerHTML = "Memory deleted.";
+    document.getElementById("gif").src = "../img/gif/delete.gif";
+  }
+
+</script>
+
+</html>

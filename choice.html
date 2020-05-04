@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html>
+
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T40QBMYD00"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T40QBMYD00');
+</script>
+
+	<meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Choice</title>
+	<link rel="icon" href="../img/tab-icon.png">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/choice.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+
+<body id="body3">
+	<!--
+	<div class="backicon-fixed">
+		<a href="your_memory.php">
+			<svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+				p-id="1479" width="48" height="48">
+				<path
+					d="M960.243 456.737v110.526h-682.875l312.547 315.789-78.793 78.948-449.121-450 449.122-450 81.419 78.948-315.173 315.789h682.875z"
+					p-id="1480" fill="var(--ccyan)"></path>
+			</svg>
+		</a>
+	</div>-->
+
+	<div id="back-page-button" class="backicon-fixed">
+		<a href="memory_list.php">
+			<svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+				p-id="1479" width="48" height="48">
+				<path
+					d="M960.243 456.737v110.526h-682.875l312.547 315.789-78.793 78.948-449.121-450 449.122-450 81.419 78.948-315.173 315.789h682.875z"
+					p-id="1480" fill="var(--ccyan)"></path>
+			</svg>
+		</a>
+	</div>
+	<div class="question-container">
+		<img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
+		<a href="memory_list.php">
+			<img src="../img/heading/heading.png" class="center heading" alt="Memory Booth" />
+		</a>
+
+		<div class="row align-items-center justify-content-center choice-container">
+			<div class="col-md-12 my-auto" style="text-align: center; ">
+				<h1>Save your memory?</h1>
+
+				<div class="button-container">
+					<a href="save.php" style="text-decoration: none;">
+						<div class="svg-wrapper-light cyan choice-button-wide" style=" border: solid 5px var(--ccyan)"
+							onclick="window.location.href = 'animation.html'">
+							<span><div class="button-text-light" style="top:2px; color:white" id="save">
+								Save</div></span>
+
+
+								<!-- <span class="tooltiptext">By saving you are agreeing for your name and memory to be saved to the database and be visible to other users.</span> -->
+								<div class="hover-text">By saving you are agreeing for your name and memory to be <br>saved to the database and be visible to other users</div>
+
+						</div>
+					</a>
+					<a href="delete.html" style="text-decoration: none;">
+						<div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
+							<div class="button-text-light" style="top:2px; color:var(--main-color)" id="dont-save">
+								Don't Save</div>
+						</div>
+					</a>
+				</div>
+
+			</div>
+			<div class="col-md-12 my-auto" style="text-align: center;" id="gif-container">
+			</div>
+		</div>
+	</div>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
+	<script>
+
+		var audio_dontsave = new Audio("../img/audio/dontsave_sound_mp3.mp3");
+		var audio_save = new Audio("../img/audio/save_sound_mp3.mp3");
+
+		$("#dont-save").hover(
+			function () {
+				$("#gif-container").append('<img class="center append-img" id="tmp-img1" src="../img/gif/dontsave.gif">');
+				audio_dontsave.play();
+				audio_dontsave.loop = true;
+			},
+			function () {
+				$("#tmp-img1").remove();
+				audio_dontsave.pause();
+			}
+		);
+
+		$("#save").hover(
+			function () {
+				$("#gif-container").append('<img class="center append-img" id="tmp-img3" src="../img/gif/save.gif">');
+				audio_save.play();
+				audio_save.loop = true;
+			},
+			function () {
+				$("#tmp-img3").remove();
+				audio_save.pause();
+			}
+		);
+
+	</script>
+</body>
+
+
+
+</html>
