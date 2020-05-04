@@ -21,6 +21,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
 <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script>
@@ -65,7 +66,7 @@ $s = $memoriesArray[$index]["s"];
 $b = $memoriesArray[$index]["b"];
 ?>
 
-<body id="body3">
+<body id="body3" style="overflow:hidden;">
 
 	<div class="nav">
 		<a href="memory_list.php">
@@ -121,52 +122,50 @@ $b = $memoriesArray[$index]["b"];
   }
 
   "use strict";
-	//ONLOAD
-	$(function () {
-		//DECLARE GLOBAL VARIABLE FOR USE IN HANDLERS
-		var orig, sib;
-		var runs = 0;
-		var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890+>?-$#@%&*'; //RUN JS WHEN 'DISTORT' IS HOVERED
 
-		$('.distort').hover(function () {
-			var curr = $(this);
-			orig = $(this).text();
-			sib = setInterval(function () {
-				distortText(curr);
-			}, 100);
-		}, function () {
-			//RESET THE ORIGINAL TEXT
-			clearInterval(sib);
-			$(this).text(orig);
-		});
+  //ONLOAD
+  $(function () {
+    //DECLARE GLOBAL VARIABLE FOR USE IN HANDLERS
+    var orig, sib;
+    var runs = 0;
+    var charSet = '1234567890+>?-$#@%&*'; //RUN JS WHEN 'DISTORT' IS HOVERED
 
-		function distortText(i) {
-			//MAINTAINS SOME READABILITY IN THE TEXT BY ONLY ALLOWING 3 CHARACTERS TO BE DISTORTED
-			if (runs >= 2) {
-				runs = 0;
-				i.text(orig);
-				return;
-			} //GET EACH INDIVIDUAL CHARACTER
+    $('.distort').hover(function () {
+      var curr = $(this);
+      orig = $(this).text();
+      sib = setInterval(function () {
+        distortText(curr);
+      }, 500);
+    });
 
+    function distortText(i) {
+      //MAINTAINS SOME READABILITY IN THE TEXT BY ONLY ALLOWING 3 CHARACTERS TO BE DISTORTED
+      // if (runs >= 10){
+      //   runs = 0;
+      //   i.text(orig);
+      //   return;
+      // }
+      //GET EACH INDIVIDUAL CHARACTER
+      var chars = i.text().split(''); //GET A RANDOM CHARACTER FROM THE TEXT
 
-			var chars = i.text().split(''); //GET A RANDOM CHARACTER FROM THE TEXT
-			var rand = Math.floor(Math.random() * chars.length); //GET A RANDOM REPLACEMENT CHARACTER
-			var randRep = Math.floor(Math.random() * charSet.length); //CHECK TO MAKE SURE THAT THE NEW CHARACTER IS DIFFERENT FROM THE OLD
+      var rand = Math.floor(Math.random() * chars.length); //GET A RANDOM REPLACEMENT CHARACTER
 
-			if (chars[rand] != charSet[randRep] && chars[rand] != ' ') {
-				chars[rand] = charSet[randRep];
-			} else {
-				distortText(i);
-			} //UPDATE TEXT
+      var randRep = Math.floor(Math.random() * charSet.length); //CHECK TO MAKE SURE THAT THE NEW CHARACTER IS DIFFERENT FROM THE OLD
+
+      if (chars[rand] != charSet[randRep] && chars[rand] != ' ') {
+        chars[rand] = charSet[randRep];
+      } else {
+        distortText(i);
+      } //UPDATE TEXT
 
 
-			i.text(chars.join(''));
-			runs += 1;
-		}
-	});
+      i.text(chars.join(''));
+      runs += 1;
+    }
+  });
 
 
-</script>
+  </script>
 
 
 </html>
