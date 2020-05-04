@@ -64,7 +64,7 @@ h1 {
 
 h2 {
   font-size: 2em;
-  margin:0;
+  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -343,7 +343,7 @@ h2 {
   }
 
   .button-memory {
-    width: 92%;
+    width: 92% !important;
   }
 
   #addMyMemories {
@@ -356,8 +356,13 @@ h2 {
   .fixed-bottom .center {
     width: 95% !important;
   }
-  .col-9{
-     left: 3vw;
-     top: 2vw;
+  .col-9 {
+    left: 3vw;
+    top: 2vw;
+  }
+
+  #add-memory-button {
+    width: 80% !important;
+    height: 50px;
   }
 }
