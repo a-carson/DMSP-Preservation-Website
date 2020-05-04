@@ -184,7 +184,7 @@ function createElements($category)
         <a href="record_memory.html">
             <div class="center" style="width:500px">
                 <div class="col-12 align-self-center" style="margin:50px 0 0 0">
-                    <div class="svg-wrapper-light purple" style="width:100%; border: solid 5px var(--cpurple);">
+                    <div class="svg-wrapper-light purple" style="width:100%; border: solid 5px var(--cpurple);" id="add-memory-button">
                         <div class="button-text-light" style="top:5px; color:white">Add My
                             Memories</div>
                     </div>
