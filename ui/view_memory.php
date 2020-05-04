@@ -40,7 +40,7 @@ session_start();
 $index = $_SESSION["index"];
 session_destroy();
 
-$memoriesJson = file_get_contents('../json/memories.json');
+$memoriesJson = file_get_contents('../../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);
 $array_length = count($memoriesArray);
 
@@ -103,6 +103,7 @@ $b = $memoriesArray[$index]["b"];
 <script>
   var memory_data = '<?php echo json_encode($memory); ?>';
   var text = JSON.parse(memory_data);
+  setUpSynth(JSON.parse('<?php echo json_encode($category); ?>'));
   setInputText(text);
   setColours();
   play();

@@ -37,7 +37,7 @@
 		session_start();
 
 		// GET JSON
-		$memoriesJson = file_get_contents('../json/memories.json');
+		$memoriesJson = file_get_contents('../../json/memories.json');
 		$memoriesArray = json_decode($memoriesJson, true);
 
 		// GET FORM DATA
@@ -202,6 +202,7 @@
 <script>
 var memory_data = '<?php echo json_encode($memory); ?>'
 var text = JSON.parse(memory_data);
+setUpSynth(JSON.parse('<?php echo json_encode($category); ?>'));
 setInputText(text);
 setColours();
 play();
