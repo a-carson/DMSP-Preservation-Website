@@ -2,6 +2,16 @@
 <html>
 
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T40QBMYD00"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T40QBMYD00');
+</script>
+
 	<meta charset="UTF-8">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +24,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
+
 
 <body id="body3">
 	<!--
@@ -52,13 +63,18 @@
 					<a href="save.php" style="text-decoration: none;">
 						<div class="svg-wrapper-light cyan choice-button-wide" style=" border: solid 5px var(--ccyan)"
 							onclick="window.location.href = 'animation.html'">
-							<div class="button-text-light" style="top:2px; color:white" id="save">
-								Save</div>
+							<span><div class="button-text-light" style="top:2px; color:white" id="save">
+								Save</div></span>
+
+
+								<!-- <span class="tooltiptext">By saving you are agreeing for your name and memory to be saved to the database and be visible to other users.</span> -->
+								<div class="hover-text">By saving you are agreeing for your name and memory to be <br>saved to the database and be visible to other users</div>
+
 						</div>
 					</a>
 					<a href="delete.html" style="text-decoration: none;">
 						<div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
-							<div class="button-text-light" style="top:2px; color:var(--cpurple)" id="dont-save">
+							<div class="button-text-light" style="top:2px; color:var(--main-color)" id="dont-save">
 								Don't Save</div>
 						</div>
 					</a>

@@ -4,7 +4,7 @@
 
 function createElements($category)
 {
-  $memoriesJson = file_get_contents('../../json/memories.json');
+  $memoriesJson = file_get_contents('../json/memories.json');
   $memoriesArray = json_decode($memoriesJson, true);
   $array_length = count($memoriesArray);
 
@@ -38,9 +38,11 @@ function createElements($category)
       echo '        class='; echo $class;
       echo '        id='; echo $category;
       echo '        style = "width: 100%">';
-      echo '      <img src='; echo $img;
-      echo '              style="width: 10vw; background-color: transparent; margin:1vw;" alt="" />
+      echo '        <div class="row"><div class="col-3"><img src='; echo $img;
+      echo '              style="width: 10vw; background-color: transparent; margin:1vw;" alt="" /></div>
+
                 <!--<div class="CD-description">-->
+                    <div class="col-9" style="margin-top: 1vw;">
                     <span id="id">';
                     echo '#0'; echo $i+1;
       echo '        </span>
@@ -48,9 +50,13 @@ function createElements($category)
                     echo $memoriesArray[$i]["name"];
       echo '        </span>
 
-                    <h2 id="content" class="content" style = "width: 100%; margin-top: -4vw; margin-bottom: 2vw; margin-left: 12.5vw">';
+                    <h2 id="content" class="content" style = "width: 60vw; margin-top: 2vw; margin-bottom: 2vw;">';
                     echo $memoriesArray[$i]["memory"];
       echo '        </h2>
+                    </div>
+                    </div>
+
+
                 <!--</div>-->
             </button>
             ';
@@ -83,13 +89,13 @@ function createElements($category)
   <div class="gradient-bg"></div>
 
     <!-- TABS ------------------------------------------------------------------------------------------------->
-    <div class="container" id="tablist-section" >
+    <div class="container" id="tablist-section">
         <nav class="row">
-            <div class="nav col-12 justify-content-center" id="nav-tab" role="tablist" style="margin: 2vw 0;">
+            <div class="nav col-12 justify-content-center" id="nav-tab" role="tablist" style="margin: 20px 0;">
 
                 <a class="nav-item nav-link active" id="nav-childhood-tab" data-toggle="tab" href="#nav-childhood"
                     role="tab" aria-controls="nav-childhood" aria-selected="true">
-                    <div class="svg-wrapper-light pink" style="width:200px;margin-left: 40px;">
+                    <div class="svg-wrapper-light pink" style="width:200px;margin-left: 40px;" id="childhood-button">
                         <svg style=" height:60px; width: 200px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light pink" style="height:60px; width:200px;" stroke="#ffffff90" />
                         </svg>
@@ -142,7 +148,7 @@ function createElements($category)
                 </div>
             </div>
             <!-- TRAVEL -->
-            <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-travel" role="tabpanel"
+          <div class="tab-pane fade col-12 col-md-10 offset-md-1" id="nav-travel" role="tabpanel"
                 aria-labelledby="nav-travel-tab">
                 <div class="row">
                     <div class="col-12 align-self-center">
@@ -179,7 +185,7 @@ function createElements($category)
             <div class="center" style="width:500px">
                 <div class="col-12 align-self-center" style="margin:50px 0 0 0">
                     <div class="svg-wrapper-light purple" style="width:100%; border: solid 5px var(--cpurple);">
-                        <div class="button-text-light" style="top:5px; color:white">Add Your
+                        <div class="button-text-light" style="top:5px; color:white">Add My
                             Memories</div>
                     </div>
                 </div>
@@ -200,21 +206,9 @@ function createElements($category)
                     <img class="center" src="../img/heading/heading.png" style="width: 120%;" />
                 </a>
             </li>
-
-
             <li>
-                <a href="record_memory.html">
-                    <div class="svg-wrapper-light cyan" style="width:350px; margin: 120px 0 50px 0;">
-                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
-                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
-                                stroke="#ffffff90" />
-                        </svg>
-                        <div class="button-text-light">Add Your Memory</div>
-                    </div>
-                </a>
-            </li>
-            <li><a href="memory_list.php">
-                    <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
+                <a href="memory_list.php">
+                    <div class="svg-wrapper-light" style="width:350px; margin: 120px 0 50px 0;">
                         <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                                 stroke="#ffffff90" />
@@ -233,21 +227,55 @@ function createElements($category)
                     </div>
                 </a>
             </li>
-
-            <li><a href="about_us.html">
+            <li><a href="read_me.html">
                     <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
                         <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                                 stroke="#ffffff90" />
                         </svg>
-                        <div class="button-text-light">About My Creators</div>
+                        <div class="button-text-light">About my creator</div>
                     </div>
                 </a>
             </li>
+            <li><a href="record_memory.html">
+                    <div class="svg-wrapper-light cyan" style="width:350px; margin: 50px 0;">
+                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                                stroke="#ffffff90" />
+                        </svg>
+                        <div class="button-text-light">Add my memories</div>
+                    </div>
+                </a>
+            </li>
+
+            <li><a href="https://s1821826.typeform.com/to/OSFqSR">
+                <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
+                  <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                      stroke="#ffffff90" />
+                  </svg>
+                  <div class="button-text-light">Feedback Quetionnaire</div>
+                <a>
+            </li>
         </ul>
     </div>
+    <!--Full page menu end-->
+
+
+    <div id="back-page-button" class="backicon-fixed">
+        <a href="introduction.html">
+            <svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                p-id="1479" width="48" height="48">
+                <path
+                    d="M960.243 456.737v110.526h-682.875l312.547 315.789-78.793 78.948-449.121-450 449.122-450 81.419 78.948-315.173 315.789h682.875z"
+                    p-id="1480" fill="var(--ccyan)"></path>
+            </svg>
+        </a>
+    </div>
+
+
+
   <!-------------------------------------------------------------------------------------------------------------->
-</body>
 
 <!--- JAVASCRIPT------------------------------------------------------------------------------------------->
 
@@ -265,5 +293,7 @@ function createElements($category)
         fullMenu.classList.toggle('is-active');
     })
 </script>
+
+</body>
 
 </html>

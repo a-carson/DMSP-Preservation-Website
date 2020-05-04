@@ -2,6 +2,16 @@
 <html>
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T40QBMYD00"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T40QBMYD00');
+</script>
+
   <meta charset="UTF-8">
   <title>Delete</title>
   <link rel="icon" href="../img/tab-icon.png">
@@ -38,8 +48,9 @@
 
     <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
 
+
     <div>
-      <h1 id="text" class="center" style="top:260px; z-index: 2;">Are you sure?</h1>
+      <h1 id="text" class="center" style="font-size: 2em;top:21vw; z-index: 2;">Memory deleted</h1>
     </div>
 
     <div class="gif-container center" style="margin: 30px 0;">
@@ -48,7 +59,7 @@
 
 
 
-    <div class="button-container" id="button-container" style="margin-top:300px">
+    <div class="button-container" id="button-container" style="padding-top:24vw;">
 
       <!-- <button id="delete-button" onclick="window.location.href = 'choice.html'"
         class="svg-wrapper-light cyan choice-button-wide" style="border: solid 5px var(--ccyan);">
@@ -70,6 +81,7 @@
         <a>
 
     </div>
+
 
 </body>
 
@@ -99,7 +111,7 @@
     // document.getElementById("delete-button").style.display = "none";
     // document.getElementById("back-button").style.display = "none";
     document.getElementById("back-page-button").style.display = "none";
-    document.getElementById("text").innerHTML = "Memory deleted.";
+    // document.getElementById("text").innerHTML = "Memory deleted.";
     document.getElementById("gif").src = "../img/gif/delete.gif";
   }
 

@@ -2,6 +2,16 @@
 <html>
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T40QBMYD00"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T40QBMYD00');
+</script>
+
   <meta charset="UTF-8">
   <title>View Memory - Memory Booth </title>
   <link rel="icon" href="../img/tab-icon.png">
@@ -30,7 +40,7 @@ session_start();
 $index = $_SESSION["index"];
 session_destroy();
 
-$memoriesJson = file_get_contents('../../json/memories.json');
+$memoriesJson = file_get_contents('../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);
 $array_length = count($memoriesArray);
 
@@ -70,7 +80,7 @@ $b = $memoriesArray[$index]["b"];
 				<div id="sketch-holder">
 				</div>
 			</div>
-			<div class="col-md-7 my-auto" style="text-align: left;">
+			<div class="col-md-7 my-auto" style="text-align: left; padding-left: 8vw;">
 				<span class="view-memory" id="id">#0<?php echo $index + 1;?> </span>
 				<span class="view-memory" id="name"><?php echo $name ;?></span>
 				<div class="view-content scroll" id="content">

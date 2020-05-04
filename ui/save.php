@@ -2,6 +2,16 @@
 <html>
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T40QBMYD00"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T40QBMYD00');
+</script>
+
     <meta charset="UTF-8">
     <title>Choice-Childhood</title>
     <link rel="icon" href="../img/tab-icon.png">
@@ -23,7 +33,7 @@ $save_gif_string.= $_SESSION["category"];
 $save_gif_string.= ".gif";
 
 // GET MEMORY JSON
-$memoriesJson = file_get_contents('../../json/memories.json');
+$memoriesJson = file_get_contents('../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);
 
 // ADD FORM DATA TO ARRAY
@@ -39,49 +49,39 @@ $memoriesArray[] = $newEntry;
 
 // WRITE TO JSON
 $encodedArray = json_encode($memoriesArray);
-file_put_contents('../../json/memories.json', $encodedArray);
+file_put_contents('../json/memories.json', $encodedArray);
 
 ?>
 
 <body id="body3">
-    <div class="nav">
-        <a href="memory_list.php">
-            <img class="nav" src="../img/button/close.png" style="width: 30px;" alt="" />
+<div class="question-container">
+  <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
+  <a href="memory_list.php">
+    <img src="../img/heading/heading.png" class="center heading" alt="Memory Booth" />
+  </a>
+  <div class="row align-items-center justify-content-center choice-container">
+    <div class="col-md-12 my-auto" style="text-align: center; ">
+      <img id = "save-gif" src = '<?php echo $save_gif_string ?>' style="position: relative;top: 5vw;width: 400px;" />
+
+      <div class="button-container">
+        <a href="view_memory.php" style="text-decoration: none;">
+          <div class="svg-wrapper-light cyan choice-button-wide" style=" border: solid 5px var(--ccyan)"
+            onclick="window.location.href = 'animation.html'">
+            <span><div class="button-text-light" style="top:2px; color:white" id="save">
+              View Memory</div></span>
+
+          </div>
         </a>
+        <a href="memory_list.php" style="text-decoration: none;">
+          <div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
+            <div class="button-text-light" style="top:2px; color:var(--main-color)" id="dont-save">
+              Home</div>
+          </div>
+        </a>
+      </div>
+
     </div>
-    <div class="row align-items-center justify-content-center choice-container">
-        <div class="col-sm-12" style="text-align: center;">
-            <img src="../img/heading/heading.png" class="center" style="width: 600px; padding-top:100px"
-                alt="Memory Booth" />
-        </div>
-
-        <img src="../img/bg/modal1.png" class="frame" style="width: 800px;" />
-
-        <div class="gif-container center">
-            <img id = "save-gif" src = '<?php echo $save_gif_string ?>' style="width: 400px;" />
-        </div>
-
-        <div>
-            <h1 class="center" style="top:40%">Save successful.</h1>
-        </div>
-
-        <div class="button-container">
-            <a id = "memory-link" href = "view_memory.php">
-              <div class="svg-wrapper-light cyan choice-button" style="border: solid 5px var(--ccyan);">
-                  <div class="button-text-light" style="top:5px; color:white">
-                      View Memory</div>
-              </div>
-            <a>
-
-            <a id = "home-link" href = "memory_list.php">
-              <div class="svg-wrapper-light choice-button" style="border: solid 5px var(--cpurple);">
-                  <div class="button-text-light" style="top:5px; color:white">
-                      Home</div>
-              </div>
-            <a>
-
-        </div>
-
-</body>
-
+  </div>
+</div>
+<body>
 </html>

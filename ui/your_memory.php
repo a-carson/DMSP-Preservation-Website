@@ -2,6 +2,16 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T40QBMYD00"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T40QBMYD00');
+</script>
+
 	<title>Your Memory - Memory Booth</title>
 	<link rel="icon" href="../img/tab-icon.png">
 </head>
@@ -27,7 +37,7 @@
 		session_start();
 
 		// GET JSON
-		$memoriesJson = file_get_contents('../../json/memories.json');
+		$memoriesJson = file_get_contents('../json/memories.json');
 		$memoriesArray = json_decode($memoriesJson, true);
 
 		// GET FORM DATA
@@ -163,9 +173,10 @@
 						<img src="../img/gif/ready.png" id="ready" style="width:50%; margin-left: 4vh;
 						margin-top: 4vh;">
 					</div>
+					<button class="play" type="button"><img src="../img/button/play.png" style="width:5vw;"></button>
 				</div>
 			</div>
-			<div class="col-md-7 my-auto data-panel" style="text-align: left;">
+			<div class="col-md-7 my-auto data-panel" style="text-align: left; padding-left: 8vw;">
 				<h1 class="memory-title">Your Memory</h1>
 				<h2>Hello, <span id="name"><?php echo $name ?></span>. Thanks for sharing your memory with me!</h2>
 				<div class="view-content scroll" id="letters">
@@ -230,6 +241,15 @@ function ready()
 	document.getElementById("ready").style.display = "block";
 	document.getElementById("encoding").style.display = "none";
 }
+document.querySelector('button').addEventListener('click', e => play())
+
+$(document).ready(function() {
+  var btn = $(".play");
+  btn.click(function() {
+    btn.toggleClass("paused");
+    return false;
+  });
+});
 
 
 </script>
