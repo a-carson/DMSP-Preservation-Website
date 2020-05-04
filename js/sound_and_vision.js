@@ -152,7 +152,7 @@ var b = new Uint32Array(numCircles);
 
 function setup() {
   let cnv = createCanvas(600, 600);
-  //cnv.parent('sketch-holder');
+  cnv.parent('sketch-holder');
   noSmooth();
   colorMode(HSB, 360);
   //console.log("setup success");
