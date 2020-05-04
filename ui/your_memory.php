@@ -222,17 +222,17 @@ var master = Tone.Master;
 let waveform = new Tone.Waveform(blockSize);
 //let delay = new Tone.FeedbackDelay(Tone.Time('8n'));
 
-var synthVol = new Tone.Volume();
-synthVol.volume.value = -30;
-console.log(synthVol.volume.value);
+var masterVol = new Tone.Volume();
+masterVol.volume.value = -30;
+
 let phaser = new Tone.Phaser({
   "frequency": 0.5
 });
 
-var delay = new Tone.FeedbackDelay(0.5);
-delay.wet.value = 0.1;
-var lpf = new Tone.Filter(4000, "lowpass", -12);
-lpf.Q.value = 5;
+var fbDelay = new Tone.FeedbackDelay(0.5);
+fbDelay.wet.value = 0.1;
+// var lpf = new Tone.Filter(4000, "lowpass", -12);
+// lpf.Q.value = 5;
 var childhood = false;
 
 function setUpSynth(category)
@@ -242,10 +242,10 @@ switch (category)
   case "childhood":
       synthA = new Tone.Synth();
       synthA.oscillator.type = 'triangle';
-      synthA.chain(waveform, delay, synthVol, master);
+      synthA.chain(waveform, fbDelay, masterVol, master);
       synthB = new Tone.Synth();
       synthB.oscillator.type = 'triangle';
-      synthB.chain(waveform, delay, synthVol, master);
+      synthB.chain(waveform, fbDelay, masterVol, master);
       childhood = true;
       break;
 
@@ -253,20 +253,20 @@ switch (category)
       synthA = new Tone.DuoSynth();
       synthA.voice1.oscillator.type = "sawtooth"
       synthA.harmonicity.value = 1;
-      synthA.chain(phaser, waveform, synthVol, master);
+      synthA.chain(phaser, waveform, masterVol, master);
       break;
   case "student-life":
       synthA = new Tone.FMSynth();
       synthA.oscillator.type = "square";
       synthA.harmonicity.value = 1;
-      synthA.chain(waveform, synthVol, master);
+      synthA.chain(waveform, masterVol, master);
       synthA.portamento = 0.03;
       break;
 
   case "others":
       synthA = new Tone.DuoSynth();
       synthA.harmonicity.value = 0.75;
-      synthA.chain(waveform, synthVol, master);
+      synthA.chain(waveform, masterVol, master);
       break;
 }
 

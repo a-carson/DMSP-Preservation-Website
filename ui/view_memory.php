@@ -124,20 +124,23 @@ var synthA;
 var synthB;
 const blockSize = 1024;
 var master = Tone.Master;
+var masterVol = new Tone.Volume(-30);
 let waveform = new Tone.Waveform(blockSize);
 
-// EFFECTS
 var synthVol = new Tone.Volume();
-synthVol.volume.value = -30;
-
-var phaser = new Tone.Phaser({
+synthVol.volume.value = 0;
+console.log(synthVol.volume.value);
+let phaser = new Tone.Phaser({
   "frequency": 0.5
 });
-var delay = new Tone.FeedbackDelay(0.5);
-delay.wet.value = 0.1;
+
+var fbDelay = new Tone.FeedbackDelay(0.5);
+fbDelay.wet.value = 0.1;
+
 var lpf = new Tone.Filter(4000, "lowpass", -12);
 lpf.Q.value = 5;
 var childhood = false;
+
 function setUpSynth(category)
 {
 switch (category)
@@ -145,10 +148,10 @@ switch (category)
   case "childhood":
       synthA = new Tone.Synth();
       synthA.oscillator.type = 'triangle';
-      synthA.chain(waveform, delay, synthVol, master);
+      synthA.chain(synthVol, waveform, fbDelay, masterVol, master);
       synthB = new Tone.Synth();
       synthB.oscillator.type = 'triangle';
-      synthB.chain(waveform, delay, synthVol, master);
+      synthB.chain(synthVol, waveform, fbDelay, masterVol, master);
       childhood = true;
       break;
 
@@ -156,20 +159,20 @@ switch (category)
       synthA = new Tone.DuoSynth();
       synthA.voice1.oscillator.type = "sawtooth"
       synthA.harmonicity.value = 1;
-      synthA.chain(phaser, waveform, synthVol, master);
+      synthA.chain(phaser, waveform, masterVol, master);
       break;
   case "student-life":
       synthA = new Tone.FMSynth();
       synthA.oscillator.type = "square";
       synthA.harmonicity.value = 1;
-      synthA.chain(waveform, synthVol, master);
+      synthA.chain(waveform, masterVol, master);
       synthA.portamento = 0.03;
       break;
 
   case "others":
       synthA = new Tone.DuoSynth();
       synthA.harmonicity.value = 0.75;
-      synthA.chain(waveform, synthVol, master);
+      synthA.chain(waveform, masterVol, master);
       break;
 }
 
@@ -209,8 +212,6 @@ function sound() {
     synthA.triggerAttackRelease(freqs[i], '8n', time);
     if (childhood)
         synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
-    // output text characters
-
 
     var letter = String.fromCharCode(midi[i]);
     i++;
@@ -347,7 +348,7 @@ function drawWaveform() {
   filterSweep.frequency.value = 0.1;
 
   var noiseVol = new Tone.Volume(-40);
-  noiseSynth.chain(filterSweep, noiseVol, waveform, master);
+  noiseSynth.chain(filterSweep, noiseVol, waveform, fbDelay, masterVol, master);
   noiseSynth.sync();
   var noiseOn = false;
 
@@ -356,18 +357,26 @@ function drawWaveform() {
 
     if (noiseOn)
     {
+          synthVol.volume.value -= 0.1;
           var val = noiseVol.volume.value;
+          console.log(val);
+
           if (val < 50)
           {
           noiseVol.volume.value += 0.4;
-          synthVol.volume.value -= 0.1;
+          if (val > 20)
+          {
+            masterVol.volume.value -= 0.4;
           }
+          }
+
+
     }
 
   }
 
   //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  
+
   //ONLOAD
   $(function () {
     //DECLARE GLOBAL VARIABLE FOR USE IN HANDLERS
@@ -386,7 +395,7 @@ function drawWaveform() {
       sib = setInterval(function ()
       {
         distortText(curr);
-      }, 200);
+      }, 175);
     }, function()
     {
       clearInterval(sib);
@@ -394,32 +403,20 @@ function drawWaveform() {
     }
   );
 
-    function distortText(i) {
-      //MAINTAINS SOME READABILITY IN THE TEXT BY ONLY ALLOWING 3 CHARACTERS TO BE DISTORTED
-      // if (runs >= 10){
-      //   runs = 0;
-      //   i.text(orig);
-      //   return;
-      // }
-      //GET EACH INDIVIDUAL CHARACTER
+    function distortText(i)
+    {
+
       noiseOn = true;
-
       var chars = i.text().split(''); //GET A RANDOM CHARACTER FROM THE TEXT
-
       var rand = Math.floor(Math.random() * chars.length); //GET A RANDOM REPLACEMENT CHARACTER
-
       var randRep = Math.floor(Math.random() * charSet.length); //CHECK TO MAKE SURE THAT THE NEW CHARACTER IS DIFFERENT FROM THE OLD
 
       if (chars[rand] != charSet[randRep])
       {
         chars[rand] = charSet[randRep];
       }
-      else {
-        //distortText(i);
-      } //UPDATE TEXT
-
+      
       i.text(chars.join(''));
-      //runs += 1;
     }
   });
 
