@@ -227,8 +227,7 @@ function sound() {
       ready();
     }
 
-    console.log(string);
-    document.getElementById("letters").innerHTML = string;
+
   }
 
   // Schedules and calls the notes
@@ -289,7 +288,7 @@ function drawWaveform() {
   let angle = (2 * PI) / 100; //can change these to change the shape originl /100
   let step = 3; // can change these to change the shape
   //let step = floor(waveform.size / 300);
-
+  var strokeWeighty;
 
   for (let i = 0; i < waveform.size - step; i += step) {
     let value = waveform.getValue()[i];
@@ -301,6 +300,7 @@ function drawWaveform() {
       y1[j] = height / 2 + sin(a) * (width / 2 * (value + 1) / denom);
       x2[j] = width / 2 + cos(a + angle) * (width / 2 * (stepValue + 1) / denom);
       y2[j] = height / 2 + sin(a + angle) * (width / 2 * (stepValue + 1) / denom);
+
       stroke(h[j], s[j], b[j]);
       strokeWeight(strokes[j]);
       line(x1[j], y1[j], x2[j], y2[j]);
@@ -352,6 +352,7 @@ function drawWaveform() {
   noiseSynth.sync();
   var noiseOn = false;
 
+
   function noiseFcn()
   {
 
@@ -363,14 +364,17 @@ function drawWaveform() {
 
           if (val < 50)
           {
-          noiseVol.volume.value += 0.4;
-          if (val > 20)
+            noiseVol.volume.value += 0.4;
+
+            if (val > 20)
+            {
+              masterVol.volume.value -= 0.4;
+            }
+          }
+          else
           {
-            masterVol.volume.value -= 0.4;
+            // when val reaches 50...
           }
-          }
-
-
     }
 
   }
@@ -415,7 +419,7 @@ function drawWaveform() {
       {
         chars[rand] = charSet[randRep];
       }
-      
+
       i.text(chars.join(''));
     }
   });
