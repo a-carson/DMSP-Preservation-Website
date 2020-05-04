@@ -1,6 +1,7 @@
 #body3 {
   font-family: "Orbitron", sans-serif;
   font-size: 12px;
+  margin:8vw;
   /* background-image: url("../img/bg/bg2.jpg"); */
   background-color: black;
   background-position: center;
@@ -18,34 +19,7 @@
 }
 
 /*Read-me-page*/
-.read-me-button1 {
-  position: absolute;
-  left: 35vw;
-  top: 2vw;
-}
-.read-me-headline {
-  position: absolute;
-  top: 8vw;
-  left: 39vw;
-  color: #c5c2c3;
-  font-size: 31px;
-  font-weight: bolder;
-  text-align: center;
-}
-.preservation-Hullucination {
-  position: absolute;
-  top: 20vw;
-  left: 24vw;
-}
-.read-me-content {
-  position: absolute;
-  top: 52vw;
-  left: 25vw;
-  color: #c5c2c3;
-  font-size: 25px;
-  text-align: center;
-  font-weight: lighter;
-}
+
 .memory-booth {
   position: absolute;
   left: 12vw;
@@ -270,145 +244,197 @@ p {
   font-size: 1.5em;
 }
 /************Read-me-page*****************/
-.booth-text1 {
-  position: absolute;
-  left: 36vw;
-  top: 87vw;
+.read-me-tittle {
+  position: relative;
+      margin-top: -8vw;
+  margin-bottom:2vw;
+  color:white;
+  text-align: center;
   font-size: 3vw;
-  color: #30b5ff;
+}
+.hallucnation-gif {
+  position: relative;
+  margin-bottom:2vw;
+}
+.introduction-content {
+  position: relative;
+  width:80%;
+  text-align: justify;
+  margin-left:8vw;
+  margin-bottom:2vw;
+  font-size: 1.5vw;
+  font-family: "IBM Plex Mono", monospace;
+}
+.booth-img{
+  position: absolute;
+      margin-left: 0vw;
+      margin-top: 28vw;
+      top: 60vw;
+}
+.booth-text1{
+  position: absolute;
+      margin-top: 21vw;
+margin-left: 30vw;
+font-size: 3vw;
+color: #30b5ff;
 }
 .path-illustration {
   position: absolute;
-  left: 20vw;
-  top: 77vw;
+margin-top: 21vw;
+margin-left: 13vw;
 }
 .step1-img {
   position: absolute;
-  left: 64vw;
-  top: 113vw;
+margin-top: 59vw;
+margin-left: 58vw;
 }
 .number1 {
   position: absolute;
-  left: 84vw;
-  top: 118vw;
+left: 88vw;
+top: 146vw;
   color: #30b5ff;
   font-size: 5vw;
 }
 .step1-column {
   position: absolute;
-  left: 52vw;
-  top: 116vw;
-  font-size: 1.5vw;
+  left: 54vw;
+  top: 155vw;
 }
 .name-word-text {
   position: absolute;
-  left: 60vw;
-  top: 133vw;
+  left: 57vw;
+  top: 159vw;
   color: #30b5ff;
   font-size: 1.5vw;
 }
+.step1-go{
+  position: absolute;
+  left: 67vw;
+  top: 184vw;
+}
 .name1-text {
   position: absolute;
-  left: 23vw;
-  top: 153vw;
+  left: 20vw;
+  top: 178vw;
   font-size: 1.5vw;
+  font-family: "IBM Plex Mono", monospace;
 }
 .step2-path-illustration {
   position: absolute;
-  left: 26vw;
-  top: 143vw;
+  left: 19vw;
+  top: 170vw;
   width: 60vw;
 }
 .step2-img {
   position: absolute;
-  top: 180vw;
-  left: 8vw;
+  top: 208vw;
+  left: 12vw;
 }
 .number2 {
   position: absolute;
-  top: 185vw;
-  left: 29vw;
+  top: 213vw;
+  left: 33vw;
   color: #30b5ff;
   font-size: 5vw;
 }
 .step2-tape {
   position: absolute;
-  top: 181vw;
-  left: 4vw;
+  top: 221vw;
+  left: 8vw;
 }
 .step2-text1 {
   position: absolute;
-  left: 46vw;
-  top: 205vw;
+  margin-right: 5vw;
+  left: 50vw;
+  top: 223vw;
   font-size: 1.5vw;
+  font-family: "IBM Plex Mono", monospace;
+
 }
 .step2-camera {
   position: absolute;
-  top: 213vw;
-  left: 4vw;
+  top: 248vw;
+  left: 8vw;
 }
 .step2-text2 {
   position: absolute;
-  top: 234vw;
-  left: 46vw;
+  margin-right: 5vw;
+  top: 251vw;
+  left: 50vw;
   font-size: 1.5vw;
+  font-family: "IBM Plex Mono", monospace;
 }
 .step3-path-illustration {
   position: absolute;
-  top: 233vw;
-  left: 21vw;
+  top: 257vw;
+  left: 25vw;
   width: 60vw;
 }
 .step3-img {
   position: absolute;
-  top: 267vw;
-  left: 62vw;
+  top: 291vw;
+  left: 66vw;
 }
 .number3 {
   position: absolute;
-  top: 272vw;
-  left: 83vw;
+  top: 296vw;
+  left: 87vw;
   color: #30b5ff;
   font-size: 5vw;
 }
 .step3-archive {
   position: absolute;
-  top: 267vw;
-  left: 41vw;
+  top: 304vw;
+  right: 7vw;
 }
 .step3-text1 {
   position: absolute;
-  top: 289vw;
-  left: 9vw;
-  font-size: 1.5vw;
+    width: 50%;
+    top: 309vw;
+    margin-left: 2vw;
+    left: 10vw;
+    font-size: 1.5vw;
+    font-family: "IBM Plex Mono", monospace;
+}
+.step4-path-illustration{
+  position:absolute;
+  top: 305vw;
+  left: 22vw;
+  width: 60vw;
+}
+.step4-img{
+  position: absolute;
+  top: 342vw;
+  left: 17vw;
+}
+.number4{
+  position: absolute;
+  top: 347vw;
+  left: 39vw;
+  color: #30b5ff;
+  font-size: 5vw;
+}
+.step4-archive{
+  position: absolute;
+  top: 358vw;
+  left: 7vw;
+}
+.step4-text1{
+  position: absolute;
+    width: 40%;
+    margin-left: 45vw;
+
+    top: 353vw;
+
+    font-size: 1.5vw;
+    font-family: "IBM Plex Mono", monospace;
 }
 .end-text1 {
   position: absolute;
-  top: 313vw;
-  left: 3vw;
-  text-align: center;
-  font-size: 3vw;
-  color: #30b5ff;
-}
-.booth {
-  position: absolute;
-  top: 31vw;
+  top: 379vw;
   left: 1vw;
-}
-.introduction-content {
-  position: absolute;
-  top: 55vw;
-  left: 25vw;
-  font-size: 1.5vw;
-}
-.hallucnation-gif {
-  position: absolute;
-  top: 8vw;
-  left: 9vw;
-}
-.read-me-tittle {
-  position: absolute;
-  top: 2vw;
-  left: 42vw;
-  font-size: 3vw;
+  margin-bottom:10vw;
+  font-size: 4vw;
+  color: #30b5ff;
+  text-align:center;
 }

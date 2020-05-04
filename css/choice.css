@@ -17,7 +17,7 @@ body {
 }
 
 .choice-container {
-  height: 80vh;
+  height: 90vh;
 }
 
 .frame {
@@ -39,10 +39,17 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* padding-top: 300px; */
-  padding-top: 80px;
-}
+  padding-top: 120px;
 
+}
+.button-container-save{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top:10vw;
+}
 .choice-button {
   width: 200px;
   margin: 20px;
@@ -119,6 +126,7 @@ body {
     margin-top: 100px;
   }
 
+
   .frame {
     width: 130vw !important;
   }
@@ -127,4 +135,35 @@ body {
     transform: scale(0.6, 0.6);
     margin-top: 100px;
   }
+}
+@media (max-width: 375px) {
+  .center{
+    left: 41vw;
+    padding-left: 20vw;
+  }
+  .button-container{
+    top: -11vw;
+  }
+}
+
+
+
+
+.hover-text{
+  display:none;
+}
+span:hover + div {
+	position:absolute;
+  padding-top:2vw;
+  padding-bottom:1vw;
+	left:-3vw;
+	color:#fdff30;
+	font-size:1em;
+  text-align: center;
+  display: block;
+	text-overflow:ellipsis;
+  word-break:keep-all;
+  white-space:nowrap;
+  font-family: "IBM Plex Mono", monospace;
+
 }
