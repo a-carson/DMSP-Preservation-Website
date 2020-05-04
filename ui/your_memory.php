@@ -316,8 +316,8 @@ function sound() {
 
     if (string.length == textLength - 1)
     {
-      typeOutput = false;
-      Tone.Transport.stop();
+      //typeOutput = false;
+			string = '';
       ready();
     }
 
