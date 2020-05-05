@@ -609,6 +609,17 @@ video {
   left: 0;
   text-align: left;
 }
+
+textarea::-webkit-scrollbar {
+  width: 10px;
+}
+textarea::-webkit-scrollbar-track {
+  background: #bdbdbd;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: var(--border-pink);
+}
+
 /***************************View Memory*************************/
 /* #sketch-holder {
   width: 50vh;
@@ -833,7 +844,7 @@ a {
 
 .button-text-light {
   font-family: "Orbitron", sans-serif;
-  font-size: 3em
+  font-size: 3em;
   font-weight: 800;
   color: #fff;
   top: -48px;
@@ -906,8 +917,8 @@ a {
   .data-panel {
     padding: 0 50px;
   }
-  .play{
-    position:absolute;
+  .play {
+    position: absolute;
     top: 67.8vw;
     left: 69vw;
   }
@@ -920,12 +931,12 @@ a {
   }
 }
 
-@media (max-width: 375px)  {
-  .body{
-    overflow:hidden
+@media (max-width: 375px) {
+  .body {
+    overflow: hidden;
   }
-  .record-memory-heading{
-    height:53px;
+  .record-memory-heading {
+    height: 53px;
   }
   /* .container {
     width: 70%;
@@ -953,11 +964,8 @@ a {
   }
 }
 
-
-
-
-.play{
-  position:absolute;
+.play {
+  position: absolute;
   top: 38.8vw;
   left: 37vw;
   width: 6vw;
@@ -977,12 +985,12 @@ a {
   border-width: 37px 0 37px 60px;
 
   &.paused {
-  border-style: double;
-  border-width: 0px 0 0px 60px;
-}
+    border-style: double;
+    border-width: 0px 0 0px 60px;
+  }
 
-&:hover {
-  border-color: transparent transparent transparent blue;
-}
+  &:hover {
+    border-color: transparent transparent transparent blue;
+  }
 }
 /***********save.php-page*******************/
