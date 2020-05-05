@@ -935,22 +935,22 @@ a {
     margin-right: auto;
     margin-left: auto;
 } */
-.category-options {
-   padding-top: 0px;
-   margin: 0 0;
-}
-.radio-form label{
-  margin-top: -10px;
-  margin-right: 4px;
-  margin-bottom: -20px;
-  margin-left: 1px;
-}
-.textarea{
- height: 19vw;
-}
-.center-form{
-  top:37%;
-}
+  .category-options {
+    padding-top: 0px;
+    margin: 0 0;
+  }
+  .radio-form label {
+    margin-top: -10px;
+    margin-right: 4px;
+    margin-bottom: -20px;
+    margin-left: 1px;
+  }
+  .textarea {
+    height: 19vw;
+  }
+  .center-form {
+    top: 37%;
+  }
 }
 
 
