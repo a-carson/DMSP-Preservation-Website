@@ -312,6 +312,12 @@ h2 {
   }
 }
 
+@media (max-width: 768px) {
+  .button-memory {
+    width: 95% !important;
+  }
+}
+
 @media (max-width: 576px) {
   body {
     font-size: 10px !important;
