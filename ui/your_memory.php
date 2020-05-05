@@ -34,17 +34,26 @@
 <!-- <link rel="stylesheet" href="../css/style_old.css"> -->
 
     <?php
+		error_reporting(0);
 		session_start();
 
 		// GET JSON
 		$memoriesJson = file_get_contents('../../json/memories.json');
 		$memoriesArray = json_decode($memoriesJson, true);
 
+		// GET SESSION DATA (ONLY IF BACK BUTTON PRESSED)
+		$name = $_SESSION["name"];
+		$category = $_SESSION["category"];
+		$memory = $_SESSION["memory"];
+
 		// GET FORM DATA
+		if (isset($_POST["submit"]))
+		{
     $name = test_for_hackers($_POST["name"]);
     $category = test_for_hackers($_POST["category"]);
     $memory = test_for_hackers($_POST["memory"]);
 		$memory.= " ";
+	  }
 
 		// UPDATE SESSION
 		$_SESSION["name"] = $name;
@@ -292,8 +301,8 @@ function play() {
   Tone.Transport.loopEnd = dur;
   i = 0;
   t = 0;
-  mute = !mute;
-  Tone.Master.mute = mute;
+  //mute = !mute;
+  //Tone.Master.mute = mute;
 }
 
 function sound() {
@@ -315,8 +324,8 @@ function sound() {
 
     if (string.length == textLength - 1)
     {
-      //typeOutput = false;
-			string = '';
+      typeOutput = false;
+			//string = '';
       ready();
     }
 
