@@ -1,440 +1,156 @@
-#body3 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 12px;
-  margin:8vw;
-  /* background-image: url("../img/bg/bg2.jpg"); */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
   background-color: black;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-/* About-us-page*/
-
-.nav {
-  position: absolute;
-  top: 1vw;
-  right: 3vw;
-}
-
-/*Read-me-page*/
-
-.memory-booth {
-  position: absolute;
-  left: 12vw;
-  top: 60vw;
-}
-.welcome {
-  position: absolute;
-  left: 36vw;
-  top: 74vw;
-  color: #c5c2c3;
-  font-size: 20px;
-  font-weight: lighter;
-}
-.once {
-  position: absolute;
-  left: 16vw;
-  top: 90.5vw;
-  color: #c5c2c3;
-  font-size: 20px;
-  font-weight: lighter;
-}
-.archive {
-  position: absolute;
-  left: 50vw;
-  top: 80vw;
-  color: #c5c2c3;
-  font-size: 30px;
-  font-weight: lighter;
-}
-.have {
-  position: absolute;
-  top: 103vw;
-  left: 40vw;
-  color: #c5c2c3;
-  font-size: 40px;
-  font-weight: bolder;
-}
-
-/*Read-me-page*/
-.head1 {
-  margin-top: -50px;
-  height: 500px;
-}
-
-.button1 {
-  background-color: transparent;
-  margin-left: 41%;
-  margin-top: 10%;
-  backface-visibility: hidden;
-  border: transparent;
-}
-
-.classification_2 {
-  width: 100%;
-  height: 100px;
-}
-.button2_student {
-  background-color: transparent;
-}
-
-.button2 {
-  background-color: transparent;
-  backface-visibility: hidden;
-  border: transparent;
-  float: right;
-}
-.classification_2 {
-  background-color: transparent;
-}
-.button2_childhood {
-  background-color: transparent;
-  border-color: transparent;
-}
-.disc_2 {
-  width: 100%;
-  height: 700px;
-  margin-top: 200px;
-  margin-left: 20px;
-  margin-bottom: 300px;
-}
-
-.content2 {
-  align-content: center;
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
-}
-.narv2 {
-  float: right;
-}
-.left_bar3 {
-  height: 100%;
-  width: 20%;
-  float: left;
-}
-.right_bar3 {
-  height: 100%;
-  width: 80%;
-  float: right;
-  background-color: transparent;
-}
-.input_bar3_title {
-  background-color: transparent;
-  margin-top: 100px;
-  margin-left: 200px;
-  height: 60px;
-  width: 600px;
-}
-.input_bar3_content {
-  margin-left: 200px;
-  width: 600px;
-  height: 400px;
-}
-
-.form-control3_title {
-  border: solid;
-  border-color: #0fc2ec;
-  background-color: transparent;
-  font-size: 40px;
-  width: 600px;
-}
-.form-control3_name {
-  width: 250px;
-  float: left;
-  height: 60px;
-  background-color: transparent;
-  font-size: 40px;
-  border: solid;
-  border-color: #3fcfaa;
-  margin-left: 200px;
-}
-.form-control3_category {
-  width: 250px;
-  height: 60px;
-  background-color: transparent;
-  font-size: 40px;
-  border: solid;
-  border-color: #3fcfaa;
-  margin-left: 93px;
-}
-.form-control3_2 {
-  background-color: transparent;
-  border: solid;
-  border-color: #fb9c9d;
-  font-size: 40px;
-  width: 600px;
-  height: 350px;
-}
-.button3_start {
-  height: 60px;
-  margin-left: 400px;
-  margin-top: -30px;
-}
-.button3 {
-  background-color: transparent;
-  backface-visibility: hidden;
-  border: transparent;
-}
-.button2_booth {
-  height: 90px;
-  border-color: transparent;
-
-  margin-left: 500px;
-  background-color: transparent;
-}
-.middle_4 {
-  width: 60%;
-  height: 100%;
-}
-.right_bar4 {
-  width: 20%;
-  float: right;
-  background-color: transparent;
-  margin-right: 120px;
-  margin-top: -560px;
-}
-.problem_5 {
-  width: 60%;
-  margin-top: 300px;
-  margin-left: 100px;
-  font-size: 20px;
-}
-.box5_2 {
-  float: right;
-  width: 100px;
-  margin-top: -120px;
-}
-.box5 {
-  width: 100px;
-}
-.button5 {
-  background-color: transparent;
-  backface-visibility: hidden;
-  border: transparent;
-  width: 400px;
-}
-.delete_logo {
-  width: 15%;
-  margin-left: 500px;
-  float: right;
-  height: 100%;
-  background-color: transparent;
-  backface-visibility: hidden;
-  border: transparent;
-  margin-top: -450px;
-}
-.button4 {
-  background-color: transparent;
-  border-color: transparent;
-}
-h1 {
   color: white;
-  align-content: center;
 }
-h2 {
-  color: white;
-  align-content: center;
-  font-size: 30px;
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
 }
-p {
-  color: white;
-  font-size: 1.5em;
-}
-/************Read-me-page*****************/
-.read-me-tittle {
-  position: relative;
-      margin-top: -8vw;
-  margin-bottom:2vw;
-  color:white;
+.head-container {
   text-align: center;
-  font-size: 3vw;
+  justify-content: center;
 }
-.hallucnation-gif {
+
+.head-container h6 {
+  color: white;
+  font-size: 3em;
+  font-family: "Orbitron", sans-serif;
+  margin: 20px;
+}
+
+.head-container p {
   position: relative;
-  margin-bottom:2vw;
+  top: 0;
+  width: 80%;
+  padding-top: 10vh;
+  margin: 0 auto;
+  text-align: left;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.5vw;
+  color: #c5c2c3;
 }
-.introduction-content {
+
+.desp-content {
+  background-image: url("../img/bg/about_my_creators.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+
+.desp-content p {
+  font-size: 1.5em;
+  font-family: "IBM Plex Mono", monospace;
+  color: #c5c2c3;
+}
+
+.desp-content .blue-text {
+  margin-top: 15vw;
+  font-size: 3em;
+  color: #30b5ff;
+  font-family: "Orbitron", sans-serif;
+}
+
+.desp-content .pure-g {
+  height: 50vw;
+}
+
+.pure-u-1-2 {
+  height: 100%;
+}
+
+#step1 {
   position: relative;
-  width:80%;
-  text-align: justify;
-  margin-left:8vw;
-  margin-bottom:2vw;
-  font-size: 1.5vw;
-  font-family: "IBM Plex Mono", monospace;
+  padding: 0 5%;
+  top: 30%;
 }
-.booth-img{
-  position: absolute;
-      margin-left: 0vw;
-      margin-top: 28vw;
-      top: 60vw;
+#step2 {
+  position: relative;
+  top: 20%;
+  padding: 0 5%;
 }
-.booth-text1{
-  position: absolute;
-      margin-top: 21vw;
-margin-left: 30vw;
-font-size: 3vw;
-color: #30b5ff;
-}
-.path-illustration {
-  position: absolute;
-margin-top: 21vw;
-margin-left: 13vw;
-}
-.step1-img {
-  position: absolute;
-margin-top: 59vw;
-margin-left: 58vw;
-}
-.number1 {
-  position: absolute;
-left: 88vw;
-top: 146vw;
-  color: #30b5ff;
-  font-size: 5vw;
-}
-.step1-column {
-  position: absolute;
-  left: 54vw;
-  top: 155vw;
-}
-.name-word-text {
-  position: absolute;
-  left: 57vw;
-  top: 159vw;
-  color: #30b5ff;
-  font-size: 1.5vw;
-}
-.step1-go{
-  position: absolute;
-  left: 67vw;
-  top: 184vw;
-}
-.name1-text {
-  position: absolute;
-  left: 20vw;
-  top: 178vw;
-  font-size: 1.5vw;
-  font-family: "IBM Plex Mono", monospace;
-}
-.step2-path-illustration {
-  position: absolute;
-  left: 19vw;
-  top: 170vw;
-  width: 60vw;
-}
-.step2-img {
-  position: absolute;
-  top: 208vw;
-  left: 12vw;
-}
-.number2 {
-  position: absolute;
-  top: 213vw;
-  left: 33vw;
-  color: #30b5ff;
-  font-size: 5vw;
-}
-.step2-tape {
-  position: absolute;
-  top: 221vw;
-  left: 8vw;
-}
-.step2-text1 {
-  position: absolute;
-  margin-right: 5vw;
-  left: 50vw;
-  top: 223vw;
-  font-size: 1.5vw;
-  font-family: "IBM Plex Mono", monospace;
 
+#step3 {
+  position: relative;
+  top: 10%;
+  padding: 0 5%;
 }
-.step2-camera {
-  position: absolute;
-  top: 248vw;
-  left: 8vw;
-}
-.step2-text2 {
-  position: absolute;
-  margin-right: 5vw;
-  top: 251vw;
-  left: 50vw;
-  font-size: 1.5vw;
-  font-family: "IBM Plex Mono", monospace;
-}
-.step3-path-illustration {
-  position: absolute;
-  top: 257vw;
-  left: 25vw;
-  width: 60vw;
-}
-.step3-img {
-  position: absolute;
-  top: 291vw;
-  left: 66vw;
-}
-.number3 {
-  position: absolute;
-  top: 296vw;
-  left: 87vw;
-  color: #30b5ff;
-  font-size: 5vw;
-}
-.step3-archive {
-  position: absolute;
-  top: 304vw;
-  right: 7vw;
-}
-.step3-text1 {
-  position: absolute;
-    width: 50%;
-    top: 309vw;
-    margin-left: 2vw;
-    left: 10vw;
-    font-size: 1.5vw;
-    font-family: "IBM Plex Mono", monospace;
-}
-.step4-path-illustration{
-  position:absolute;
-  top: 305vw;
-  left: 22vw;
-  width: 60vw;
-}
-.step4-img{
-  position: absolute;
-  top: 342vw;
-  left: 17vw;
-}
-.number4{
-  position: absolute;
-  top: 347vw;
-  left: 39vw;
-  color: #30b5ff;
-  font-size: 5vw;
-}
-.step4-archive{
-  position: absolute;
-  top: 358vw;
-  left: 7vw;
-}
-.step4-text1{
-  position: absolute;
-    width: 40%;
-    margin-left: 45vw;
 
-    top: 353vw;
-
-    font-size: 1.5vw;
-    font-family: "IBM Plex Mono", monospace;
+#step4 {
+  position: relative;
+  top: 40%;
+  padding-left: 10%;
 }
-.end-text1 {
-  position: absolute;
-  top: 379vw;
-  left: 1vw;
-  margin-bottom:10vw;
-  font-size: 4vw;
-  color: #30b5ff;
-  text-align:center;
+
+/***tmp***/
+
+@media (max-width: 1300px) {
+  #step2 {
+    top: 10%;
+  }
+  .onscale-roll#step2 {
+    max-height: 70vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 992px) {
+  .head-container p {
+    font-size: 1.2em;
+    padding-top: 2vh;
+  }
+  .blue-text {
+    font-size: 2em !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* .head-container p {
+    font-size: 1em;
+  } */
+  .pure-u-1-2 p {
+    font-size: 1.2em;
+  }
+  #step2 {
+    top: 8%;
+  }
+  #step3 {
+    top: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .blue-text {
+    font-size: 1.5em !important;
+  }
+  #step1 {
+    top: 50%;
+  }
+  .onscale-roll#step3 {
+    max-height: 35vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.onscale-roll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.onscale-roll::-webkit-scrollbar-track {
+  background: #c5c2c3;
+}
+
+.onscale-roll::-webkit-scrollbar-thumb {
+  background: pink;
 }
