@@ -231,41 +231,42 @@ var fbDelay = new Tone.FeedbackDelay(0.5);
 fbDelay.wet.value = 0.1;
 // var lpf = new Tone.Filter(4000, "lowpass", -12);
 // lpf.Q.value = 5;
-var childhood = false;
+var others = false;
 
 function setUpSynth(category)
 {
 switch (category)
 {
   case "childhood":
-      synthA = new Tone.Synth();
-      synthA.oscillator.type = 'triangle';
-      synthA.chain(waveform, fbDelay, masterVol, master);
-      synthB = new Tone.Synth();
-      synthB.oscillator.type = 'triangle';
-      synthB.chain(waveform, fbDelay, masterVol, master);
-      childhood = true;
-      break;
+	synthA = new Tone.DuoSynth();
+	synthA.harmonicity.value = 0.75;
+	synthA.chain(waveform, masterVol, master);
+	break;
 
   case "travel":
-      synthA = new Tone.DuoSynth();
-      synthA.voice1.oscillator.type = "sawtooth"
-      synthA.harmonicity.value = 1;
-      synthA.chain(phaser, waveform, masterVol, master);
-      break;
+  synthA = new Tone.DuoSynth();
+  synthA.voice1.oscillator.type = "sawtooth"
+  synthA.harmonicity.value = 1;
+  synthA.chain(phaser, waveform, masterVol, master);
+  break;
+
   case "student-life":
-      synthA = new Tone.FMSynth();
-      synthA.oscillator.type = "square";
-      synthA.harmonicity.value = 1;
-      synthA.chain(waveform, masterVol, master);
-      synthA.portamento = 0.03;
-      break;
+  synthA = new Tone.FMSynth();
+  synthA.oscillator.type = "square";
+  synthA.harmonicity.value = 1;
+  synthA.chain(waveform, masterVol, master);
+  synthA.portamento = 0.03;
+  break;
 
   case "others":
-      synthA = new Tone.DuoSynth();
-      synthA.harmonicity.value = 0.75;
-      synthA.chain(waveform, masterVol, master);
-      break;
+	synthA = new Tone.Synth();
+	synthA.oscillator.type = 'triangle';
+	synthA.chain(waveform, fbDelay, masterVol, master);
+	synthB = new Tone.Synth();
+	synthB.oscillator.type = 'triangle';
+	synthB.chain(waveform, fbDelay, masterVol, master);
+	others = true;
+	break;
 }
 
 }
@@ -302,7 +303,7 @@ function sound() {
   function triggerSynth(time) {
     i %= textLength;
     synthA.triggerAttackRelease(freqs[i], '8n', time);
-    if (childhood)
+    if (others)
         synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
     // output text characters
     var letter = String.fromCharCode(midi[i]);

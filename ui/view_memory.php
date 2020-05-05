@@ -89,10 +89,6 @@ $b = $memoriesArray[$index]["b"];
 						</svg>
 					</div>
 
-          
-					<button class="play paused" type="button">
-					<svg t="1588590812767" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2129" width="24" height="24"><path d="M897.113042 467.478259 182.539132 8.904348C166.956523-2.226087 144.695654-2.226087 129.113045 6.678261c-15.582609 8.904348-26.713043 26.713043-26.713043 44.521739l0 919.373909c0 20.034783 11.130435 35.617391 26.713043 44.521739C138.017393 1021.773909 144.695654 1023.999996 153.600001 1023.999996c8.904348 0 20.034783-2.226087 28.93913-8.904348L897.113042 556.521737c15.582609-8.904348 24.486956-26.713043 24.486956-44.521739C921.599998 494.191302 912.695651 478.608694 897.113042 467.478259zM204.800001 877.078257 204.800001 146.921739 774.67826 511.999998 204.800001 877.078257z" p-id="2130" fill="var(--lgreen)"></path></svg>
-					</button>
 
 				</div>
 			</div>
@@ -154,22 +150,18 @@ fbDelay.wet.value = 0.1;
 
 var lpf = new Tone.Filter(4000, "lowpass", -12);
 lpf.Q.value = 5;
-var childhood = false;
+var others = false;
 
 function setUpSynth(category)
 {
 switch (category)
 {
   case "childhood":
-      synthA = new Tone.Synth();
-      synthA.oscillator.type = 'triangle';
-      synthA.chain(synthVol, waveform, fbDelay, masterVol, master);
-      synthB = new Tone.Synth();
-      synthB.oscillator.type = 'triangle';
-      synthB.chain(synthVol, waveform, fbDelay, masterVol, master);
-      childhood = true;
-      fbDelay.wet.value = 0.1;
-      break;
+  synthA = new Tone.DuoSynth();
+  synthA.harmonicity.value = 0.75;
+  synthA.chain(waveform, fbDelay, masterVol, master);
+  fbDelay.wet.value = 0;
+  break;
 
   case "travel":
       synthA = new Tone.DuoSynth();
@@ -188,11 +180,15 @@ switch (category)
       break;
 
   case "others":
-      synthA = new Tone.DuoSynth();
-      synthA.harmonicity.value = 0.75;
-      synthA.chain(waveform, fbDelay, masterVol, master);
-      fbDelay.wet.value = 0;
-      break;
+  synthA = new Tone.Synth();
+  synthA.oscillator.type = 'triangle';
+  synthA.chain(synthVol, waveform, fbDelay, masterVol, master);
+  synthB = new Tone.Synth();
+  synthB.oscillator.type = 'triangle';
+  synthB.chain(synthVol, waveform, fbDelay, masterVol, master);
+  others = true;
+  fbDelay.wet.value = 0.1;
+  break;
 }
 
 }
@@ -213,7 +209,8 @@ function setInputText(string) {
 }
 
 // SOUND ----------------------------------------------------------------------
-function play() {
+function play()
+{
   Tone.Transport.toggle();
   Tone.Transport.loopEnd = dur;
   i = 0;
@@ -229,7 +226,7 @@ function sound() {
   function triggerSynth(time) {
     i %= textLength;
     synthA.triggerAttackRelease(freqs[i], '8n', time);
-    if (childhood)
+    if (others)
         synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
 
     var letter = String.fromCharCode(midi[i]);
@@ -246,7 +243,7 @@ function sound() {
       ready();
     }
 
-
+    noiseSynth.triggerAttack();
   }
 
   // Schedules and calls the notes
@@ -283,7 +280,7 @@ function setup() {
   colorMode(HSB, 360);
   cnv.mouseOver(() => noiseOn = true);
   cnv.mouseOut(() => noiseOn = false);
-  noiseSynth.triggerAttack();
+
 
   //console.log("setup success");
 }
@@ -366,7 +363,7 @@ function drawWaveform() {
   filterSweep.octaves.value = 6;
   filterSweep.frequency.value = 0.1;
 
-  var noiseVol = new Tone.Volume(-40);
+  var noiseVol = new Tone.Volume(-35);
   noiseSynth.chain(filterSweep, noiseVol, waveform, fbDelay, masterVol, master);
   noiseSynth.sync();
   var noiseOn = false;
@@ -381,24 +378,44 @@ function drawWaveform() {
           var val = noiseVol.volume.value;
           console.log(val);
 
-          if (val < 50)
-          {
-            noiseVol.volume.value += 0.4;
+          //if (val < 50)
+          //{
+            //noiseVol.volume.value += 0.4;
+            noiseVol.volume.value -= 100;
+            noiseVol.volume.value *= 0.995;
+            noiseVol.volume.value += 100;
 
-            if (val > 20)
+            if (val > 30)
             {
-              masterVol.volume.value -= 0.4;
+              masterVol.volume.value -= 0.1;
             }
-          }
-          else
-          {
-            // when val reaches 50...
-          }
+          //}
+
     }
 
   }
 
   //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// UI stuff
+
+
+var mutebutton = document.getElementById("muteButton");
+var curHTML = mutebutton.innerHTML;
+var isSoundOn = true;
+var soundoff = '<svg t="1588158708997" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3330" width="34" height="34"><path d="M240 601.392h91.248a16 16 0 0 1 10.416 3.856L528 765.168V261.568l-186.688 159.968a16 16 0 0 1-10.4 3.84H240v176z m-48 32v-240a16 16 0 0 1 16-16h111.072L549.584 179.84A16 16 0 0 1 576 192v642.8a16 16 0 0 1-26.416 12.144L319.392 649.392H208a16 16 0 0 1-16-16z m528-155.328l62.24-62.24a16 16 0 0 1 22.608 0l11.312 11.328a16 16 0 0 1 0 22.624L753.936 512l62.24 62.24a16 16 0 0 1 0 22.608l-11.328 11.312a16 16 0 0 1-22.624 0L720 545.936l-62.24 62.24a16 16 0 0 1-22.608 0l-11.312-11.328a16 16 0 0 1 0-22.624L686.064 512l-62.24-62.24a16 16 0 0 1 0-22.608l11.328-11.312a16 16 0 0 1 22.624 0L720 478.064z" p-id="3331" fill="var(--lgreen)"></path></svg>';
+
+mutebutton.addEventListener("click", function () {
+	if (isSoundOn) {
+		mutebutton.innerHTML = soundoff;
+		Tone.Master.mute = true;
+		isSoundOn = false;
+	}
+	else {
+		mutebutton.innerHTML = curHTML;
+		Tone.Master.mute = false;
+		isSoundOn = true;
+	}
+});
 
   //ONLOAD
   $(function () {
