@@ -41,75 +41,8 @@
   margin: 50px 0;
 }
 
-/*Read-me-page*/
-.read-me-button1 {
-  position: absolute;
-  left: 35vw;
-  top: 2vw;
-}
-.read-me-headline {
-  position: absolute;
-  top: 8vw;
-  left: 39vw;
-  color: #c5c2c3;
-  font-size: 31px;
-  font-weight: bolder;
-  text-align: center;
-}
-.preservation-Hullucination {
-  position: absolute;
-  top: 20vw;
-  left: 24vw;
-}
-.read-me-content {
-  position: absolute;
-  top: 52vw;
-  left: 25vw;
-  color: #c5c2c3;
-  font-size: 25px;
-  text-align: center;
-  font-weight: lighter;
-}
-.memory-booth {
-  position: absolute;
-  left: 12vw;
-  top: 60vw;
-}
-.welcome {
-  position: absolute;
-  left: 36vw;
-  top: 74vw;
-  color: #c5c2c3;
-  font-size: 20px;
-  font-weight: lighter;
-}
-.once {
-  position: absolute;
-  left: 16vw;
-  top: 90.5vw;
-  color: #c5c2c3;
-  font-size: 20px;
-  font-weight: lighter;
-}
-.archive {
-  position: absolute;
-  left: 50vw;
-  top: 80vw;
-  color: #c5c2c3;
-  font-size: 30px;
-  font-weight: lighter;
-}
-.have {
-  position: absolute;
-  top: 103vw;
-  left: 40vw;
-  color: #c5c2c3;
-  font-size: 40px;
-  font-weight: bolder;
-}
-
 figure h1 {
-  font-size: 3vh !important;
+  font-size: 1.2em !important;
   margin-top: 0 !important;
   color: white;
   align-content: center;
@@ -133,9 +66,15 @@ figure {
   margin: 10px !important;
 }
 
+@media (max-width: 992px) {
+  figure h1 {
+    font-size: 1em !important;
+  }
+}
+
 @media (max-width: 768px) {
   body {
-    font-size: 10px;
+    font-size: 16px !important;
   }
   figure {
     width: 40%;
@@ -146,5 +85,15 @@ figure {
     transform: scale(0.5, 0.5);
     top: 10px;
     right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 12px !important;
+  }
+
+  figure h1 {
+    margin: 0 !important;
   }
 }
