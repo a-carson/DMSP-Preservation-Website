@@ -37,6 +37,7 @@
 </head>
 
 <?php
+error_reporting(0);
 session_start();
 $index = $_SESSION["index"];
 session_destroy();
@@ -376,20 +377,16 @@ function drawWaveform() {
     {
           synthVol.volume.value -= 0.1;
           var val = noiseVol.volume.value;
-          console.log(val);
+          //console.log(val);
 
-          //if (val < 50)
-          //{
-            //noiseVol.volume.value += 0.4;
-            noiseVol.volume.value -= 100;
-            noiseVol.volume.value *= 0.995;
-            noiseVol.volume.value += 100;
+          noiseVol.volume.value -= 100;
+          noiseVol.volume.value *= 0.995;
+          noiseVol.volume.value += 100;
 
-            if (val > 30)
-            {
-              masterVol.volume.value -= 0.1;
-            }
-          //}
+          if (noiseVol.volume.value > 30)
+          {
+            masterVol.volume.value -= 0.1;
+          }
 
     }
 
@@ -397,7 +394,6 @@ function drawWaveform() {
 
   //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // UI stuff
-
 
 var mutebutton = document.getElementById("muteButton");
 var curHTML = mutebutton.innerHTML;

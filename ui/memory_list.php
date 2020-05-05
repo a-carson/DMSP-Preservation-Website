@@ -264,7 +264,7 @@ function createElements($category)
                     <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                       stroke="#ffffff90" />
                   </svg>
-                  <div class="button-text-light">Feedback Questionnaire</div>
+                  <div class="button-text-light">Give Feedback</div>
                 <a>
             </li>
         </ul>
