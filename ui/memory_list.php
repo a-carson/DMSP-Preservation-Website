@@ -248,7 +248,7 @@ function createElements($category)
                 </a>
             </li>
 
-            <li><a href="https://s1821826.typeform.com/to/OSFqSR">
+            <li><a target="_blank" href="https://s1821826.typeform.com/to/OSFqSR">
                 <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
                   <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
                     <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
