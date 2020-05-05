@@ -292,8 +292,8 @@ function play() {
   Tone.Transport.loopEnd = dur;
   i = 0;
   t = 0;
-  mute = !mute;
-  Tone.Master.mute = mute;
+  //mute = !mute;
+  //Tone.Master.mute = mute;
 }
 
 function sound() {
@@ -315,8 +315,8 @@ function sound() {
 
     if (string.length == textLength - 1)
     {
-      //typeOutput = false;
-			string = '';
+      typeOutput = false;
+			//string = '';
       ready();
     }
 
