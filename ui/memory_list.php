@@ -50,7 +50,7 @@ function createElements($category)
                     echo $memoriesArray[$i]["name"];
       echo '        </span>
 
-                    <h2 id="content" class="content" style = "width: 60vw; margin-top: 2vw; margin-bottom: 2vw;">';
+                    <h2 id="content" class="content" style = "width: 95%; margin-top: 2vw; margin-bottom: 2vw;">';
                     echo $memoriesArray[$i]["memory"];
       echo '        </h2>
                     </div>
