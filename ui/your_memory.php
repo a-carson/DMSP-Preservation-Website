@@ -34,17 +34,26 @@
 <!-- <link rel="stylesheet" href="../css/style_old.css"> -->
 
     <?php
+		error_reporting(0);
 		session_start();
 
 		// GET JSON
 		$memoriesJson = file_get_contents('../../json/memories.json');
 		$memoriesArray = json_decode($memoriesJson, true);
 
+		// GET SESSION DATA (ONLY IF BACK BUTTON PRESSED)
+		$name = $_SESSION["name"];
+		$category = $_SESSION["category"];
+		$memory = $_SESSION["memory"];
+
 		// GET FORM DATA
+		if (isset($_POST["submit"]))
+		{
     $name = test_for_hackers($_POST["name"]);
     $category = test_for_hackers($_POST["category"]);
     $memory = test_for_hackers($_POST["memory"]);
 		$memory.= " ";
+	  }
 
 		// UPDATE SESSION
 		$_SESSION["name"] = $name;
