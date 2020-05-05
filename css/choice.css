@@ -39,17 +39,10 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 120px;
+  padding-top: 8vw;
 
 }
-.button-container-save{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top:10vw;
-}
+
 .choice-button {
   width: 200px;
   margin: 20px;
@@ -147,19 +140,17 @@ body {
 }
 
 
-
-
 .hover-text{
   display:none;
 }
 span:hover + div {
+  font-size:20vw;
 	position:absolute;
   padding-top:2vw;
   padding-bottom:1vw;
 	left:-3vw;
 	color:#fdff30;
-	font-size:1em;
-  text-align: center;
+  text-align: left;
   display: block;
 	text-overflow:ellipsis;
   word-break:keep-all;
@@ -167,3 +158,110 @@ span:hover + div {
   font-family: "IBM Plex Mono", monospace;
 
 }
+@media (max-width: 1141px){
+}
+.choice-button-wide {
+    width: 165px;
+  }
+  .hover-text{
+    display:none;
+    font-size:2vw;
+  }
+  span:hover + div {
+    font-size:0.8em;
+  }
+}
+
+@media (max-width: 1008px){
+
+.choice-button-wide {
+    width: 141px;
+  }
+  .hover-text{
+    display:none;
+  }
+  span:hover + div {
+    font-size:0.6em;
+  }
+
+  .h1{
+    font-size:3vw;
+  }
+  .button-text-light {
+    font-size: 1.5vw;
+  }
+
+  .question-container h1 {
+    color: white;
+    margin-top: 257px;
+  }
+  .button-container {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 924px){
+  .choice-button-wide {
+      width: 138px;
+    }
+    .button-text-light {
+      font-size: 2vw;
+    }
+}
+@media (max-width: 884px){
+  .choice-button-wide {
+      width: 130px;
+       height: 5vw;
+    }
+    .hover-text{
+      display:none;
+    }
+    span:hover + div {
+      font-size:0.5em;
+    }
+  }
+
+@media (max-width: 761px){
+  span:hover + div {
+    font-size:0.9em;
+  }
+  #gif-container{
+    top:5vw;
+  }
+}
+
+@media (max-width: 501px){
+
+span:hover + div {
+  font-size:0.9em;
+  padding-top:10vw;
+}
+.button-text-light {
+    font-size: 3vw;
+}
+.choice-button-wide {
+    width: 130px;
+     height: 10vw;
+  }
+
+}
+.save-your-memory{
+  top: 1vw;
+  font-size: 4vw;
+  position: relative;
+}
+
+
+.delete-container{
+  position: relative;
+  height:55vh;
+}
+/* .button-container1{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 8vw;
+  margin-top: 150px !important;
+} */
