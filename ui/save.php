@@ -14,7 +14,7 @@
 
     <meta charset="UTF-8">
     <title>Choice-Childhood</title>
-    <link rel="icon" href="../img/bg/tab-icon.png">
+    <link rel="icon" href="../img/tab-icon.png">
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@ $save_gif_string.= $_SESSION["category"];
 $save_gif_string.= ".gif";
 
 // GET MEMORY JSON
-$memoriesJson = file_get_contents('../../json/memories.json');
+$memoriesJson = file_get_contents('../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);
 
 // ADD FORM DATA TO ARRAY
@@ -49,7 +49,7 @@ $memoriesArray[] = $newEntry;
 
 // WRITE TO JSON
 $encodedArray = json_encode($memoriesArray);
-file_put_contents('../../json/memories.json', $encodedArray);
+file_put_contents('../json/memories.json', $encodedArray);
 
 ?>
 
@@ -67,14 +67,14 @@ file_put_contents('../../json/memories.json', $encodedArray);
         <a href="view_memory.php" style="text-decoration: none;">
           <div class="svg-wrapper-light cyan choice-button-wide" style=" border: solid 5px var(--ccyan)"
             onclick="window.location.href = 'animation.html'">
-            <span><div class="button-text-light" style="top:2px; color:white" id="save">
+            <span><div class="button-text-light" style="top:6px; color:white" id="save">
               View Memory</div></span>
 
           </div>
         </a>
         <a href="memory_list.php" style="text-decoration: none;">
           <div class="svg-wrapper-light choice-button-wide" style="border: solid 5px var(--cpurple);">
-            <div class="button-text-light" style="top:2px; color:var(--main-color)" id="dont-save">
+            <div class="button-text-light" style="top:6px; color:var(--main-color)" id="dont-save">
               Home</div>
           </div>
         </a>
