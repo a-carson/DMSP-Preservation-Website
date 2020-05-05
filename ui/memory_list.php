@@ -66,6 +66,16 @@ function createElements($category)
 
 ?>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T40QBMYD00"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-T40QBMYD00');
+  </script>
+
     <meta charset="UTF-8">
     <title>Memory Archive - Memory Booth</title>
     <link rel="icon" href="../img/bg/tab-icon.png">
@@ -233,7 +243,7 @@ function createElements($category)
                             <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                                 stroke="#ffffff90" />
                         </svg>
-                        <div class="button-text-light">About my creator</div>
+                        <div class="button-text-light">About My Creators</div>
                     </div>
                 </a>
             </li>
@@ -243,7 +253,7 @@ function createElements($category)
                             <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                                 stroke="#ffffff90" />
                         </svg>
-                        <div class="button-text-light">Add my memories</div>
+                        <div class="button-text-light">Add My Memories</div>
                     </div>
                 </a>
             </li>
