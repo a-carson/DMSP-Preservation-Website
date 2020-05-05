@@ -195,7 +195,7 @@ function createElements($category)
             <div class="center" style="width:500px">
                 <div class="col-12 align-self-center" style="margin:50px 0 0 0">
                     <div class="svg-wrapper-light purple" style="width:100%; border: solid 5px var(--cpurple);" id="add-memory-button">
-                        <div class="button-text-light" style="top:5px; color:white">Add My
+                        <div class="button-text-light" style="top:5px; color:white">Add Your
                             Memories</div>
                     </div>
                 </div>
@@ -217,8 +217,18 @@ function createElements($category)
                 </a>
             </li>
             <li>
-                <a href="memory_list.php">
-                    <div class="svg-wrapper-light" style="width:350px; margin: 120px 0 50px 0;">
+                <a href="record_memory.hrml">
+                    <div class="svg-wrapper-light cyan" style="width:350px; margin: 120px 0 50px 0;">
+                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
+                                stroke="#ffffff90" />
+                        </svg>
+                        <div class="button-text-light">Add Your Memories</div>
+                    </div>
+                </a>
+            </li>
+            <li><a href="memory_list.php">
+                    <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
                         <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                                 stroke="#ffffff90" />
@@ -237,23 +247,13 @@ function createElements($category)
                     </div>
                 </a>
             </li>
-            <li><a href="read_me.html">
+            <li><a href="about_us.html">
                     <div class="svg-wrapper-light" style="width:350px; margin: 50px 0;">
                         <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
                             <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                                 stroke="#ffffff90" />
                         </svg>
                         <div class="button-text-light">About My Creators</div>
-                    </div>
-                </a>
-            </li>
-            <li><a href="record_memory.html">
-                    <div class="svg-wrapper-light cyan" style="width:350px; margin: 50px 0;">
-                        <svg style=" height:60px; width: 350px;" xmlns="http://www.w3.org/2000/svg">
-                            <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
-                                stroke="#ffffff90" />
-                        </svg>
-                        <div class="button-text-light">Add My Memories</div>
                     </div>
                 </a>
             </li>
@@ -264,7 +264,7 @@ function createElements($category)
                     <rect class="shape-light" style="height:60px; width:350px;stroke-dasharray: 380 20 390 20;"
                       stroke="#ffffff90" />
                   </svg>
-                  <div class="button-text-light">Feedback Quetionnaire</div>
+                  <div class="button-text-light">Feedback Questionnaire</div>
                 <a>
             </li>
         </ul>

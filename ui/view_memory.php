@@ -153,26 +153,30 @@ switch (category)
       synthB.oscillator.type = 'triangle';
       synthB.chain(synthVol, waveform, fbDelay, masterVol, master);
       childhood = true;
+      fbDelay.wet.value = 0.1;
       break;
 
   case "travel":
       synthA = new Tone.DuoSynth();
       synthA.voice1.oscillator.type = "sawtooth"
       synthA.harmonicity.value = 1;
-      synthA.chain(phaser, waveform, masterVol, master);
+      synthA.chain(phaser, waveform, fbDelay, masterVol, master);
+      fbDelay.wet.value = 0;
       break;
   case "student-life":
       synthA = new Tone.FMSynth();
       synthA.oscillator.type = "square";
       synthA.harmonicity.value = 1;
-      synthA.chain(waveform, masterVol, master);
+      synthA.chain(waveform, fbDelay, masterVol, master);
       synthA.portamento = 0.03;
+      fbDelay.wet.value = 0;
       break;
 
   case "others":
       synthA = new Tone.DuoSynth();
       synthA.harmonicity.value = 0.75;
-      synthA.chain(waveform, masterVol, master);
+      synthA.chain(waveform, fbDelay, masterVol, master);
+      fbDelay.wet.value = 0;
       break;
 }
 
