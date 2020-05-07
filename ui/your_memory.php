@@ -33,115 +33,93 @@
 <link rel="stylesheet" href="../css/style.css">
 <!-- <link rel="stylesheet" href="../css/style_old.css"> -->
 
-    <?php
-		error_reporting(0);
-		session_start();
+<?php
+error_reporting(0);
+session_start();
 
-		// GET JSON
-		$memoriesJson = file_get_contents('../../json/memories.json');
-		$memoriesArray = json_decode($memoriesJson, true);
+// GET JSON
+$memoriesJson = file_get_contents('../../json/memories.json');
+$memoriesArray = json_decode($memoriesJson, true);
 
-		// GET SESSION DATA (ONLY IF BACK BUTTON PRESSED)
-		$name = $_SESSION["name"];
-		$category = $_SESSION["category"];
-		$memory = $_SESSION["memory"];
+// GET SESSION DATA (ONLY IF BACK BUTTON PRESSED)
+$name = $_SESSION["name"];
+$category = $_SESSION["category"];
+$memory = $_SESSION["memory"];
 
-		// GET FORM DATA
-		if (isset($_POST["submit"]))
-		{
-    $name = test_for_hackers($_POST["name"]);
-    $category = test_for_hackers($_POST["category"]);
-    $memory = test_for_hackers($_POST["memory"]);
-		$memory.= " ";
-	  }
+// GET FORM DATA
+if (isset($_POST["submit"]))
+{
+$name = test_for_hackers($_POST["name"]);
+$category = test_for_hackers($_POST["category"]);
+$memory = test_for_hackers($_POST["memory"]);
+$memory.= " ";
+}
 
-		// UPDATE SESSION
-		$_SESSION["name"] = $name;
-		$_SESSION["category"] = $category;
-		$_SESSION["memory"] = $memory;
-		$_SESSION["index"] = count($memoriesArray);
+// UPDATE SESSION
+$_SESSION["name"] = $name;
+$_SESSION["category"] = $category;
+$_SESSION["memory"] = $memory;
+$_SESSION["index"] = count($memoriesArray);
 
-		// RANDOM COLOUR GENERATION
-		$h = array_fill(0, 8, 0);
-		$s = array_fill(0, 8, 0);
-		$b = array_fill(0, 8, 0);
+// RANDOM COLOUR GENERATION
+$h = array_fill(0, 8, 0);
+$s = array_fill(0, 8, 0);
+$b = array_fill(0, 8, 0);
+$offset = 0;
+$range = 90;
+
+if ($category == 'travel')
+	{
+		// yellow
 		$offset = 0;
 		$range = 90;
+	}
+if ($category == 'others')
+	{
+		// green
+		$offset = 90;
+		$range = 90;
+	}
+if ($category == 'student-life')
+	{
+		// blue
+		$offset = 180;
+		$range = 90;
+	}
+if ($category == 'childhood')
+	{
+		// pink
+		$offset = 270;
+		$range = 90;
+	}
 
-		if ($category == 'travel')
-			{
-				// yellow
-				$offset = 0;
-				$range = 90;
-			}
-		if ($category == 'others')
-			{
-				// green
-				$offset = 90;
-				$range = 90;
-			}
-		if ($category == 'student-life')
-			{
-				// blue
-				$offset = 180;
-				$range = 90;
-			}
-		if ($category == 'childhood')
-			{
-				// pink
-				$offset = 270;
-				$range = 90;
-			}
+for ($j = 0; $j < 8; $j++)
+	{
+			$h[$j] = $offset + rand(0, $range);
+			$s[$j] = rand(70, 360);
+			$b[$j] = rand(210, 360);
+	}
 
-		for ($j = 0; $j < 8; $j++)
-			{
-					$h[$j] = $offset + rand(0, $range);
-					$s[$j] = rand(70, 360);
-					$b[$j] = rand(210, 360);
-			}
+// ADD TO SESSION
+$_SESSION["h"] = $h;
+$_SESSION["s"] = $s;
+$_SESSION["b"] = $b;
 
-		// ADD TO SESSION
-		$_SESSION["h"] = $h;
-		$_SESSION["s"] = $s;
-		$_SESSION["b"] = $b;
+// REMOVE DODGY CHARACTERS
+function test_for_hackers($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+	$data = str_replace("'", '', $data);
+	$data = str_replace('"', '', $data);
+  return $data;
+}
 
+?>
 
-    function test_for_hackers($data)
-    {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-			$data = str_replace("'", '', $data);
-			$data = str_replace('"', '', $data);
-      return $data;
-    }
+<body id="body3">
 
-    ?>
-
-		<body id="body3">
-			<!--
-			<div class="backicon-fixed" style="margin: 20px 20px">
-				<a href="record_memory.html">
-					<svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-						p-id="1479" width="48" height="48">
-						<path
-							d="M960.243 456.737v110.526h-682.875l312.547 315.789-78.793 78.948-449.121-450 449.122-450 81.419 78.948-315.173 315.789h682.875z"
-							p-id="1480" fill="var(--ccyan)"></path>
-					</svg>
-				</a>
-			</div>
-				<div style="text-align: center;">
-					<h1 class="memory-title" style="margin: -30px">Your Memory</h1>
-					<h2>Hello, <span id="name"><?php echo $name ?></span>!<br />Thanks for sharing your memory with me! <br> <span id = "encoding">Now encoding...</span></h2>
-					<p id = "letters" style="color:white; margin-top: 5px;">.</p>
-				<div id="sketch-holder"> </div>
-		    <a href="choice.html">
-		      <div class="svg-wrapper-light purple" style="border: solid 5px var(--cpurple); margin-top: 80px;">
-		        <div id = "button-text" class="button-text-light" style="top:12px; color:white">Encoding...</div>
-		      </div>
-				</a>
-		  </div>
--->
 <div class="backicon-fixed" style="margin: 20px 20px">
 	<a href="record_memory.html">
 		<svg t="1588027382315" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -152,11 +130,6 @@
 		</svg>
 	</a>
 </div>
-	<!--<div class="nav">
-		<a href="memory_list.php">
-			<img class="nav" src="../img/button/close.png" style="width: 30px;" alt="" />
-		</a>
-	</div>-->
 
 	<div class="center" style="width:90%;z-index:-1">
 		<div class="row">
@@ -204,85 +177,93 @@
 		</body>
 
 <script>
-// JAVA SCRIPT CODE FOR SONIFICATION AND VISUALIZATION
-//
-// DMSP PRESERVATION GROUP
-
-
+/////////////////////////// SONIFICATION //////////////////////////////////////////////////////
 // VARIABLES -------------------------------------------------------------------
-var memory = '';
-var string = '';
-var typeOutput = true;
-var textLength;
-var midi = [0, 0];
-var freqs = [0, 0];
-var octave = 0;
-var i = 0;
-var mute = true;
-var t = 0;
-var dur = 15;
-var delta;
+var memory = '';                                    // input string
+var string = '';																		// output string (to HTML)
+var typeOutput = true;															// type output to HTML
+var textLength;                                     // length of memory
+var midi = [0, 0];                                  // midi array
+var freqs = [0, 0];                                 // frequency array
+var octave = 0;                                     // shifts the notes by an octave
+var i = 0;                                          // current index
+var mute = true;                                    // mute boolean
+var t = 0;                                          // current time (s)
+var dur = 15;                                       // length of one loop (s)
+var delta;                                          // time step between notes (s)
+
+// SYNTHESISERS ----------------------------------------------------------------------
 var synthA;
 var synthB;
 const blockSize = 1024;
 var master = Tone.Master;
-let waveform = new Tone.Waveform(blockSize);
-//let delay = new Tone.FeedbackDelay(Tone.Time('8n'));
+var masterVol = new Tone.Volume(-30);
+let waveform = new Tone.Waveform(blockSize);        // to connect with visuals
 
-var masterVol = new Tone.Volume();
-masterVol.volume.value = -30;
+// volume
+var synthVol = new Tone.Volume();
+synthVol.volume.value = 0;
+console.log(synthVol.volume.value);
 
+// phaser
 let phaser = new Tone.Phaser({
   "frequency": 0.5
 });
 
+// delay
 var fbDelay = new Tone.FeedbackDelay(0.5);
 fbDelay.wet.value = 0.1;
-// var lpf = new Tone.Filter(4000, "lowpass", -12);
-// lpf.Q.value = 5;
+
+// low pass filter
+var lpf = new Tone.Filter(4000, "lowpass", -12);
+lpf.Q.value = 5;
 var others = false;
 
+// set synth settings based on category
 function setUpSynth(category)
 {
 switch (category)
 {
   case "childhood":
-	synthA = new Tone.DuoSynth();
-	synthA.harmonicity.value = 0.75;
-	synthA.chain(waveform, masterVol, master);
-	break;
+  synthA = new Tone.DuoSynth();
+  synthA.harmonicity.value = 0.75;
+  synthA.chain(waveform, fbDelay, masterVol, master);
+  fbDelay.wet.value = 0;
+  break;
 
   case "travel":
-  synthA = new Tone.DuoSynth();
-  synthA.voice1.oscillator.type = "sawtooth"
-  synthA.harmonicity.value = 1;
-  synthA.chain(phaser, waveform, masterVol, master);
-  break;
-
+      synthA = new Tone.DuoSynth();
+      synthA.voice1.oscillator.type = "sawtooth"
+      synthA.harmonicity.value = 1;
+      synthA.chain(phaser, waveform, fbDelay, masterVol, master);
+      fbDelay.wet.value = 0;
+      break;
   case "student-life":
-  synthA = new Tone.FMSynth();
-  synthA.oscillator.type = "square";
-  synthA.harmonicity.value = 1;
-  synthA.chain(waveform, masterVol, master);
-  synthA.portamento = 0.03;
-  break;
+      synthA = new Tone.FMSynth();
+      synthA.oscillator.type = "square";
+      synthA.harmonicity.value = 1;
+      synthA.chain(waveform, fbDelay, masterVol, master);
+      synthA.portamento = 0.03;
+      fbDelay.wet.value = 0;
+      break;
 
   case "others":
-	synthA = new Tone.Synth();
-	synthA.oscillator.type = 'triangle';
-	synthA.chain(waveform, fbDelay, masterVol, master);
-	synthB = new Tone.Synth();
-	synthB.oscillator.type = 'triangle';
-	synthB.chain(waveform, fbDelay, masterVol, master);
-	others = true;
-	break;
+  synthA = new Tone.Synth();
+  synthA.oscillator.type = 'triangle';
+  synthA.chain(synthVol, waveform, fbDelay, masterVol, master);
+  synthB = new Tone.Synth();
+  synthB.oscillator.type = 'triangle';
+  synthB.chain(synthVol, waveform, fbDelay, masterVol, master);
+  others = true;
+  fbDelay.wet.value = 0.1;
+  break;
 }
 
 }
 
+// transport
 Tone.Transport.loopEnd = dur;
 Tone.Transport.loop = true;
-
 
 // TEXT TO CODE -------------------------- -------------------------------------
 function setInputText(string) {
@@ -301,8 +282,6 @@ function play() {
   Tone.Transport.loopEnd = dur;
   i = 0;
   t = 0;
-  //mute = !mute;
-  //Tone.Master.mute = mute;
 }
 
 function sound() {
@@ -314,6 +293,7 @@ function sound() {
     synthA.triggerAttackRelease(freqs[i], '8n', time);
     if (others)
         synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
+
     // output text characters
     var letter = String.fromCharCode(midi[i]);
     i++;
@@ -325,7 +305,6 @@ function sound() {
     if (string.length == textLength - 1)
     {
       typeOutput = false;
-			//string = '';
       ready();
     }
 
@@ -347,10 +326,11 @@ function sound() {
 
 }
 
-// VISUALS --------------------------------------------------------------------
-let numCircles = 8;
-let spacing = 1;
-var x1 = new Uint32Array(numCircles);
+////////////////////////////// VISUALS //////////////////////////////////////////
+// VARIABLES -------------------------------------------------------------------
+let numCircles = 8;                           // number of concentric cirlces in visual
+let spacing = 1;                              // spacing between circles
+var x1 = new Uint32Array(numCircles);         // initialise arrays
 var x2 = new Uint32Array(numCircles);
 var y1 = new Uint32Array(numCircles);
 var y2 = new Uint32Array(numCircles);
@@ -359,15 +339,15 @@ var h = new Uint32Array(numCircles);
 var s = new Uint32Array(numCircles);
 var b = new Uint32Array(numCircles);
 
-
+// SET UP ----------------------------------------------------------------------
 function setup() {
   let cnv = createCanvas(600, 600);
   cnv.parent('sketch-holder');
   noSmooth();
   colorMode(HSB, 360);
-  //console.log("setup success");
 }
 
+// MAIN DRAW FUNCTION ----------------------------------------------------------
 function draw() {
   background(frameCount % 360, 360, 43);
   push();
@@ -376,7 +356,7 @@ function draw() {
   drawWaveform();
 }
 
-
+// DRAW WAVEFORM ---------------------------------------------------------------
 function drawWaveform() {
   let linesX = 40;
   let linesY = 26;
@@ -384,15 +364,15 @@ function drawWaveform() {
   let stepsY = height / 26;
   let a = 0;
   let angle = (2 * PI) / 100; //can change these to change the shape originl /100
-  let step = 3; // can change these to change the shape
-  //let step = floor(waveform.size / 300);
+  let step = 3; 							// can change these to change the shape
 
-
-  for (let i = 0; i < waveform.size - step; i += step) {
+  for (let i = 0; i < waveform.size - step; i += step)
+	{
     let value = waveform.getValue()[i];
     let stepValue = waveform.getValue()[i + step];
 
-    for (let j = 0; j < numCircles; j++) {
+    for (let j = 0; j < numCircles; j++)
+		{
       let denom = 2 * Math.pow((1 + j * spacing), 0.8);
       x1[j] = width / 2 + cos(a) * (width / 2 * (value + 1) / denom);
       y1[j] = height / 2 + sin(a) * (width / 2 * (value + 1) / denom);
@@ -408,6 +388,7 @@ function drawWaveform() {
 
 }
 
+//////////////////// RANDOM COLOUR GENERATION (not actually used anymore) //////////
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -450,6 +431,7 @@ function setRandomColoursByCategory(colour) {
   }
 }
 
+//////////////////  INITIALISE AND TRIGGER ENTIRE PROCESS /////////////////////
 var memory_data = '<?php echo json_encode($memory); ?>'
 var text = JSON.parse(memory_data);
 setUpSynth(JSON.parse('<?php echo json_encode($category); ?>'));
@@ -468,6 +450,7 @@ function setColours()
 	}
 }
 
+/////////////////////////// UI STUFF //////////////////////////////////////////
 document.getElementById("ready").style.display = "none";
 
 var mutebutton = document.getElementById("muteButton");
@@ -503,7 +486,6 @@ $(document).ready(function() {
     return false;
   });
 });
-
 
 </script>
 

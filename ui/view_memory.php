@@ -39,9 +39,10 @@
 <?php
 error_reporting(0);
 session_start();
-$index = $_SESSION["index"];
+$index = $_SESSION["index"];        // only relevant if user has arrived from save.php
 session_destroy();
 
+// GET JSON CONTENTS
 $memoriesJson = file_get_contents('../../json/memories.json');
 $memoriesArray = json_decode($memoriesJson, true);
 $array_length = count($memoriesArray);
@@ -118,41 +119,47 @@ $b = $memoriesArray[$index]["b"];
 //
 // DMSP PRESERVATION GROUP
 
-
+/////////////////////////// SONIFICATION //////////////////////////////////////////////////////
 // VARIABLES -------------------------------------------------------------------
-var memory = '';
-var string = '';
-var typeOutput = true;
-var textLength;
-var midi = [0, 0];
-var freqs = [0, 0];
-var octave = 0;
-var i = 0;
-var mute = true;
-var t = 0;
-var dur = 15;
-var delta;
+var memory = '';                                    // input string
+var textLength;                                     // length of memory
+var midi = [0, 0];                                  // midi array
+var freqs = [0, 0];                                 // frequency array
+var octave = 0;                                     // shifts the notes by an octave
+var i = 0;                                          // current index
+var mute = true;                                    // mute boolean
+var t = 0;                                          // current time (s)
+var dur = 15;                                       // length of one loop (s)
+var delta;                                          // time step between notes (s)
+
+// SYNTHESISERS ----------------------------------------------------------------------
 var synthA;
 var synthB;
 const blockSize = 1024;
 var master = Tone.Master;
 var masterVol = new Tone.Volume(-30);
-let waveform = new Tone.Waveform(blockSize);
+let waveform = new Tone.Waveform(blockSize);        // to connect with
 
+// volume
 var synthVol = new Tone.Volume();
 synthVol.volume.value = 0;
 console.log(synthVol.volume.value);
+
+// phaser
 let phaser = new Tone.Phaser({
   "frequency": 0.5
 });
 
+// delay
 var fbDelay = new Tone.FeedbackDelay(0.5);
 fbDelay.wet.value = 0.1;
 
+// low pass filter
 var lpf = new Tone.Filter(4000, "lowpass", -12);
 lpf.Q.value = 5;
 var others = false;
 
+// set synth settings based on category
 function setUpSynth(category)
 {
 switch (category)
@@ -194,6 +201,7 @@ switch (category)
 
 }
 
+// transport
 Tone.Transport.loopEnd = dur;
 Tone.Transport.loop = true;
 
@@ -209,7 +217,7 @@ function setInputText(string) {
   }
 }
 
-// SOUND ----------------------------------------------------------------------
+// SYNTHESIS PROCESS -----------------------------------------------------------
 function play()
 {
   Tone.Transport.toggle();
@@ -220,29 +228,19 @@ function play()
   Tone.Master.mute = mute;
 }
 
-function sound() {
+function sound()
+{
   delta = (dur / textLength) * 0.5;
 
   // Plays next note of array
   function triggerSynth(time) {
     i %= textLength;
     synthA.triggerAttackRelease(freqs[i], '8n', time);
+
     if (others)
         synthB.triggerAttackRelease(0.99 * freqs[i], '8n', time);
 
-    var letter = String.fromCharCode(midi[i]);
     i++;
-
-    if (typeOutput) {
-      string = string.concat(letter);
-    }
-
-    if (string.length == textLength - 1)
-    {
-      typeOutput = false;
-      Tone.Transport.stop();
-      ready();
-    }
 
     noiseSynth.triggerAttack();
   }
@@ -261,10 +259,11 @@ function sound() {
 
 }
 
-// VISUALS --------------------------------------------------------------------
-let numCircles = 8;
-let spacing = 1;
-var x1 = new Uint32Array(numCircles);
+////////////////////////////// VISUALS //////////////////////////////////////////
+// VARIABLES -------------------------------------------------------------------
+let numCircles = 8;                           // number of concentric cirlces in visual
+let spacing = 1;                              // spacing between circles
+var x1 = new Uint32Array(numCircles);         // initialise arrays
 var x2 = new Uint32Array(numCircles);
 var y1 = new Uint32Array(numCircles);
 var y2 = new Uint32Array(numCircles);
@@ -273,7 +272,7 @@ var h = new Uint32Array(numCircles);
 var s = new Uint32Array(numCircles);
 var b = new Uint32Array(numCircles);
 
-
+// SET UP ----------------------------------------------------------------------
 function setup() {
   let cnv = createCanvas(600, 600);
   cnv.parent('sketch-holder');
@@ -281,11 +280,9 @@ function setup() {
   colorMode(HSB, 360);
   cnv.mouseOver(() => noiseOn = true);
   cnv.mouseOut(() => noiseOn = false);
-
-
-  //console.log("setup success");
 }
 
+// MAIN DRAW FUNCTION ----------------------------------------------------------
 function draw() {
   background(frameCount % 360, 360, 43);
   push();
@@ -295,7 +292,7 @@ function draw() {
   noiseFcn();
 }
 
-
+// DRAW WAVEFORM ---------------------------------------------------------------
 function drawWaveform() {
   let linesX = 40;
   let linesY = 26;
@@ -303,15 +300,15 @@ function drawWaveform() {
   let stepsY = height / 26;
   let a = 0;
   let angle = (2 * PI) / 100; //can change these to change the shape originl /100
-  let step = 3; // can change these to change the shape
-  //let step = floor(waveform.size / 300);
-  var strokeWeighty;
+  let step = 3;               // can change these to change the shape
 
-  for (let i = 0; i < waveform.size - step; i += step) {
+  for (let i = 0; i < waveform.size - step; i += step)
+  {
     let value = waveform.getValue()[i];
     let stepValue = waveform.getValue()[i + step];
 
-    for (let j = 0; j < numCircles; j++) {
+    for (let j = 0; j < numCircles; j++)
+    {
       let denom = 2 * Math.pow((1 + j * spacing), 0.8);
       x1[j] = width / 2 + cos(a) * (width / 2 * (value + 1) / denom);
       y1[j] = height / 2 + sin(a) * (width / 2 * (value + 1) / denom);
@@ -328,14 +325,14 @@ function drawWaveform() {
 
 }
 
+//////////////////  INITIALISE AND TRIGGER ENTIRE PROCESS /////////////////////
+var memory_data = '<?php echo json_encode($memory); ?>';          // get current memory from PHP
+var text = JSON.parse(memory_data);
+setUpSynth(JSON.parse('<?php echo json_encode($category); ?>'));  // set synth voice based on category
+setInputText(text);
+setColours();
+play();
 
-  var memory_data = '<?php echo json_encode($memory); ?>';
-  var text = JSON.parse(memory_data);
-  setUpSynth(JSON.parse('<?php echo json_encode($category); ?>'));
-  setInputText(text);
-  setColours();
-  play();
-  typeOutput = false;
 
   function setColours()
   {
@@ -348,9 +345,10 @@ function drawWaveform() {
   	}
   }
 
+/////////////////////////////////////////////////////////////////////////////////
   "use strict";
 
-  // NOISE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  ////////////////////// NOISE STUFF /////////////////////////////////////////////////
   var noiseSynth = new Tone.NoiseSynth({
   "envelope" : {
   "attack" : 0.5 ,
@@ -372,17 +370,17 @@ function drawWaveform() {
 
   function noiseFcn()
   {
-
     if (noiseOn)
     {
+          // fade out synth
           synthVol.volume.value -= 0.1;
-          var val = noiseVol.volume.value;
-          //console.log(val);
 
+          // increase noise volume logarithmically
           noiseVol.volume.value -= 100;
           noiseVol.volume.value *= 0.995;
           noiseVol.volume.value += 100;
 
+          // fade out master
           if (noiseVol.volume.value > 30)
           {
             masterVol.volume.value -= 0.1;
@@ -392,8 +390,8 @@ function drawWaveform() {
 
   }
 
-  //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-// UI stuff
+/////////////////////////////// UI STUFF ///////////////////////////////////////
+
 
 var mutebutton = document.getElementById("muteButton");
 var curHTML = mutebutton.innerHTML;
@@ -413,11 +411,10 @@ mutebutton.addEventListener("click", function () {
 	}
 });
 
-  //ONLOAD
+///////////////////////// TEXT DISTORTION //////////////////////////////////////
   $(function () {
     //DECLARE GLOBAL VARIABLE FOR USE IN HANDLERS
     var orig, sib;
-    var runs = 0;
     var charSet = '   abcdefghijklmnopqrstuvwxyz1234567890+>?-$#@%&*'; //RUN JS WHEN 'DISTORT' IS HOVERED
     var memory_data = '<?php echo json_encode($memory); ?>';
     var text = JSON.parse(memory_data);
@@ -443,8 +440,8 @@ mutebutton.addEventListener("click", function () {
     {
 
       noiseOn = true;
-      var chars = i.text().split(''); //GET A RANDOM CHARACTER FROM THE TEXT
-      var rand = Math.floor(Math.random() * chars.length); //GET A RANDOM REPLACEMENT CHARACTER
+      var chars = i.text().split('');                           //GET A RANDOM CHARACTER FROM THE TEXT
+      var rand = Math.floor(Math.random() * chars.length);      //GET A RANDOM REPLACEMENT CHARACTER
       var randRep = Math.floor(Math.random() * charSet.length); //CHECK TO MAKE SURE THAT THE NEW CHARACTER IS DIFFERENT FROM THE OLD
 
       if (chars[rand] != charSet[randRep])
@@ -455,9 +452,6 @@ mutebutton.addEventListener("click", function () {
       i.text(chars.join(''));
     }
   });
-
-
-
 
   </script>
 
