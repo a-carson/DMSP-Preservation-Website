@@ -1,12 +1,5 @@
 # DMSP-Preservation-Website
-Website for Preservation Group
+Welcome to the github for the preservation team website.
 
-This is the develop
-
-<<<<<<< Updated upstream
-Hello
-
-Another change
-=======
-Change to ali
->>>>>>> Stashed changes
+Some notes:
+* The Javascript folder (js) is actually unused in the website - this is because it took a long time for these files to update on the server. All JS is included within the PHP and HTML files in the ui folder
