@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Record Memory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/tone"></script>
+<!--  <script type="text/javascript" src='javascript/ascii_sonification.js'></script>-->
+
+  <!--- -->
+  <script>
+
+		function jumpToStart() {
+			window.location.href = 'start.html';
+			localStorage.setItem('type', $("input[name='inlineRadioOptions']:checked").val())
+
+		}
+
+  </script>
+
+
+  <!--- -->
+</head>
+<body id="body3">
+<div class="container center-form">
+
+      <img src="img/heading/heading.png" style="width: 50%;background-color: transparent;" alt=""/>
+      <form action="" class="justify-content-center radio-form">
+        <div class="form-group">
+          <input class="input-name" type="text" name="name" id="name" placeholder="Name"/>
+        </div>
+        <div class="form-group  category-options">
+          <div class="form-check form-check-inline">
+            <input class="check-childhood" type="radio" name="inlineRadioOptions" id="childhood"
+                   value="childhood">
+            <label class="label-childhood" for="childhood">Childhood</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="check-travel" type="radio" name="inlineRadioOptions" id="travel"
+                   value="travel">
+            <label class="label-travel" for="travel">Travel</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="check-student-life" type="radio" name="inlineRadioOptions" id="student-life"
+                   value="student-life">
+            <label class="label-student-life" for="student-life">Student&nbspLife</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="check-others" type="radio" name="inlineRadioOptions" id="others"
+                   value="others">
+            <label class="label-others" for="others">Others</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+						<textarea class="input-content" id="js-content" rows="5"
+                      placeholder="Here is my memory..."></textarea>
+        </div>
+        <button type="button" class="btn-control submit" onclick="jumpToStart()">
+          Process
+        </button>
+      </form>
+
+</div>
+
+
+<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js'></script> -->
+
+</body>
+
+</html>

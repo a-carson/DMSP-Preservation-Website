@@ -32,7 +32,8 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 300px;
+  /* padding-top: 300px; */
+  padding-top: 80px;
 }
 
 .choice-button {
@@ -42,12 +43,17 @@ body {
 
 .choice-button-narrow {
   width: 100px;
-  height: 40px;
+  height: 50px;
   margin: 0 20px;
 }
 
 .choice-button-wide {
   width: 200px;
-  height: 40px;
+  height: 50px;
   margin: 0 80px 0 20px;
+}
+
+.append-img {
+  top: 100px;
+  width: 500px;
 }

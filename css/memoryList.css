@@ -231,12 +231,12 @@ h2 {
 .svg-wrapper:hover,
 .svg-wrapper:focus {
   text-decoration: none;
-  color: var(--purple);
+  color: var(--cpurple);
   background: #dacbffa1;
   color: var(--purple);
-  box-shadow: 0 0 50px var(--purple), 0 0 100px var(--purple),
-    0 0 200px var(--purple);
-  text-shadow: 0 0 5px var(--purple);
+  box-shadow: 0 0 50px var(--cpurple), 0 0 100px var(--cpurple),
+    0 0 200px var(--cpurple);
+  text-shadow: 0 0 5px var(--cpurple);
 }
 
 .number {
